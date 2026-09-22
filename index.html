@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Artesanal — Sitios con alma, negocios reales</title>
+  <meta name="description" content="En Web Artesanal creamos sitios web, catálogos, carritos de pedido y herramientas digitales adaptadas a las necesidades de pequeños negocios y profesionales independientes.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-lockup">
+        <img src="assets/img/banner2.webp" alt="Web Artesanal — Sitios con alma, negocios reales">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="precios-y-productos.html">Precios y Productos</a></li>
+        <li><a href="que-recibira.html">Qué Recibirá</a></li>
+        <li><a href="ejemplos.html">Ejemplos</a></li>
+        <li><a href="como-funciona.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+                <li><button id="carritoBtn" type="button" class="carrito-boton-nav" aria-label="Ver carrito">🛒<span id="carritoContador" class="carrito-contador" style="display:none;">0</span></button></li>
+        <li><a href="https://wa.me/50687071092" class="btn-whatsapp-nav" target="_blank" rel="noopener">Hablemos por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlay" class="carrito-overlay" hidden></div>
+  <div id="carritoPanel" class="carrito-panel" hidden>
+    <div class="carrito-panel-inner">
+      <div class="carrito-header">
+        <h3>Su carrito</h3>
+        <button id="carritoCerrar" type="button" class="carrito-cerrar" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div id="carritoVacioMsg" class="carrito-vacio-msg">Su carrito está vacío.</div>
+      <div id="carritoItems" class="carrito-items"></div>
+      <div style="display:none; justify-content:space-between; font-weight:800; font-size:1.15rem; color:var(--color-navy); border-top:2px solid var(--color-orange); padding-top:0.9rem;">
+        <span>Total</span>
+        <span id="carritoTotal">₡0</span>
+      </div>
+
+      <div id="carritoCheckout" class="carrito-checkout" style="display:none;">
+        <h4>Sus datos</h4>
+        <input type="text" id="carritoNombre" class="q-input-texto" placeholder="Nombre">
+        <input type="tel" id="carritoTelefono" class="q-input-texto" placeholder="Teléfono">
+        <input type="email" id="carritoEmail" class="q-input-texto" placeholder="Correo electrónico">
+        <p class="q-error" id="carritoErrorValidacion">Complete nombre, teléfono y un correo válido.</p>
+        <p class="q-error" id="carritoErrorEnvio">No se pudo enviar su pedido. Intente de nuevo o escríbanos por WhatsApp.</p>
+        <p class="q-recomendacion-nota" id="carritoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Pedido enviado! Le contactaremos pronto.</p>
+        <button type="button" id="carritoEnviarBtn" class="boton-primario" style="width:100%;">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-texto">
+        <span class="hero-badge">SOLUCIONES DIGITALES PARA PEQUEÑOS NEGOCIOS Y PROFESIONALES</span>
+        <h1 class="hero-titulo">Su negocio en internet,<br><span>de forma simple y profesional</span></h1>
+        <p>
+          Creamos sitios web, catálogos, carritos de pedido y herramientas digitales adaptadas
+          a las necesidades de pequeños negocios y profesionales independientes.
+        </p>
+
+        <div class="hero-valores">
+          <span class="hero-valor">👥 Atención personalizada</span>
+          <span class="hero-valor">⚙️ Tecnología inteligente</span>
+          <span class="hero-valor">🌿 Soluciones reales</span>
+          <span class="hero-valor">❤️ Hecho para personas como usted</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#cuestionario" class="boton-primario">Cuéntenos sobre su proyecto →</a>
+          <a href="https://www.youtube.com/shorts/CqyhwoSjZ4g" class="boton-secundario" target="_blank" rel="noopener">▶ Ver video (1 minuto)</a>
+        </div>
+        <p class="hero-nota">Complete un breve cuestionario y reciba una propuesta sin compromiso.</p>
+      </div>
+
+      <div class="hero-imagen">
+        <img src="assets/img/hero-demo.webp" alt="Ejemplo de sitio web construido por Web Artesanal, mostrado en laptop">
+      </div>
+    </section>
+
+    <!-- ============ EJEMPLOS (teaser) ============ -->
+    <section id="ejemplos-teaser">
+      <div class="seccion-titulo-centro" style="text-align:left; max-width:none; margin-bottom:0;">
+        <h2>Explore algunos ejemplos</h2>
+        <p>Sitios reales para diferentes tipos de negocio. Haga clic y descúbralos.</p>
+      </div>
+
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-imagen"><img src="assets/img/ferreteria.webp" alt="Demo de sitio web para ferretería" loading="lazy" decoding="async"></div>
+          <div class="tarjeta-cuerpo">
+            <h3>Ferretería</h3>
+            <a href="/demos/ferreteria/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver ejemplo →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-imagen"><img src="assets/img/mascotas.webp" alt="Demo de sitio web para veterinaria" loading="lazy" decoding="async"></div>
+          <div class="tarjeta-cuerpo">
+            <h3>Veterinaria Dr. Lee</h3>
+            <a href="/demos/veterinaria/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver ejemplo →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-imagen"><img src="assets/img/Melany.jpeg" alt="Demo de sitio web para servicio express" loading="lazy" decoding="async"></div>
+          <div class="tarjeta-cuerpo">
+            <h3>Melany Express</h3>
+            <a href="/demos/melany-express/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver ejemplo →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-imagen"><img src="assets/img/hero-panaderia.webp" alt="Demo de sitio web para panadería" loading="lazy" decoding="async"></div>
+          <div class="tarjeta-cuerpo">
+            <h3>La Espiga Artesanal</h3>
+            <a href="/demos/panaderia/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver ejemplo →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-imagen"><img src="assets/img/camisetas.webp" alt="Demo de tienda de ropa" loading="lazy" decoding="async"></div>
+          <div class="tarjeta-cuerpo">
+            <h3>NARA</h3>
+            <a href="/demos/nara/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver ejemplo →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-imagen"><img src="assets/img/hero-home-bufete.webp" alt="Demo de sitio web para bufete de abogados" loading="lazy" decoding="async"></div>
+          <div class="tarjeta-cuerpo">
+            <h3>Bufete JMC y Asociados</h3>
+            <a href="/demos/bufete/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver ejemplo →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS (teaser con precios) ============ -->
+    <section id="servicios-teaser">
+      <div class="seccion-titulo-centro" style="text-align:left; max-width:none; margin-bottom:0;">
+        <h2>Nuestros servicios</h2>
+        <p>Elija las herramientas que su negocio necesita.</p>
+      </div>
+
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Sitio Web</h3>
+            <p>Su negocio en internet, con todo lo que necesita.</p>
+            <span class="tarjeta-precio">₡50.000</span>
+            <a href="servicios.html#sitio-web" class="tarjeta-enlace">Ver detalles →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Logo</h3>
+            <p>Una imagen profesional para su marca.</p>
+            <span class="tarjeta-precio">₡10.000</span>
+            <a href="servicios.html#logo" class="tarjeta-enlace">Ver detalles →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Blog</h3>
+            <p>Comparta sus noticias, consejos y novedades.</p>
+            <span class="tarjeta-precio">₡30.000</span>
+            <a href="servicios.html#blog" class="tarjeta-enlace">Ver detalles →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Catálogo</h3>
+            <p>Muestre sus productos o servicios.</p>
+            <span class="tarjeta-precio">₡20.000</span>
+            <a href="servicios.html#catalogo" class="tarjeta-enlace">Ver detalles →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-cuerpo">
+            <h3>Carrito WhatsApp</h3>
+            <p>Reciba pedidos directamente por WhatsApp.</p>
+            <span class="tarjeta-precio">₡35.000</span>
+            <a href="servicios.html#carrito-whatsapp" class="tarjeta-enlace">Ver detalles →</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Tienda PayPal</h3>
+            <p>Venda en línea de forma segura.</p>
+            <span class="tarjeta-precio">Desde ₡75.000</span>
+            <a href="servicios.html#tienda-paypal" class="tarjeta-enlace">Ver detalles →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CUESTIONARIO INTERACTIVO ============ -->
+    <section id="cuestionario" class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>Cuéntenos más sobre su negocio</h2>
+        <p>Complete estas preguntas y le ayudaremos a encontrar la mejor solución. Solo toma 2–3 minutos.</p>
+      </div>
+
+      <form class="cuestionario-wrap" id="formCuestionario" novalidate>
+
+        <div class="q-progreso">
+          <div class="q-progreso-barra">
+            <div class="q-progreso-relleno" id="qProgresoRelleno"></div>
+          </div>
+          <span class="q-progreso-texto" id="qProgresoTexto">Pregunta 1 de 8</span>
+        </div>
+
+        <!-- Paso 1 -->
+        <div class="q-paso activo" data-paso="1">
+          <p class="q-pregunta">1. ¿Cuál es el nombre de su negocio y a qué se dedica?</p>
+          <input type="text" class="q-input-texto" name="q1" placeholder="Ej.: La Casa del Pan, panadería artesanal">
+          <p class="q-error">Por favor complete este campo antes de continuar.</p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="q-paso" data-paso="2">
+          <p class="q-pregunta">2. ¿Qué quiere conseguir con su presencia en internet?</p>
+          <div class="q-block" data-tipo="checkbox">
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Dar a conocer mi negocio"> Dar a conocer mi negocio</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Conseguir nuevos clientes"> Conseguir nuevos clientes</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Mostrar mis productos o servicios"> Mostrar mis productos o servicios</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Recibir pedidos"> Recibir pedidos</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Permitir reservas"> Permitir reservas</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Vender por internet"> Vender por internet</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Compartir información o contenido"> Compartir información o contenido</label>
+            <label class="q-opcion"><input type="checkbox" name="q2" value="Todavía no lo tengo claro"> Todavía no lo tengo claro</label>
+          </div>
+          <p class="q-error">Seleccione al menos una opción.</p>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="q-paso" data-paso="3">
+          <p class="q-pregunta">3. ¿Qué quiere que sus clientes puedan hacer desde su sitio?</p>
+          <div class="q-block" data-tipo="checkbox">
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Ver mis productos o servicios"> Ver mis productos o servicios</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Consultar precios"> Consultar precios</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Hacer pedidos por WhatsApp"> Hacer pedidos por WhatsApp</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Reservar una cita"> Reservar una cita</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Comprar y pagar en línea"> Comprar y pagar en línea</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Contactarme directamente"> Contactarme directamente</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Leer información o artículos"> Leer información o artículos</label>
+            <label class="q-opcion"><input type="checkbox" name="q3" value="Todavía no lo sé"> Todavía no lo sé</label>
+          </div>
+          <p class="q-error">Seleccione al menos una opción.</p>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="q-paso" data-paso="4">
+          <p class="q-pregunta">4. ¿Cuántos productos o servicios necesita mostrar aproximadamente?</p>
+          <div class="q-block" data-tipo="radio">
+            <label class="q-opcion"><input type="radio" name="q4" value="1–5"> 1–5</label>
+            <label class="q-opcion"><input type="radio" name="q4" value="6–10"> 6–10</label>
+            <label class="q-opcion"><input type="radio" name="q4" value="11–20"> 11–20</label>
+            <label class="q-opcion"><input type="radio" name="q4" value="Más de 20"> Más de 20</label>
+            <label class="q-opcion"><input type="radio" name="q4" value="No vendo productos; ofrezco servicios"> No vendo productos; ofrezco servicios</label>
+          </div>
+          <p class="q-error">Seleccione una opción.</p>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="q-paso" data-paso="5">
+          <p class="q-pregunta">5. ¿Ya tiene alguno de estos materiales?</p>
+          <div class="q-block" data-tipo="checkbox">
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Logo"> Logo</label>
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Fotografías propias"> Fotografías propias</label>
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Textos"> Textos</label>
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Lista de productos/servicios y precios"> Lista de productos/servicios y precios</label>
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Redes sociales"> Redes sociales</label>
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Ninguno todavía"> Ninguno todavía</label>
+            <label class="q-opcion"><input type="checkbox" name="q5" value="Tengo algunos, pero necesito ayuda para prepararlos"> Tengo algunos, pero necesito ayuda para prepararlos</label>
+          </div>
+          <p class="q-error">Seleccione al menos una opción.</p>
+        </div>
+
+        <!-- Paso 6 -->
+        <div class="q-paso" data-paso="6">
+          <p class="q-pregunta">6. ¿Necesita alguna de estas funciones?</p>
+          <div class="q-block" data-tipo="checkbox">
+            <label class="q-opcion"><input type="checkbox" name="q6" value="Reservas y calendario"> Reservas y calendario</label>
+            <label class="q-opcion"><input type="checkbox" name="q6" value="Carrito de pedidos por WhatsApp"> Carrito de pedidos por WhatsApp</label>
+            <label class="q-opcion"><input type="checkbox" name="q6" value="Pago online"> Pago online</label>
+            <label class="q-opcion"><input type="checkbox" name="q6" value="Blog"> Blog</label>
+            <label class="q-opcion"><input type="checkbox" name="q6" value="Ninguna por ahora"> Ninguna por ahora</label>
+            <label class="q-opcion"><input type="checkbox" name="q6" value="No estoy seguro/a; necesito orientación"> No estoy seguro/a; necesito orientación</label>
+          </div>
+          <p class="q-error">Seleccione al menos una opción.</p>
+        </div>
+
+        <!-- Paso 7 -->
+        <div class="q-paso" data-paso="7">
+          <p class="q-pregunta">7. ¿Cuánto le gustaría invertir aproximadamente en su proyecto digital?</p>
+          <div class="q-block" data-tipo="radio">
+            <label class="q-opcion"><input type="radio" name="q7" value="Hasta ₡15.000"> Hasta ₡15.000</label>
+            <label class="q-opcion"><input type="radio" name="q7" value="₡15.000–₡30.000"> ₡15.000–₡30.000</label>
+            <label class="q-opcion"><input type="radio" name="q7" value="₡30.000–₡50.000"> ₡30.000–₡50.000</label>
+            <label class="q-opcion"><input type="radio" name="q7" value="₡50.000–₡75.000"> ₡50.000–₡75.000</label>
+            <label class="q-opcion"><input type="radio" name="q7" value="Más de ₡75.000"> Más de ₡75.000</label>
+            <label class="q-opcion"><input type="radio" name="q7" value="No estoy seguro/a; necesito orientación"> No estoy seguro/a; necesito orientación</label>
+          </div>
+          <p class="q-error">Seleccione una opción.</p>
+        </div>
+
+        <!-- Paso 8 -->
+        <div class="q-paso" data-paso="8">
+          <p class="q-pregunta">8. Cuéntenos brevemente qué tiene en mente.</p>
+          <textarea class="q-textarea" name="q8" rows="4" placeholder="No necesita usar términos técnicos. Cuéntenos qué quiere para su negocio o cómo le gustaría que sus clientes lo encuentren y contacten."></textarea>
+          <p class="q-error">Por favor cuéntenos brevemente su idea antes de continuar.</p>
+        </div>
+
+        <!-- Paso 9: resumen -->
+        <div class="q-paso" data-paso="9">
+          <p class="q-pregunta">Su recomendación</p>
+          <div class="q-recomendacion" id="qRecomendacion"></div>
+          <p class="q-pregunta" style="margin-top:1.5rem;">Revise su información antes de enviarla</p>
+          <div class="q-resumen" id="qResumen"></div>
+          <p class="q-error" id="qErrorEnvio">No se pudo enviar su información. Por favor intente de nuevo, o escríbanos directamente por WhatsApp.</p>
+        </div>
+
+        <!-- Paso 10: confirmación -->
+        <div class="q-paso" data-paso="10">
+          <div class="q-confirmacion">
+            <div class="icono-check">✓</div>
+            <h3>¡Gracias por su información!</h3>
+            <p>Hemos recibido sus respuestas. Le contactaremos pronto con una propuesta ajustada a su negocio.</p>
+          </div>
+        </div>
+
+        <div class="q-nav-botones" id="qNavBotones">
+          <button type="button" class="boton-secundario" id="qBtnAtras">Atrás</button>
+          <button type="button" class="boton-primario" id="qBtnSiguiente">Siguiente →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============ BADGES DE CONFIANZA ============ -->
+    <section>
+      <div class="badges-confianza">
+        <span class="badge-confianza">🔒 Pago seguro</span>
+        <span class="badge-confianza">💬 Comunicación directa</span>
+        <span class="badge-confianza">⏱️ Respuestas rápidas</span>
+        <span class="badge-confianza">⭐ Negocios que confían en nosotros</span>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE DE MISIÓN ============ -->
+    <section>
+      <div class="bloque-mision">
+        <div>
+          <h2>“Creemos en las personas que hacen la diferencia.”</h2>
+          <p>Por eso creamos herramientas digitales accesibles, prácticas y hechas a la medida de cada negocio, grande o pequeño.</p>
+        </div>
+        <img src="assets/img/yo-web.webp" alt="Web Artesanal" style="max-width:220px; margin:0 auto; border-radius:var(--radius);" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/banner2.webp" alt="Web Artesanal" style="height:70px; margin-bottom:0.8rem;" loading="lazy" decoding="async">
+        <p class="footer-tagline">Sitios con alma, negocios reales. Pequeños negocios, grandes historias online.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="precios-y-productos.html">Precios y Productos</a>
+        <a href="que-recibira.html">Qué Recibirá</a>
+        <a href="ejemplos.html">Ejemplos</a>
+        <a href="como-funciona.html">Cómo Funciona</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/50687071092" target="_blank" rel="noopener">WhatsApp: +506 8707-1092</a>
+        <a href="mailto:506webartesanal@gmail.com">506webartesanal@gmail.com</a>
+        <a href="https://www.facebook.com/506webartesanal" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/506webartesanal" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@webartesanal" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://506webartesanal.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Web Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  
+  <button id="hojitaBtn" type="button" class="hojita-boton" aria-label="Abrir asistente La Hojita">
+    <img src="assets/img/hojita-chatbot.webp" alt="La Hojita, asistente virtual de Web Artesanal">
+  </button>
+  <div id="hojitaPanel" class="hojita-panel" hidden>
+    <div class="hojita-panel-header">
+      <img src="assets/img/hojita-chatbot.webp" alt="" class="hojita-panel-avatar">
+      <strong>La Hojita</strong>
+      <button id="hojitaCerrar" type="button" class="hojita-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="hojitaConversacion" class="hojita-conversacion"></div>
+    <div class="hojita-footer-input">
+      <input type="text" id="hojitaPreguntaLibre" placeholder="Escriba su pregunta sobre el sitio...">
+      <button type="button" id="hojitaEnviarPregunta">➤</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

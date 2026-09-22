@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Veterinaria Dr Lee</title>
+  <meta name="description" content="Contactate con Veterinaria Dr Lee en Esparza, Puntarenas. Teléfono, WhatsApp, ubicación y horario de atención.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header-vet">
+    <div class="nav-wrap-vet">
+      <a href="index.html" class="logo-vet">
+        <span class="icono">🐾</span>
+        <span class="nombre">Veterinaria Dr Lee<span>Salud y bienestar para toda la familia</span></span>
+      </a>
+
+      <button class="nav-toggle-vet" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links-vet" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        <li><a href="agendar-cita.html" class="boton-primario-vet">Agendar cita</a></li>
+      </ul>
+
+      <div class="ubicacion-header-vet">📍 Esparza, Puntarenas, Costa Rica</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ INTRO ============ -->
+    <section class="hero-vet">
+      <div>
+        <h1>Contactate con nosotros</h1>
+        <p style="color:var(--color-text-light); max-width:460px;">Estamos aquí para ayudarte con lo que tu mascota necesite.</p>
+      </div>
+      <div class="hero-vet-imagen">
+        <img src="assets/img/card-contacto.webp" alt="Gato atigrado gris mirando a la cámara">
+      </div>
+    </section>
+
+    <!-- ============ TARJETAS DE CONTACTO ============ -->
+    <section>
+      <div class="grid-contacto-vet">
+        <div class="tarjeta-contacto-vet">
+          <span class="icono">📞</span>
+          <h3>Teléfono</h3>
+          <p>+506 8888-8888</p>
+          <a href="tel:+50688888888" class="boton-secundario-vet">Llamar</a>
+        </div>
+        <div class="tarjeta-contacto-vet">
+          <span class="icono">💬</span>
+          <h3>WhatsApp</h3>
+          <p>Escribinos directamente</p>
+          <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="boton-secundario-vet">Escribir</a>
+        </div>
+        <div class="tarjeta-contacto-vet">
+          <span class="icono">📍</span>
+          <h3>Ubicación</h3>
+          <p>Esparza, Puntarenas, Costa Rica</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Esparza%2C%20Puntarenas%2C%20Costa%20Rica" target="_blank" rel="noopener" class="boton-secundario-vet">Cómo llegar</a>
+        </div>
+        <div class="tarjeta-contacto-vet">
+          <span class="icono">🕒</span>
+          <h3>Horario</h3>
+          <p>Lunes a sábado<br>8:00 a. m. – 5:00 p. m.</p>
+          <a href="agendar-cita.html" class="boton-secundario-vet">Agendar cita</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MAPA ============ -->
+    <section>
+      <iframe class="mapa-vet" src="https://www.google.com/maps?q=Esparza,Puntarenas,Costa Rica&output=embed" loading="lazy" title="Ubicación de Veterinaria Dr Lee en el mapa"></iframe>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final-vet">
+      <h2>Es momento de cuidar su salud</h2>
+      <p>Solicitá una cita con Veterinaria Dr Lee.</p>
+      <div class="cta-final-vet-botones">
+        <a href="agendar-cita.html" class="boton-primario-vet">Agendar cita</a>
+        <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="boton-secundario-vet">WhatsApp</a>
+        <a href="tel:+50688888888" class="boton-secundario-vet">Llamar</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ MILO (próximamente) ============ -->
+    <div class="milo-flotante-vet">
+    <div class="milo-globo-vet">
+      ¿Tenés alguna pregunta?
+    </div>
+    <button type="button" id="miloBtnVet" class="milo-boton-vet" aria-label="Abrir chat con Milo">
+      <img src="assets/img/milo.webp" alt="Milo, el asistente virtual de Veterinaria Dr Lee">
+    </button>
+  </div>
+
+  <div id="miloPanelVet" class="milo-panel-vet" hidden>
+    <div class="milo-panel-header-vet">
+      <img src="assets/img/milo.webp" alt="">
+      <strong>Milo</strong>
+      <button type="button" id="miloCerrarVet" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="miloConversacionVet" class="milo-conversacion-vet"></div>
+    <div class="milo-footer-input-vet">
+      <input type="text" id="miloPreguntaVet" placeholder="Escribí una pregunta corta...">
+      <button type="button" id="miloEnviarVet">➤</button>
+    </div>
+  </div>
+
+  <footer class="site-footer-vet">
+    <div class="footer-grid-vet">
+      <div>
+        <h4>Veterinaria Dr Lee</h4>
+        <p>Salud y bienestar para toda la familia.</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lunes a sábado<br>8:00 a. m. – 5:00 p. m.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Teléfono: +506 8888-8888</p>
+        <p>WhatsApp: escribinos directamente</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom-vet">
+      Un solo lugar, siempre para ellos.<br>
+      Esparza, Puntarenas, Costa Rica · &copy; 2026 Veterinaria Dr Lee. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/milo.js"></script>
+</body>
+</html>

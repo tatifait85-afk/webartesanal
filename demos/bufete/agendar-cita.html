@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agende su consulta — Bufete JMC y Asociados</title>
+  <meta name="description" content="Agende su consulta con Bufete JMC y Asociados. Seleccione el área legal, la fecha y la hora que más le convenga.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header-jmc">
+    <div class="nav-wrap-jmc">
+      <a href="index.html" class="logo-jmc">
+        <span class="icono">⚖️</span>
+        <span class="nombre">Bufete JMC<br>y Asociados<span>Soluciones legales para tu tranquilidad</span></span>
+      </a>
+      <button class="nav-toggle-jmc" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links-jmc" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nuestro-equipo.html">Nuestro Equipo</a></li>
+        <li><a href="honorarios.html">Honorarios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="agendar-cita.html" class="boton-primario-jmc" aria-current="page">Agendar Cita</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-servicios-jmc">
+      <h1>Agende su consulta</h1>
+      <p>El primer paso hacia una solución comienza con una conversación.</p>
+    </section>
+
+    <section>
+      <div class="reserva-layout-jmc">
+
+        <div class="tarjeta-reserva-jmc">
+          <h3 style="margin-bottom:1rem;">Pasos para agendar</h3>
+          <div class="pasos-reserva-jmc">
+            <div class="paso-reserva-jmc"><div class="num">1</div><div><h4>Seleccione el área legal</h4><p>Elija el tipo de consulta.</p></div></div>
+            <div class="paso-reserva-jmc"><div class="num">2</div><div><h4>Elija fecha y hora</h4><p>Seleccione el día y horario disponible.</p></div></div>
+            <div class="paso-reserva-jmc"><div class="num">3</div><div><h4>Complete sus datos</h4><p>Ingrese la información solicitada.</p></div></div>
+            <div class="paso-reserva-jmc"><div class="num">4</div><div><h4>Confirme su cita</h4><p>Recibirá una confirmación por correo o WhatsApp.</p></div></div>
+          </div>
+        </div>
+
+        <div class="tarjeta-reserva-jmc">
+          <h3>Seleccione los detalles de su cita</h3>
+
+          <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin:1rem 0 0.5rem 0;">Área legal *</label>
+          <div class="areas-reserva-jmc" id="areasReservaJmc">
+            <div class="area-reserva-btn-jmc" data-area="laboral"><strong>Derecho Laboral</strong><span>Lic. Ramiro Cárdenas</span></div>
+            <div class="area-reserva-btn-jmc" data-area="familia"><strong>Derecho de Familia</strong><span>Licda. Vanessa Washington</span></div>
+            <div class="area-reserva-btn-jmc" data-area="penal"><strong>Derecho Penal</strong><span>Licda. Marlene Hidalgo</span></div>
+          </div>
+
+          <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.5rem;">Modalidad *</label>
+          <div class="modalidad-reserva-jmc">
+            <label><input type="radio" name="modalidadJmc" value="Presencial" checked> Presencial (Esparza, Puntarenas)</label>
+            <label><input type="radio" name="modalidadJmc" value="Virtual"> Virtual (videollamada)</label>
+          </div>
+
+          <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.5rem;">Seleccione la fecha *</label>
+          <div class="calendario-header-jmc">
+            <button type="button" id="mesAnteriorJmc" aria-label="Mes anterior">‹</button>
+            <strong id="mesActualTextoJmc" style="font-size:0.9rem; color:var(--color-navy);"></strong>
+            <button type="button" id="mesSiguienteJmc" aria-label="Mes siguiente">›</button>
+          </div>
+          <div class="calendario-grid-jmc" id="calendarioGridJmc"></div>
+
+          <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.5rem;">Seleccione la hora *</label>
+          <p id="textoHorariosJmc" style="font-size:0.82rem; color:var(--color-text-light);">Elija primero un área y una fecha disponible.</p>
+          <div class="horarios-grid-jmc" id="horariosGridJmc"></div>
+
+          <div id="formularioReservaJmc" style="display:none;">
+            <h3 style="margin-top:1.4rem;">Sus datos</h3>
+            <form class="form-reserva-jmc" id="formJmc">
+              <div><label for="nombreJmc">Nombre completo *</label><input type="text" id="nombreJmc" placeholder="Ej. María Fernández"></div>
+              <div><label for="telefonoJmc">Teléfono *</label><input type="tel" id="telefonoJmc" placeholder="Ej. 8888-8888"></div>
+              <div class="full"><label for="correoJmc">Correo electrónico *</label><input type="email" id="correoJmc" placeholder="Ej. maria@correo.com"></div>
+              <div class="full"><label for="comentariosJmc">Comentarios (opcional)</label><textarea id="comentariosJmc" rows="2" placeholder="Cuéntenos brevemente sobre su consulta..."></textarea></div>
+              <div class="full check-privacidad-jmc">
+                <input type="checkbox" id="privacidadJmc" style="margin-top:0.2rem;">
+                <label for="privacidadJmc" style="font-weight:400; margin:0;">Acepto la política de privacidad y el tratamiento de mis datos para fines de contacto y agendamiento de la cita.</label>
+              </div>
+              <p class="error-reserva-jmc full" id="errorReservaJmc">Complete todos los campos obligatorios, con un correo válido, y acepte la política de privacidad.</p>
+              <button type="button" id="btnConfirmarJmc" class="boton-primario-jmc full" style="justify-content:center;">📅 Confirmar cita</button>
+            </form>
+            <div id="confirmacionJmc" class="confirmacion-jmc" style="display:none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="franja-beneficios-jmc">
+      <div class="beneficio-jmc"><span class="icono">📅</span>Gestión segura y confidencial</div>
+      <div class="beneficio-jmc"><span class="icono">🕒</span>Horarios flexibles</div>
+      <div class="beneficio-jmc"><span class="icono">📍</span>Atención en Esparza y en línea</div>
+      <div class="beneficio-jmc"><span class="icono">👥</span>Un equipo comprometido</div>
+    </div>
+  </main>
+
+    <div class="juris-flotante-jmc">
+    <div class="juris-globo-jmc">
+      <strong>Hola, soy Juris</strong>
+      ¿En qué puedo orientarle hoy?
+    </div>
+    <button type="button" id="jurisBtnJmc" class="juris-boton-jmc" aria-label="Abrir chat con Juris">
+      <img src="assets/img/juris.webp" alt="Juris, el asistente virtual de Bufete JMC y Asociados">
+    </button>
+  </div>
+
+  <div id="jurisPanelJmc" class="juris-panel-jmc" hidden>
+    <div class="juris-panel-header-jmc">
+      <img src="assets/img/juris.webp" alt="">
+      <strong>Juris</strong>
+      <button type="button" id="jurisCerrarJmc" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="jurisConversacionJmc" class="juris-conversacion-jmc"></div>
+    <div class="juris-footer-input-jmc">
+      <input type="text" id="jurisPreguntaJmc" placeholder="Escriba su consulta...">
+      <button type="button" id="jurisEnviarJmc">➤</button>
+    </div>
+  </div>
+
+  <footer class="site-footer-jmc">
+    <div class="footer-grid-jmc">
+      <div>
+        <h4>Bufete JMC y Asociados</h4>
+        <p>Soluciones legales para tu tranquilidad.</p>
+        <div class="footer-redes-jmc"><span>f</span><span>in</span><span>◎</span></div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nuestro-equipo.html">Nuestro Equipo</a>
+        <a href="honorarios.html">Honorarios</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="tel:+50688888888">+506 8888-8888</a>
+        <a href="mailto:info@bufetejmc.com">info@bufetejmc.com</a>
+      </div>
+      <div>
+        <h4>Ubicación</h4>
+        <p>Esparza, Puntarenas,<br>Costa Rica</p>
+      </div>
+    </div>
+    <div class="footer-bottom-jmc">&copy; 2026 Bufete JMC y Asociados. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/juris.js"></script>
+  <script src="js/reservas.js"></script>
+</body>
+</html>
