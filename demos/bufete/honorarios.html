@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honorarios Profesionales — Bufete JMC y Asociados</title>
+  <meta name="description" content="Conozca un estimado de los honorarios profesionales según el Arancel del Colegio de Abogados y Abogadas de Costa Rica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header-jmc">
+    <div class="nav-wrap-jmc">
+      <a href="index.html" class="logo-jmc">
+        <span class="icono">⚖️</span>
+        <span class="nombre">Bufete JMC<br>y Asociados<span>Soluciones legales para tu tranquilidad</span></span>
+      </a>
+      <button class="nav-toggle-jmc" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links-jmc" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nuestro-equipo.html">Nuestro Equipo</a></li>
+        <li><a href="honorarios.html" aria-current="page">Honorarios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="agendar-cita.html" class="boton-primario-jmc">Agendar Cita</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <div class="hero-honorarios-jmc" style="background-image:url('assets/img/hero-honorarios.jpeg');">
+      <div class="contenido">
+        <span class="kicker" style="color:var(--color-gold); text-transform:uppercase; letter-spacing:0.14em; font-size:0.78rem;">Transparencia · Confianza · Resultados</span>
+        <h1>Honorarios Profesionales</h1>
+        <p class="subrayado" style="font-size:1.2rem; font-family:var(--font-titulos);">Claridad desde el inicio.</p>
+        <p class="intro">Conozca un estimado de los honorarios profesionales según el Arancel del Colegio de Abogados y Abogadas de Costa Rica, sin salir de nuestra página.</p>
+      </div>
+    </div>
+
+    <!-- ============ CALCULADORA ============ -->
+    <section>
+      <div class="layout-calculadora-jmc">
+
+        <div class="pasos-honorarios-jmc">
+          <div class="paso-honorarios-jmc">
+            <div class="num">1</div>
+            <div><h4>Seleccione el tipo de servicio</h4><p>Elija el área de derecho de su consulta.</p></div>
+          </div>
+          <div class="paso-honorarios-jmc">
+            <div class="num">2</div>
+            <div><h4>Complete la información</h4><p>Ingrese los datos solicitados según el procedimiento.</p></div>
+          </div>
+          <div class="paso-honorarios-jmc">
+            <div class="num">3</div>
+            <div><h4>Obtenga un estimado</h4><p>El sistema calculará una referencia basada en el arancel vigente.</p></div>
+          </div>
+        </div>
+
+        <div class="panel-calculadora-jmc">
+          <span class="etiqueta-demo-jmc">Demostración</span>
+          <h3 style="margin-bottom:0.2rem;">Calculadora de Honorarios</h3>
+          <p style="font-size:0.86rem; color:var(--color-text-light); margin:0;">Obtenga un estimado de honorarios profesionales de forma rápida y sencilla.</p>
+
+          <label for="tipoServicioHon">Tipo de servicio</label>
+          <select id="tipoServicioHon">
+            <option value="">Seleccione un área</option>
+            <option value="laboral">Derecho Laboral</option>
+            <option value="familia">Derecho de Familia</option>
+            <option value="penal">Derecho Penal</option>
+          </select>
+
+          <label for="procedimientoHon">Procedimiento</label>
+          <select id="procedimientoHon" disabled>
+            <option value="">Seleccione primero un área</option>
+          </select>
+
+          <label for="montoHon">Monto o valor del asunto (si aplica)</label>
+          <input type="number" id="montoHon" placeholder="Ingrese el monto en colones">
+
+          <label for="infoHon">Información adicional (opcional)</label>
+          <textarea id="infoHon" rows="2" placeholder="Ej. detalles del caso..."></textarea>
+
+          <button type="button" id="btnCalcularHon" class="boton-primario-jmc" style="width:100%; justify-content:center; margin-top:1.1rem;">🧮 Calcular estimado</button>
+        </div>
+
+        <div class="panel-resultado-jmc" id="panelResultadoHon">
+          <div style="font-size:1.6rem;">📄</div>
+          <h4 style="margin:0.4rem 0;">Estimado de honorarios</h4>
+          <div class="placeholder" id="resultadoTextoHon">— — — —<br><span style="font-size:0.8rem;">El resultado aparecerá aquí</span></div>
+          <p class="aviso-estimado-jmc">Este monto es únicamente un estimado basado en la información proporcionada y en los parámetros aplicables del Arancel de Honorarios del Colegio de Abogados y Abogadas de Costa Rica. El monto definitivo puede variar según las características, complejidad y alcance del asunto, y será confirmado por el profesional antes de la contratación del servicio.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ BENEFICIOS ============ -->
+    <div class="franja-beneficios-jmc">
+      <div class="beneficio-jmc"><span class="icono">✔</span><strong>Información oficial</strong><br>Cálculo basado en el Arancel vigente del Colegio de Abogados y Abogadas de Costa Rica.</div>
+      <div class="beneficio-jmc"><span class="icono">👥</span><strong>Sin salir de nuestra página</strong><br>Realice el cálculo de forma segura y cómoda.</div>
+      <div class="beneficio-jmc"><span class="icono">🕒</span><strong>Ahorre tiempo</strong><br>Obtenga una referencia inmediata para planificar sus próximos pasos.</div>
+      <div class="beneficio-jmc"><span class="icono">🤝</span><strong>Acompañamiento profesional</strong><br>El estimado es solo una referencia. Le asesoramos personalmente en cada etapa de su caso.</div>
+    </div>
+
+    <!-- ============ CTA FINAL ============ -->
+    <div class="cta-honorarios-jmc" style="background-image:url('assets/img/cta-honorarios.jpeg');">
+      <div class="contenido">
+        <h2>¿Necesita una orientación sobre su caso?</h2>
+        <p>Nuestro equipo está listo para asesorarle.</p>
+        <a href="agendar-cita.html" class="boton-primario-jmc">📅 Agendar una consulta →</a>
+      </div>
+    </div>
+
+  </main>
+
+    <div class="juris-flotante-jmc">
+    <div class="juris-globo-jmc">
+      <strong>Hola, soy Juris</strong>
+      ¿En qué puedo orientarle hoy?
+    </div>
+    <button type="button" id="jurisBtnJmc" class="juris-boton-jmc" aria-label="Abrir chat con Juris">
+      <img src="assets/img/juris.webp" alt="Juris, el asistente virtual de Bufete JMC y Asociados">
+    </button>
+  </div>
+
+  <div id="jurisPanelJmc" class="juris-panel-jmc" hidden>
+    <div class="juris-panel-header-jmc">
+      <img src="assets/img/juris.webp" alt="">
+      <strong>Juris</strong>
+      <button type="button" id="jurisCerrarJmc" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="jurisConversacionJmc" class="juris-conversacion-jmc"></div>
+    <div class="juris-footer-input-jmc">
+      <input type="text" id="jurisPreguntaJmc" placeholder="Escriba su consulta...">
+      <button type="button" id="jurisEnviarJmc">➤</button>
+    </div>
+  </div>
+
+  <footer class="site-footer-jmc">
+    <div class="footer-grid-jmc">
+      <div>
+        <h4>Bufete JMC y Asociados</h4>
+        <p>Soluciones legales para tu tranquilidad.</p>
+        <div class="footer-redes-jmc"><span>f</span><span>in</span><span>◎</span></div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nuestro-equipo.html">Nuestro Equipo</a>
+        <a href="honorarios.html">Honorarios</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="tel:+50688888888">+506 8888-8888</a>
+        <a href="mailto:info@bufetejmc.com">info@bufetejmc.com</a>
+      </div>
+      <div>
+        <h4>Ubicación</h4>
+        <p>Esparza, Puntarenas,<br>Costa Rica</p>
+      </div>
+    </div>
+    <div class="footer-bottom-jmc">
+      Fuente oficial: <a href="https://www.abogados.or.cr/nuevos-modulos-digitales-carne-digital-y-calculo-de-honorarios/" target="_blank" rel="noopener" style="color:var(--color-gold);">Módulo de Cálculo de Honorarios, Colegio de Abogados y Abogadas de Costa Rica</a><br>
+      &copy; 2026 Bufete JMC y Asociados. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/juris.js"></script>
+  <script src="js/honorarios.js"></script>
+</body>
+</html>

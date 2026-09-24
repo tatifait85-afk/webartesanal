@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — Ferretería El Buen Vecino</title>
+  <meta name="description" content="Catálogo completo de Ferretería El Buen Vecino: herramientas, tornillería, pintura, plomería, electricidad y construcción.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ FRANJA SUPERIOR AMARILLA ============ -->
+  <div class="franja-superior">
+    <div class="franja-superior-inner">
+      <a href="index.html" class="logo-lockup">
+        <span class="logo-icono">🏠</span>
+        <span class="logo-nombre">Ferretería El Buen Vecino<span>TODO LO QUE NECESITA, MÁS CERCA</span></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ NAV NEGRA ============ -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html" aria-current="page">Productos</a></li>
+        <li><a href="nosotros.html">Sobre nosotros</a></li>
+        <li><a href="consejos.html">Consejos</a></li>
+        <li><a href="contacto.html">Contáctenos</a></li>
+                <li><button id="carritoBtnFerre" type="button" class="carrito-boton-nav-ferre" aria-label="Ver carrito">🛒<span id="carritoContadorFerre" class="carrito-contador-ferre" style="display:none;">0</span></button></li>
+        <li><span class="btn-whatsapp-nav" title="Número ficticio de la demo">Pedidos por WhatsApp</span></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlayFerre" class="carrito-overlay-ferre" hidden></div>
+  <div id="carritoPanelFerre" class="carrito-panel-ferre" hidden>
+    <div class="carrito-panel-inner-ferre">
+      <div class="carrito-header-ferre">
+        <h3 style="margin:0;">Su carrito</h3>
+        <button type="button" id="carritoCerrarFerre" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoFerre"></div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ INTRO + CHIPS ============ -->
+    <section>
+      <h1 style="font-size:var(--fs-h1);">Catálogo</h1>
+      <p>19 productos en 6 categorías. Toque una categoría para ir directo a ella.</p>
+      <div class="chips-categoria">
+        <a href="#herramientas" class="chip-categoria">🔨 Herramientas</a>
+        <a href="#tornilleria" class="chip-categoria">🔩 Tornillería y fijaciones</a>
+        <a href="#pintura" class="chip-categoria">🎨 Pintura</a>
+        <a href="#plomeria" class="chip-categoria">🚰 Plomería</a>
+        <a href="#electricidad" class="chip-categoria">⚡ Electricidad</a>
+        <a href="#construccion" class="chip-categoria">🧱 Construcción</a>
+      </div>
+    </section>
+
+    <!-- ============ HERRAMIENTAS ============ -->
+    <section id="herramientas" class="categoria-bloque">
+      <h2>🔨 Herramientas</h2>
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto"><a href="producto.html?id=martillo-carpintero" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/martillo-carpintero.webp" alt="Martillo de carpintero"></div><div class="tarjeta-producto-cuerpo"><h3>Martillo de carpintero</h3><span class="tarjeta-producto-precio">₡6.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="martillo-carpintero">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=taladro-inalambrico" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/taladro.webp" alt="Taladro inalámbrico"></div><div class="tarjeta-producto-cuerpo"><h3>Taladro inalámbrico</h3><span class="tarjeta-producto-precio">₡32.000</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="taladro-inalambrico">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=juego-destornilladores" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/juego-desatornilladores.webp" alt="Juego de destornilladores"></div><div class="tarjeta-producto-cuerpo"><h3>Juego de destornilladores</h3><span class="tarjeta-producto-precio">₡8.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="juego-destornilladores">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=alicate-universal" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/alicate-universal.webp" alt="Alicate universal"></div><div class="tarjeta-producto-cuerpo"><h3>Alicate universal</h3><span class="tarjeta-producto-precio">₡5.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="alicate-universal">🛒 Agregar al carrito</button></article>
+
+      </div>
+    </section>
+
+    <!-- ============ TORNILLERÍA Y FIJACIONES ============ -->
+    <section id="tornilleria" class="categoria-bloque seccion-clara">
+      <h2>🔩 Tornillería y fijaciones</h2>
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto"><a href="producto.html?id=tornillos-madera" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/tornillos-madera.webp" alt="Tornillos para madera"></div><div class="tarjeta-producto-cuerpo"><h3>Tornillos para madera</h3><span class="tarjeta-producto-precio">₡1.800</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="tornillos-madera">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=tornillos-autorroscantes" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/tornillos-autorroscantes.webp" alt="Tornillos autorroscantes"></div><div class="tarjeta-producto-cuerpo"><h3>Tornillos autorroscantes</h3><span class="tarjeta-producto-precio">₡2.200</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="tornillos-autorroscantes">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=tarugos-concreto" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/tarugos-concreto.webp" alt="Tarugos para concreto"></div><div class="tarjeta-producto-cuerpo"><h3>Tarugos para concreto</h3><span class="tarjeta-producto-precio">₡1.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="tarugos-concreto">🛒 Agregar al carrito</button></article>
+
+      </div>
+    </section>
+
+    <!-- ============ PINTURA ============ -->
+    <section id="pintura" class="categoria-bloque">
+      <h2>🎨 Pintura</h2>
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto"><a href="producto.html?id=pintura-blanca-interior" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/pintura-blanca-interior-galon.webp" alt="Pintura blanca para interior, 1 galón"></div><div class="tarjeta-producto-cuerpo"><h3>Pintura blanca interior (1 galón)</h3><span class="tarjeta-producto-precio">₡12.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="pintura-blanca-interior">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=brocha-2-pulgadas" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/Brocha-de-dos-pulgadas.webp" alt="Brocha de 2 pulgadas"></div><div class="tarjeta-producto-cuerpo"><h3>Brocha de 2"</h3><span class="tarjeta-producto-precio">₡2.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="brocha-2-pulgadas">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=rodillo-pintura" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/Rodillo-para-pintura.webp" alt="Rodillo para pintura"></div><div class="tarjeta-producto-cuerpo"><h3>Rodillo para pintura</h3><span class="tarjeta-producto-precio">₡3.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="rodillo-pintura">🛒 Agregar al carrito</button></article>
+
+      </div>
+    </section>
+
+    <!-- ============ PLOMERÍA ============ -->
+    <section id="plomeria" class="categoria-bloque seccion-clara">
+      <h2>🚰 Plomería</h2>
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto"><a href="producto.html?id=cinta-teflon" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/cinta-de-teflon.webp" alt="Cinta de teflón"></div><div class="tarjeta-producto-cuerpo"><h3>Cinta de teflón</h3><span class="tarjeta-producto-precio">₡1.000</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="cinta-teflon">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=llave-de-paso" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/llave-de-paso-media.webp" alt="Llave de paso de media pulgada"></div><div class="tarjeta-producto-cuerpo"><h3>Llave de paso ½"</h3><span class="tarjeta-producto-precio">₡3.800</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="llave-de-paso">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=conector-pvc" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/conector-pvc.webp" alt="Conector PVC"></div><div class="tarjeta-producto-cuerpo"><h3>Conector PVC</h3><span class="tarjeta-producto-precio">₡1.200</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="conector-pvc">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=pegamento-pvc" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/pegamento-pvc.webp" alt="Pegamento PVC"></div><div class="tarjeta-producto-cuerpo"><h3>Pegamento PVC</h3><span class="tarjeta-producto-precio">₡2.800</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="pegamento-pvc">🛒 Agregar al carrito</button></article>
+
+      </div>
+    </section>
+
+    <!-- ============ ELECTRICIDAD ============ -->
+    <section id="electricidad" class="categoria-bloque">
+      <h2>⚡ Electricidad</h2>
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto"><a href="producto.html?id=bombillo-led" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/bombillo-led.webp" alt="Bombillo LED"></div><div class="tarjeta-producto-cuerpo"><h3>Bombillo LED</h3><span class="tarjeta-producto-precio">₡2.000</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="bombillo-led">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=tomacorriente" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/tomacorriente.webp" alt="Tomacorriente"></div><div class="tarjeta-producto-cuerpo"><h3>Tomacorriente</h3><span class="tarjeta-producto-precio">₡2.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="tomacorriente">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=extension-electrica" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/extencion5metros.webp" alt="Extensión eléctrica de 5 metros"></div><div class="tarjeta-producto-cuerpo"><h3>Extensión eléctrica (5m)</h3><span class="tarjeta-producto-precio">₡5.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="extension-electrica">🛒 Agregar al carrito</button></article>
+
+      </div>
+    </section>
+
+    <!-- ============ CONSTRUCCIÓN ============ -->
+    <section id="construccion" class="categoria-bloque seccion-clara">
+      <h2>🧱 Construcción</h2>
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto"><a href="producto.html?id=cemento-25kg" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/cemento25k.webp" alt="Cemento 25 kg"></div><div class="tarjeta-producto-cuerpo"><h3>Cemento 25 kg</h3><span class="tarjeta-producto-precio">₡5.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="cemento-25kg">🛒 Agregar al carrito</button></article>
+
+        <article class="tarjeta-producto"><a href="producto.html?id=guantes-trabajo" class="tarjeta-producto-link"><div class="tarjeta-producto-imagen"><img src="assets/img/guantes-de-trabajo.webp" alt="Guantes de trabajo"></div><div class="tarjeta-producto-cuerpo"><h3>Guantes de trabajo</h3><span class="tarjeta-producto-precio">₡2.500</span></div></a><button type="button" class="btn-agregar-carrito-ferre" data-id="guantes-trabajo">🛒 Agregar al carrito</button></article>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA MARTILLITO ============ -->
+    <section>
+      <div class="bloque-martillito-chat">
+        <div class="martillito-chat-header">
+          <img src="assets/img/chatbot-ferre.webp" alt="Martillito, el asistente de Ferretería El Buen Vecino">
+          <div>
+            <h3>Pregúntele a Martillito</h3>
+            <p>Cuéntele qué problema tiene o qué quiere hacer, y le ayuda a encontrar lo que necesita.</p>
+          </div>
+        </div>
+        <div id="martilloConversacion" class="martillito-conversacion-inline"></div>
+        <div class="martillito-footer-input">
+          <input type="text" id="martilloPreguntaLibre" placeholder="Cuénteme su problema o pregunta...">
+          <button type="button" id="martilloEnviarPregunta">➤</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-franja-iconos">
+      <span>📍 Esparza, Puntarenas</span>
+      <span>🕒 Lunes a Sábado 7:00 a.m. – 6:00 p.m.</span>
+      <span>💬 WhatsApp: 8XXX-XXXX (demo)</span>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <h4>Ferretería El Buen Vecino</h4>
+        <p>Herramientas y materiales para su barrio.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Sobre nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto (demo)</h4>
+        <p>WhatsApp: 8XXX-XXXX</p>
+        <p>Teléfono: 2XXX-XXXX</p>
+        <p>info@elbuenvecino.demo</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Datos de contacto ficticios — demo de Web Artesanal. &copy; 2026.
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  
+
+
+  <script src="js/carrito.js"></script>
+  <script src="js/martillito.js"></script>
+</body>
+</html>

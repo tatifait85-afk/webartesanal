@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Funciona — Web Artesanal</title>
+  <meta name="description" content="Conozca el proceso de Web Artesanal, paso a paso, y cómo se manejan los cambios y el mantenimiento de su sitio.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-lockup">
+        <img src="assets/img/banner2.webp" alt="Web Artesanal — Sitios con alma, negocios reales">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="precios-y-productos.html">Precios y Productos</a></li>
+        <li><a href="que-recibira.html">Qué Recibirá</a></li>
+        <li><a href="ejemplos.html">Ejemplos</a></li>
+        <li><a href="como-funciona.html" aria-current="page">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+                <li><button id="carritoBtn" type="button" class="carrito-boton-nav" aria-label="Ver carrito">🛒<span id="carritoContador" class="carrito-contador" style="display:none;">0</span></button></li>
+        <li><a href="https://wa.me/50687071092" class="btn-whatsapp-nav" target="_blank" rel="noopener">Hablemos por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlay" class="carrito-overlay" hidden></div>
+  <div id="carritoPanel" class="carrito-panel" hidden>
+    <div class="carrito-panel-inner">
+      <div class="carrito-header">
+        <h3>Su carrito</h3>
+        <button id="carritoCerrar" type="button" class="carrito-cerrar" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div id="carritoVacioMsg" class="carrito-vacio-msg">Su carrito está vacío.</div>
+      <div id="carritoItems" class="carrito-items"></div>
+      <div style="display:none; justify-content:space-between; font-weight:800; font-size:1.15rem; color:var(--color-navy); border-top:2px solid var(--color-orange); padding-top:0.9rem;">
+        <span>Total</span>
+        <span id="carritoTotal">₡0</span>
+      </div>
+
+      <div id="carritoCheckout" class="carrito-checkout" style="display:none;">
+        <h4>Sus datos</h4>
+        <input type="text" id="carritoNombre" class="q-input-texto" placeholder="Nombre">
+        <input type="tel" id="carritoTelefono" class="q-input-texto" placeholder="Teléfono">
+        <input type="email" id="carritoEmail" class="q-input-texto" placeholder="Correo electrónico">
+        <p class="q-error" id="carritoErrorValidacion">Complete nombre, teléfono y un correo válido.</p>
+        <p class="q-error" id="carritoErrorEnvio">No se pudo enviar su pedido. Intente de nuevo o escríbanos por WhatsApp.</p>
+        <p class="q-recomendacion-nota" id="carritoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Pedido enviado! Le contactaremos pronto.</p>
+        <button type="button" id="carritoEnviarBtn" class="boton-primario" style="width:100%;">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ INTRO ============ -->
+    <section class="hero">
+      <div>
+        <span class="hero-badge">CÓMO FUNCIONA</span>
+        <h1 style="font-size:var(--fs-h1);">Un proceso simple, de principio a fin</h1>
+        <p>Así trabajamos con cada cliente, desde la primera conversación hasta que su sitio está en línea.</p>
+      </div>
+      <div class="hero-imagen">
+        <img src="assets/img/como_funciona_hero.webp" alt="Proceso de trabajo de Web Artesanal">
+      </div>
+    </section>
+
+    <!-- ============ 4 PASOS ============ -->
+    <section>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-precio" style="font-size:1.6rem;">1</span>
+            <h3>Conocemos su negocio</h3>
+            <p>Con el cuestionario o una conversación directa, entendemos qué necesita, qué ya tiene, y con qué presupuesto cuenta.</p>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-precio" style="font-size:1.6rem;">2</span>
+            <h3>Diseñamos la solución</h3>
+            <p>Le proponemos los servicios que mejor se ajustan a su negocio y a su presupuesto, con precios claros desde el inicio.</p>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-precio" style="font-size:1.6rem;">3</span>
+            <h3>Lo construimos</h3>
+            <p>Desarrollamos su sitio paso a paso, mostrándole avances para que usted apruebe cada parte antes de continuar.</p>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-precio" style="font-size:1.6rem;">4</span>
+            <h3>Probamos y publicamos</h3>
+            <p>Revisamos que todo funcione correctamente y ponemos su sitio en línea, listo para recibir clientes.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CAMBIOS Y MANTENIMIENTO ============ -->
+    <section class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>¿Cómo se manejan los cambios y el mantenimiento?</h2>
+        <p>No cobramos por hora. Cobramos por el trabajo que realmente hay que hacer — y así es como decidimos qué tipo de trabajo corresponde en cada caso.</p>
+      </div>
+
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Cambios puntuales</h3>
+            <p>Actualizar un texto, un precio, una imagen o agregar un producto son ajustes puntuales. Se cobran por elemento — por producto, página, categoría o función — nunca por hora.</p>
+            <a href="servicios.html" class="tarjeta-enlace">Ver servicios →</a>
+          </div>
+        </article>
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-cuerpo">
+            <h3>Cuando algo deja de funcionar bien</h3>
+            <p>
+              Si una función ya construida — por ejemplo, un Carrito WhatsApp — presenta fallas o necesita ajustes grandes,
+              normalmente es más simple y confiable reconstruirla por completo que ir corrigiéndola en pedazos.
+              Un parche sobre otro parche tiende a generar más errores, no menos.
+            </p>
+            <a href="precios-y-productos.html" class="tarjeta-enlace">Ver precios →</a>
+          </div>
+        </article>
+      </div>
+
+      <p style="max-width:760px; margin:1.5rem auto 0 auto; text-align:center; color:var(--color-text-light); font-size:0.92rem;">
+        En ese caso, le explicamos con anticipación qué se va a reconstruir y cuál es el costo, antes de empezar —
+        nunca se hace ese trabajo sin que usted lo sepa y lo apruebe primero.
+        Y si el problema fue un error nuestro, la corrección no tiene costo.
+      </p>
+    </section>
+
+    <!-- ============ PAGOS: SINPE MÓVIL Y PAYPAL ============ -->
+    <section id="pagos" class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>¿Cómo funciona el cobro en el Carrito WhatsApp y en PayPal?</h2>
+      </div>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Carrito WhatsApp + SINPE Móvil</h3>
+            <p>El cliente arma su pedido en el sitio y lo envía por WhatsApp. El pago no se procesa en el sitio — se coordina directamente por WhatsApp, y en Costa Rica la forma más común es SINPE Móvil: el cliente le transfiere a su número de teléfono y le envía el comprobante por el mismo chat.</p>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>PayPal</h3>
+            <p>El pago se procesa dentro del sitio, con tarjeta, sin necesidad de coordinar nada por chat. PayPal cobra siempre en dólares, aunque el sitio muestre los precios en colones — la conversión la hace PayPal automáticamente.</p>
+          </div>
+        </article>
+      </div>
+      <p style="max-width:760px; margin:1.2rem auto 0 auto; text-align:center; color:var(--color-text-light); font-size:0.92rem;">
+        En resumen: el Carrito WhatsApp es para negocios que prefieren cerrar el pedido en una conversación (con SINPE Móvil, efectivo contra entrega, etc.), y PayPal es para quien quiere cobrar en línea sin intervenir en cada venta.
+      </p>
+    </section>
+
+    <!-- ============ CHATBOTS ============ -->
+    <section>
+      <div class="seccion-titulo-centro">
+        <h2>¿Cómo funcionan los chatbots?</h2>
+        <p>Cada chatbot (como La Hojita de este sitio, o Martillito, Milo y Juris de las demostraciones) se configura a la medida del negocio.</p>
+      </div>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Qué información se le puede dar</h3>
+            <p>Servicios y precios, horarios, ubicación, cómo hacer un pedido o agendar una cita, preguntas frecuentes del negocio, y cualquier información real que usted nos entregue.</p>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Qué límites se le pueden poner</h3>
+            <p>Se le puede prohibir dar cierto tipo de respuestas — por ejemplo, un chatbot de veterinaria puede tener prohibido dar diagnósticos o recomendar medicamentos, y en su lugar siempre remitir a agendar una cita. Estos límites se definen junto con usted antes de construirlo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ RESERVAS CON GOOGLE CALENDAR ============ -->
+    <section class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>¿Cómo funcionan las reservas con Google Calendar?</h2>
+        <p style="max-width:760px; margin:0 auto;">El sistema de Reservas se conecta a un Google Calendar real de su negocio. Cuando alguien reserva un espacio desde su sitio, ese horario se bloquea automáticamente en el calendario, para que nunca se dupliquen dos citas en el mismo horario. Usted puede seguir usando ese mismo calendario desde su teléfono o computadora con normalidad.</p>
+      </div>
+    </section>
+
+    <!-- ============ CUENTAS Y ACCESOS ============ -->
+    <section>
+      <div class="seccion-titulo-centro">
+        <h2>¿Qué pasa con mis cuentas y contraseñas?</h2>
+      </div>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Cuentas nuevas</h3>
+            <p>Cuando un servicio necesita una cuenta que usted todavía no tiene (por ejemplo, PayPal o Google Calendar), la creamos para su negocio y le entregamos las claves de acceso — la cuenta es suya desde el primer momento.</p>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Cuentas que ya tiene</h3>
+            <p>Si usted ya tiene una cuenta (por ejemplo, una página de Facebook existente), no necesitamos su contraseña — usted nos da acceso como administrador desde esa misma plataforma, y lo puede quitar cuando quiera.</p>
+          </div>
+        </article>
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-cuerpo">
+            <h3>Redes sociales: qué está incluido y qué no</h3>
+            <p><strong>Conectar sus redes sociales existentes a su sitio</strong> (los íconos que llevan a su Facebook o Instagram) ya está incluido en su plan, sin costo adicional. <strong>Crear una página nueva</strong> desde cero, o el manejo de contenido y anuncios pagados, es un servicio aparte.</p>
+            <a href="servicios.html#web-marketing" class="tarjeta-enlace">Ver Web Marketing →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+
+    <!-- ============ CTA FINAL ============ -->
+    <section>
+      <div class="seccion-titulo-centro">
+        <h2>¿Listo para empezar?</h2>
+        <a href="index.html#cuestionario" class="boton-primario">Cuéntenos sobre su proyecto →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/banner2.webp" alt="Web Artesanal" style="height:70px; margin-bottom:0.8rem;" loading="lazy" decoding="async">
+        <p class="footer-tagline">Sitios con alma, negocios reales. Pequeños negocios, grandes historias online.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="precios-y-productos.html">Precios y Productos</a>
+        <a href="que-recibira.html">Qué Recibirá</a>
+        <a href="ejemplos.html">Ejemplos</a>
+        <a href="como-funciona.html">Cómo Funciona</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/50687071092" target="_blank" rel="noopener">WhatsApp: +506 8707-1092</a>
+        <a href="mailto:506webartesanal@gmail.com">506webartesanal@gmail.com</a>
+        <a href="https://www.facebook.com/506webartesanal" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/506webartesanal" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@webartesanal" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://506webartesanal.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Web Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  
+  <button id="hojitaBtn" type="button" class="hojita-boton" aria-label="Abrir asistente La Hojita">
+    <img src="assets/img/hojita-chatbot.webp" alt="La Hojita, asistente virtual de Web Artesanal">
+  </button>
+  <div id="hojitaPanel" class="hojita-panel" hidden>
+    <div class="hojita-panel-header">
+      <img src="assets/img/hojita-chatbot.webp" alt="" class="hojita-panel-avatar">
+      <strong>La Hojita</strong>
+      <button id="hojitaCerrar" type="button" class="hojita-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="hojitaConversacion" class="hojita-conversacion"></div>
+    <div class="hojita-footer-input">
+      <input type="text" id="hojitaPreguntaLibre" placeholder="Escriba su pregunta sobre el sitio...">
+      <button type="button" id="hojitaEnviarPregunta">➤</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

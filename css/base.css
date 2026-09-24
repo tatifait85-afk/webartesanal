@@ -1,0 +1,107 @@
+/* ============================================
+   WEB ARTESANAL — base.css
+   Variables, reset y tipografía global
+   ============================================ */
+
+:root {
+  /* Paleta */
+  --color-navy: #16294f;
+  --color-navy-light: #24406e;
+  --color-blue-accent: #2f7de1;
+  --color-orange: #e2703f;
+  --color-orange-dark: #c85a2c;
+  --color-bg-light: #eaf4fc;
+  --color-bg-cream: #fbf9f6;
+  --color-white: #ffffff;
+  --color-text: #33394a;
+  --color-text-light: #6b7280;
+  --color-border: #e2e6ea;
+
+  /* Acentos usados en "Qué Recibirá" */
+  --color-verde-oscuro: #2f4f3e;
+  --color-verde-natural: #6f9c76;
+  --color-terracota: #c1693f;
+
+  /* Tipografía */
+  --font-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --fs-h1: clamp(1.9rem, 4vw, 2.75rem);
+  --fs-h2: clamp(1.5rem, 3vw, 2.1rem);
+  --fs-body: 1rem;
+
+  /* Espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(22, 41, 79, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-white);
+  line-height: 1.6;
+  font-size: var(--fs-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: var(--color-navy);
+  line-height: 1.2;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+
+p {
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--color-text);
+}
+
+section {
+  padding: var(--space-lg) var(--space-md);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.contenedor-ancho {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Utilidades de accesibilidad */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

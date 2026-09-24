@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melany Express — Tus compras, sin complicaciones</title>
+  <meta name="description" content="Melany Express: compras, mandados, entregas y servicio express en tu zona. Más tiempo para lo que importa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="header-melany">
+    <span class="logo-melany">Melany<span> Express</span></span>
+    <nav class="nav-melany">
+      <a href="#servicios">Servicios</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero-melany">
+      <div>
+        <h1>Más tiempo para lo que importa 💗</h1>
+        <p class="subtexto">Tus compras, mandados y entregas, sin complicaciones. Tú pides, Melany Express se encarga.</p>
+        <div class="hero-melany-cta">
+          <a href="#contacto" class="btn-primario-melany">💬 Pedir por WhatsApp</a>
+          <a href="#servicios" class="btn-secundario-melany">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-melany-imagen">
+        <img src="assets/img/hero-melany.jpeg" alt="Repartidora de Melany Express en moto, lista para hacer tu entrega">
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section id="servicios">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <h2>¿Qué puede hacer Melany Express por ti?</h2>
+      </div>
+      <div class="grid-servicios-melany">
+        <article class="tarjeta-servicio-melany">
+          <div class="icono">🛍️</div>
+          <h3>Compras</h3>
+          <p>Del súper, la farmacia o donde necesites — te las llevamos.</p>
+        </article>
+        <article class="tarjeta-servicio-melany">
+          <div class="icono">📋</div>
+          <h3>Mandados</h3>
+          <p>Trámites y diligencias que no te dan tiempo de hacer tú mismo.</p>
+        </article>
+        <article class="tarjeta-servicio-melany">
+          <div class="icono">📦</div>
+          <h3>Entregas</h3>
+          <p>Lleva un paquete o documento a donde haga falta, rápido y seguro.</p>
+        </article>
+        <article class="tarjeta-servicio-melany">
+          <div class="icono">⚡</div>
+          <h3>Express</h3>
+          <p>Cuando es urgente y no puede esperar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO FUNCIONA ============ -->
+    <section id="como-funciona" style="background:var(--color-crema); border-radius:var(--radius);">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <h2>¿Cómo funciona?</h2>
+      </div>
+      <div class="pasos-melany">
+        <div class="paso-melany">
+          <div class="num">1</div>
+          <h3>Escríbenos</h3>
+          <p>Cuéntanos qué necesitas por WhatsApp.</p>
+        </div>
+        <div class="paso-melany">
+          <div class="num">2</div>
+          <h3>Coordinamos</h3>
+          <p>Te confirmamos el costo y el tiempo estimado.</p>
+        </div>
+        <div class="paso-melany">
+          <div class="num">3</div>
+          <h3>Listo</h3>
+          <p>Melany Express se encarga, tú sigues con tu día.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL / CONTACTO ============ -->
+    <section id="contacto" class="cta-final-melany">
+      <h2>¿Necesitas una mano hoy?</h2>
+      <p>Escríbenos por WhatsApp y te ayudamos con tu compra, mandado o entrega.</p>
+      <button type="button" id="ctaWhatsappMelany" class="btn-primario-melany" style="border:none; cursor:pointer;">💬 Escribir por WhatsApp</button>
+    </section>
+
+  </main>
+
+  <div class="whatsapp-flotante-melany">
+    <div class="whatsapp-globo-melany" id="whatsappGloboMelany">
+      ¡Hola! 👋 ¿En qué te ayudamos hoy?
+      <span class="etiqueta">Número de WhatsApp pendiente de configurar en esta demo</span>
+    </div>
+    <button type="button" id="whatsappBtnMelany" class="whatsapp-boton-melany" aria-label="Escribir por WhatsApp">💬</button>
+  </div>
+
+  <footer class="footer-melany">
+    Melany Express — Tus compras, sin complicaciones.<br>
+    Sitio de demostración creado por Web Artesanal.
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

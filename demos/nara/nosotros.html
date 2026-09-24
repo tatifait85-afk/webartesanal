@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — NARA</title>
+  <meta name="description" content="Dos mujeres, una misma visión. Conoce la historia de NARA, creada por Sofía y Lorena.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <div class="franja-superior-nara">
+    <span>🚚 Envíos a todo Costa Rica</span>
+    <span>Moda consciente para tu día a día</span>
+    <span class="redes-nara">Síguenos · IG · FB</span>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header-nara">
+    <div class="nav-wrap-nara">
+      <a href="index.html" class="logo-nara">NARA<span>ROPA PARA TU RITMO</span></a>
+
+      <button class="nav-toggle-nara" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links-nara" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="como-funciona-tienda.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html" aria-current="page">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="prueba-paypal.html" class="btn-prueba-paypal-nav">💲 Prueba PayPal</a></li>
+      </ul>
+
+      <div class="iconos-header-nara">
+        <span title="Buscar (próximamente)">🔍</span>
+        <span title="Mi cuenta (próximamente)">👤</span>
+        <button type="button" id="carritoBtnNara" class="carrito-icono-nara" style="background:none;border:none;" title="Ver carrito">🛍️<span id="carritoContadorNara" class="carrito-contador-nara" style="display:none;">0</span></button>
+      </div>
+    </div>
+  </header>
+  <div id="carritoOverlayNara" class="carrito-overlay-nara" hidden></div>
+  <div id="carritoPanelNara" class="carrito-panel-nara" hidden>
+    <div class="carrito-panel-inner-nara">
+      <div class="carrito-header-nara">
+        <h3 style="margin:0;">Tu carrito</h3>
+        <button type="button" id="carritoCerrarNara" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoNara"></div>
+    </div>
+  </div>
+
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-nosotros-nara">
+    <img src="assets/img/hero-nosotros.webp" alt="Dos mujeres, una misma visión. NARA nació de la amistad, la pasión por la moda y el deseo de crear algo con sentido. Sofía y Lorena, cofundadoras.">
+  </div>
+
+  <main>
+
+    <!-- ============ NARA NACIÓ DE UNA IDEA SENCILLA ============ -->
+    <section>
+      <div class="bloque-historia-nara">
+        <div>
+          <h2>NARA nació de una idea sencilla</h2>
+          <p class="texto-manuscrito" style="margin-bottom:1rem;">Vestirse bien no debería significar dejar de ser tú.</p>
+          <p>NARA nació de la amistad entre Sofía y Lorena, dos mujeres con estilos diferentes, pero con una misma idea: crear una marca de ropa femenina que se sintiera bonita, actual y, sobre todo, fácil de llevar.</p>
+          <p>Después de años buscando prendas que combinaran estilo, comodidad y personalidad, decidieron crear el espacio que ellas mismas querían encontrar.</p>
+          <p style="font-weight:600; color:var(--color-chocolate);">Así nació NARA.</p>
+        </div>
+        <img src="assets/img/materiales-concepto-nara.webp" alt="Moodboard de materiales y concepto de NARA">
+      </div>
+    </section>
+
+    <!-- ============ DOS ESTILOS, UNA MISMA MANERA DE VESTIR ============ -->
+    <section class="seccion-marfil-nara">
+      <div class="bloque-historia-nara invertido">
+        <img src="assets/img/perchero-ropa.webp" alt="Perchero con prendas NARA en tonos neutros y terracota">
+        <div>
+          <h2>Dos estilos. Una misma manera de vestir.</h2>
+          <p>Sofía siempre ha sido más minimalista. Le gustan las prendas sencillas, los tonos neutros y esas piezas que pueden transformarse según la ocasión.</p>
+          <p>Lorena, en cambio, disfruta más de los colores, las texturas y los detalles que hacen que una prenda tenga carácter.</p>
+          <p>Sus diferencias terminaron convirtiéndose en la esencia de NARA. Porque no creemos que exista una sola manera de vestir bien. Creemos que cada mujer tiene su propio ritmo, sus propios días y su propia forma de expresarse.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODA PARA UNA VIDA REAL ============ -->
+    <section style="text-align:center; max-width:720px;">
+      <h2>Moda para una vida real</h2>
+      <p>Seleccionamos cada prenda pensando en la vida cotidiana: días de trabajo, una salida improvisada, un viaje, una tarde tranquila o simplemente esos días en los que quieres sentirte bien contigo misma.</p>
+      <p>Buscamos diseños versátiles, femeninos y contemporáneos que puedan acompañarte más allá de una sola temporada. Para nosotras, la moda no se trata de seguir todas las tendencias. Se trata de encontrar aquello que te representa.</p>
+    </section>
+
+    <!-- ============ NUESTRA FILOSOFÍA ============ -->
+    <section class="seccion-marfil-nara">
+      <div class="bloque-historia-nara">
+        <div>
+          <h2>Nuestra filosofía</h2>
+          <p>En NARA creemos en una moda más cercana y consciente.</p>
+          <p>Preferimos prendas que puedas volver a usar, combinar de distintas maneras y adaptar a diferentes momentos de tu vida.</p>
+          <p style="font-weight:600; color:var(--color-chocolate);">Nuestra propuesta es sencilla: menos complicaciones, más posibilidades.</p>
+          <p>Queremos que cuando abras tu armario encuentres prendas que realmente quieras usar.</p>
+        </div>
+        <img src="assets/img/good-outfits.webp" alt="Good Outfits, Brighter Days — rincón cálido inspirador de NARA">
+      </div>
+    </section>
+
+    <!-- ============ CONOCE A LAS FUNDADORAS ============ -->
+    <section>
+      <div class="encabezado-seccion-nara" style="border-bottom:none; justify-content:center;">
+        <h2>Conoce a las fundadoras</h2>
+      </div>
+      <div class="grid-fundadoras-nara">
+        <div class="tarjeta-fundadora-nara">
+          <img src="assets/img/sofia.webp" alt="Sofía, cofundadora de NARA">
+          <h3>Sofía</h3>
+          <span class="rol">Cofundadora de NARA</span>
+          <p class="perfil">Apasionada por el diseño limpio, los tonos neutros y las prendas atemporales. Es quien siempre pregunta: "¿Pero con qué más me lo puedo poner?". Su obsesión por la versatilidad está presente en cada colección.</p>
+        </div>
+        <div class="tarjeta-fundadora-nara">
+          <img src="assets/img/lorena.webp" alt="Lorena, cofundadora de NARA">
+          <h3>Lorena</h3>
+          <span class="rol">Cofundadora de NARA</span>
+          <p class="perfil">Amante de los colores cálidos, las texturas y esos pequeños detalles que transforman un look sencillo. Cree que una buena prenda puede cambiar completamente cómo te sientes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final-nara">
+      <h2>Vístete a tu manera.</h2>
+      <a href="tienda.html" class="boton-primario-nara">Explorar la tienda →</a>
+    </section>
+
+    <!-- ============ BENEFICIOS ============ -->
+    <section class="franja-beneficios-nara">
+      <div class="beneficio-nara"><span class="icono">🚚</span>Envíos a todo Costa Rica</div>
+      <div class="beneficio-nara"><span class="icono">🔒</span>Pago seguro con PayPal</div>
+      <div class="beneficio-nara"><span class="icono">🌿</span>Moda consciente</div>
+      <div class="beneficio-nara"><span class="icono">✨</span>Prendas que se adaptan a tu ritmo</div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer-nara">
+    <div class="footer-grid-nara">
+      <div>
+        <p class="logo-nara" style="font-size:1.3rem;">NARA</p>
+        <p>Ropa para tu ritmo.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Información</h4>
+        <p>Envíos a todo Costa Rica</p>
+        <p>Cambios y devoluciones</p>
+        <p>Pago seguro con PayPal</p>
+      </div>
+    </div>
+    <div class="footer-bottom-nara">
+      &copy; 2026 NARA. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
