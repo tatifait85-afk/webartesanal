@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Web Artesanal</title>
+  <meta name="description" content="Escríbanos por WhatsApp, complete el cuestionario de proyecto, o envíenos un mensaje directo.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-lockup">
+        <img src="assets/img/banner2.webp" alt="Web Artesanal — Sitios con alma, negocios reales">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="precios-y-productos.html">Precios y Productos</a></li>
+        <li><a href="que-recibira.html">Qué Recibirá</a></li>
+        <li><a href="ejemplos.html">Ejemplos</a></li>
+        <li><a href="como-funciona.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+                <li><button id="carritoBtn" type="button" class="carrito-boton-nav" aria-label="Ver carrito">🛒<span id="carritoContador" class="carrito-contador" style="display:none;">0</span></button></li>
+        <li><a href="https://wa.me/50687071092" class="btn-whatsapp-nav" target="_blank" rel="noopener">Hablemos por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlay" class="carrito-overlay" hidden></div>
+  <div id="carritoPanel" class="carrito-panel" hidden>
+    <div class="carrito-panel-inner">
+      <div class="carrito-header">
+        <h3>Su carrito</h3>
+        <button id="carritoCerrar" type="button" class="carrito-cerrar" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div id="carritoVacioMsg" class="carrito-vacio-msg">Su carrito está vacío.</div>
+      <div id="carritoItems" class="carrito-items"></div>
+      <div style="display:none; justify-content:space-between; font-weight:800; font-size:1.15rem; color:var(--color-navy); border-top:2px solid var(--color-orange); padding-top:0.9rem;">
+        <span>Total</span>
+        <span id="carritoTotal">₡0</span>
+      </div>
+
+      <div id="carritoCheckout" class="carrito-checkout" style="display:none;">
+        <h4>Sus datos</h4>
+        <input type="text" id="carritoNombre" class="q-input-texto" placeholder="Nombre">
+        <input type="tel" id="carritoTelefono" class="q-input-texto" placeholder="Teléfono">
+        <input type="email" id="carritoEmail" class="q-input-texto" placeholder="Correo electrónico">
+        <p class="q-error" id="carritoErrorValidacion">Complete nombre, teléfono y un correo válido.</p>
+        <p class="q-error" id="carritoErrorEnvio">No se pudo enviar su pedido. Intente de nuevo o escríbanos por WhatsApp.</p>
+        <p class="q-recomendacion-nota" id="carritoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Pedido enviado! Le contactaremos pronto.</p>
+        <button type="button" id="carritoEnviarBtn" class="boton-primario" style="width:100%;">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ INTRO ============ -->
+    <section>
+      <div class="seccion-titulo-centro">
+        <span class="hero-badge">CONTACTO</span>
+        <h1 style="font-size:var(--fs-h1);">Hablemos de su proyecto</h1>
+        <p>Elija la forma que le resulte más cómoda — todas llegan directo a nosotros.</p>
+      </div>
+    </section>
+
+    <!-- ============ 3 VÍAS ============ -->
+    <section>
+      <div class="grid-tarjetas">
+
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-cuerpo">
+            <h3>💬 WhatsApp</h3>
+            <p>La forma más rápida de conversar directamente con nosotros.</p>
+            <a href="https://wa.me/50687071092" class="boton-primario" target="_blank" rel="noopener" style="text-align:center;">Escribir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>📋 Cuestionario de proyecto</h3>
+            <p>¿Ya tiene una idea de lo que necesita? Complete el cuestionario y le enviamos una recomendación con presupuesto estimado.</p>
+            <a href="index.html#cuestionario" class="boton-secundario" style="text-align:center;">Completar cuestionario</a>
+          </div>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>✉️ Correo directo</h3>
+            <p>Prefiere escribir con calma un mensaje directo — use el formulario abajo o escríbanos a 506webartesanal@gmail.com.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ FORMULARIO DE CONTACTO ============ -->
+    <section class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>Envíenos un mensaje</h2>
+        <p>Le respondemos a la brevedad al correo que nos indique.</p>
+      </div>
+
+      <form class="cuestionario-wrap" id="formContacto" novalidate>
+        <div style="display:grid; gap:1rem;">
+          <div>
+            <label for="contactoNombre" style="display:block; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem; font-size:0.9rem;">Nombre</label>
+            <input type="text" id="contactoNombre" name="nombre" class="q-input-texto" placeholder="Su nombre">
+          </div>
+          <div>
+            <label for="contactoCorreo" style="display:block; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem; font-size:0.9rem;">Correo electrónico</label>
+            <input type="email" id="contactoCorreo" name="correo" class="q-input-texto" placeholder="su@correo.com">
+          </div>
+          <div>
+            <label for="contactoMensaje" style="display:block; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem; font-size:0.9rem;">Mensaje</label>
+            <textarea id="contactoMensaje" name="mensaje" class="q-textarea" rows="5" placeholder="Cuéntenos en qué podemos ayudarle"></textarea>
+          </div>
+
+          <p class="q-error" id="contactoError">Por favor complete todos los campos con un correo válido.</p>
+          <p class="q-error" id="contactoErrorEnvio">No se pudo enviar su mensaje. Por favor intente de nuevo, o escríbanos directamente por WhatsApp.</p>
+          <p class="q-recomendacion-nota" id="contactoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Mensaje enviado! Le responderemos pronto.</p>
+
+          <button type="button" class="boton-primario" id="contactoBtnEnviar" style="justify-self:start;">Enviar mensaje →</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/banner2.webp" alt="Web Artesanal" style="height:70px; margin-bottom:0.8rem;" loading="lazy" decoding="async">
+        <p class="footer-tagline">Sitios con alma, negocios reales. Pequeños negocios, grandes historias online.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="precios-y-productos.html">Precios y Productos</a>
+        <a href="que-recibira.html">Qué Recibirá</a>
+        <a href="ejemplos.html">Ejemplos</a>
+        <a href="como-funciona.html">Cómo Funciona</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/50687071092" target="_blank" rel="noopener">WhatsApp: +506 8707-1092</a>
+        <a href="mailto:506webartesanal@gmail.com">506webartesanal@gmail.com</a>
+        <a href="https://www.facebook.com/506webartesanal" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/506webartesanal" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@webartesanal" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://506webartesanal.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Web Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  
+  <button id="hojitaBtn" type="button" class="hojita-boton" aria-label="Abrir asistente La Hojita">
+    <img src="assets/img/hojita-chatbot.webp" alt="La Hojita, asistente virtual de Web Artesanal">
+  </button>
+  <div id="hojitaPanel" class="hojita-panel" hidden>
+    <div class="hojita-panel-header">
+      <img src="assets/img/hojita-chatbot.webp" alt="" class="hojita-panel-avatar">
+      <strong>La Hojita</strong>
+      <button id="hojitaCerrar" type="button" class="hojita-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="hojitaConversacion" class="hojita-conversacion"></div>
+    <div class="hojita-footer-input">
+      <input type="text" id="hojitaPreguntaLibre" placeholder="Escriba su pregunta sobre el sitio...">
+      <button type="button" id="hojitaEnviarPregunta">➤</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

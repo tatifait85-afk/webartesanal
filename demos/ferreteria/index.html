@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferretería El Buen Vecino</title>
+  <meta name="description" content="Ferretería de barrio con herramientas, materiales y productos para reparaciones, mantenimiento y proyectos del hogar. Pedidos por WhatsApp.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ FRANJA SUPERIOR AMARILLA ============ -->
+  <div class="franja-superior">
+    <div class="franja-superior-inner">
+      <a href="index.html" class="logo-lockup">
+        <span class="logo-icono">🏠</span>
+        <span class="logo-nombre">Ferretería El Buen Vecino<span>TODO LO QUE NECESITA, MÁS CERCA</span></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ NAV NEGRA ============ -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="catalogo.html">Productos</a></li>
+        <li><a href="nosotros.html">Sobre nosotros</a></li>
+        <li><a href="consejos.html">Consejos</a></li>
+        <li><a href="contacto.html">Contáctenos</a></li>
+                <li><button id="carritoBtnFerre" type="button" class="carrito-boton-nav-ferre" aria-label="Ver carrito">🛒<span id="carritoContadorFerre" class="carrito-contador-ferre" style="display:none;">0</span></button></li>
+        <li><span class="btn-whatsapp-nav" title="Número ficticio de la demo">Pedidos por WhatsApp</span></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlayFerre" class="carrito-overlay-ferre" hidden></div>
+  <div id="carritoPanelFerre" class="carrito-panel-ferre" hidden>
+    <div class="carrito-panel-inner-ferre">
+      <div class="carrito-header-ferre">
+        <h3 style="margin:0;">Su carrito</h3>
+        <button type="button" id="carritoCerrarFerre" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoFerre"></div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ HERO (imagen completa) ============ -->
+    <div class="hero-imagen-completa">
+      <img src="assets/img/hero-home-ferre-v2.webp" alt="Sus proyectos empiezan aquí. Herramientas, materiales y soluciones para el hogar, siempre a su alcance. Entrega Express en la zona, retiro en tienda, calidad y buen precio.">
+    </div>
+    <div class="barra-cta-hero">
+      <div class="barra-cta-hero-inner">
+        <a href="catalogo.html" class="boton-primario">Ver productos →</a>
+        <p class="nota-manuscrita-ferre">✎ Pequeños y grandes proyectos, siempre cuentan.</p>
+      </div>
+    </div>
+
+    <!-- ============ CATEGORÍAS ============ -->
+    <section>
+      <div>
+        <h2>Categorías</h2>
+        <p>Explore por tipo de producto.</p>
+      </div>
+      <div class="grid-categorias">
+        <a href="catalogo.html#herramientas" class="tarjeta-categoria">
+          <div class="icono">🔨</div>
+          <h3>Herramientas</h3>
+        </a>
+        <a href="catalogo.html#tornilleria" class="tarjeta-categoria">
+          <div class="icono">🔩</div>
+          <h3>Tornillería y fijaciones</h3>
+        </a>
+        <a href="catalogo.html#pintura" class="tarjeta-categoria">
+          <div class="icono">🎨</div>
+          <h3>Pintura</h3>
+        </a>
+        <a href="catalogo.html#plomeria" class="tarjeta-categoria">
+          <div class="icono">🚰</div>
+          <h3>Plomería</h3>
+        </a>
+        <a href="catalogo.html#electricidad" class="tarjeta-categoria">
+          <div class="icono">⚡</div>
+          <h3>Electricidad</h3>
+        </a>
+        <a href="catalogo.html#construccion" class="tarjeta-categoria">
+          <div class="icono">🧱</div>
+          <h3>Construcción</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTOS DESTACADOS ============ -->
+    <section>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem;">
+        <div>
+          <h2>Productos destacados</h2>
+        </div>
+        <a href="catalogo.html" style="font-weight:700; color:var(--color-carbon); font-size:0.9rem;">Ver todos los productos →</a>
+      </div>
+
+      <div class="grid-productos">
+
+        <article class="tarjeta-producto">
+          <a href="producto.html?id=taladro-inalambrico" class="tarjeta-producto-link">
+            <div class="tarjeta-producto-imagen">
+            <span class="badge-mas-vendido">Más vendido</span>
+            <img src="assets/img/taladro.webp" alt="Taladro inalámbrico">
+          </div>
+            <div class="tarjeta-producto-cuerpo">
+              <h3>Taladro inalámbrico</h3>
+              <span class="tarjeta-producto-precio">₡32.000</span>
+            </div>
+          </a>
+          <button type="button" class="btn-agregar-carrito-ferre" data-id="taladro-inalambrico">🛒 Agregar al carrito</button>
+        </article>
+
+        <article class="tarjeta-producto">
+          <a href="producto.html?id=pintura-blanca-interior" class="tarjeta-producto-link">
+            <div class="tarjeta-producto-imagen"><img src="assets/img/pintura-blanca-interior-galon.webp" alt="Pintura blanca para interior, 1 galón"></div>
+            <div class="tarjeta-producto-cuerpo">
+              <h3>Pintura blanca interior (1 galón)</h3>
+              <span class="tarjeta-producto-precio">₡12.500</span>
+            </div>
+          </a>
+          <button type="button" class="btn-agregar-carrito-ferre" data-id="pintura-blanca-interior">🛒 Agregar al carrito</button>
+        </article>
+
+        <article class="tarjeta-producto">
+          <a href="producto.html?id=bombillo-led" class="tarjeta-producto-link">
+            <div class="tarjeta-producto-imagen"><img src="assets/img/bombillo-led.webp" alt="Bombillo LED"></div>
+            <div class="tarjeta-producto-cuerpo">
+              <h3>Bombillo LED</h3>
+              <span class="tarjeta-producto-precio">₡2.000</span>
+            </div>
+          </a>
+          <button type="button" class="btn-agregar-carrito-ferre" data-id="bombillo-led">🛒 Agregar al carrito</button>
+        </article>
+
+        <article class="tarjeta-producto">
+          <a href="producto.html?id=cemento-25kg" class="tarjeta-producto-link">
+            <div class="tarjeta-producto-imagen"><img src="assets/img/cemento25k.webp" alt="Cemento 25 kg"></div>
+            <div class="tarjeta-producto-cuerpo">
+              <h3>Cemento 25 kg</h3>
+              <span class="tarjeta-producto-precio">₡5.500</span>
+            </div>
+          </a>
+          <button type="button" class="btn-agregar-carrito-ferre" data-id="cemento-25kg">🛒 Agregar al carrito</button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ BANNER ============ -->
+    <section class="seccion-banner">
+      <img src="assets/img/banner-ferre-home.webp" alt="Buenas herramientas, mejores resultados">
+      <div class="grid-banner-iconos">
+        <div><div class="banner-icono">🏡</div><h4>Mejore su hogar</h4></div>
+        <div><div class="banner-icono">🛠️</div><h4>Hágalo usted mismo</h4></div>
+        <div><div class="banner-icono">🤝</div><h4>Cuente con nosotros</h4></div>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE NOSOTROS (con foto) ============ -->
+    <section>
+      <div class="seccion-nosotros">
+        <div class="nosotros-texto">
+          <h2>Somos su ferretería de confianza</h2>
+          <p>En El Buen Vecino le ofrecemos productos de calidad, asesoría y un servicio cercano, porque creemos en el valor de las buenas relaciones.</p>
+          <a href="nosotros.html" class="boton-secundario" style="align-self:flex-start;">Conozca más sobre nosotros →</a>
+        </div>
+        <div class="nosotros-foto">
+          <img src="assets/img/hombre-ferre.webp" alt="Encargado de Ferretería El Buen Vecino">
+          <div class="nosotros-foto-texto">¡Aquí estamos para ayudarle!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE MARTILLITO (próximamente) ============ -->
+    <section id="martillito">
+      <div class="bloque-martillito-chat">
+        <div class="martillito-chat-header">
+          <img src="assets/img/chatbot-ferre.webp" alt="Martillito, el asistente de Ferretería El Buen Vecino">
+          <div>
+            <h3>Pregúntele a Martillito</h3>
+            <p>Cuéntele qué problema tiene o qué quiere hacer, y le ayuda a encontrar lo que necesita.</p>
+          </div>
+        </div>
+        <div id="martilloConversacion" class="martillito-conversacion-inline"></div>
+        <div class="martillito-footer-input">
+          <input type="text" id="martilloPreguntaLibre" placeholder="Cuénteme su problema o pregunta...">
+          <button type="button" id="martilloEnviarPregunta">➤</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FRANJA DE INFO ============ -->
+    <section class="franja-info">
+      <h2>Información</h2>
+      <div class="grid-info">
+        <div class="info-item">
+          <h3>📍 Ubicación</h3>
+          <p>200 metros al este del Parque Central de Esparza, Puntarenas. Frente a la plaza comunal.</p>
+        </div>
+        <div class="info-item">
+          <h3>🕒 Horario</h3>
+          <p>Lunes a sábado: 7:00 a. m. – 6:00 p. m.<br>Domingo: 8:00 a. m. – 1:00 p. m.</p>
+        </div>
+        <div class="info-item">
+          <h3>🚚 Entregas</h3>
+          <p>Retiro en tienda o servicio Express en Esparza y zonas cercanas — ₡1.500. Pedidos grandes, con 24 horas de anticipación.</p>
+        </div>
+        <div class="info-item">
+          <h3>💳 Formas de pago</h3>
+          <p>Efectivo, tarjeta o SINPE Móvil.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-franja-iconos">
+      <span>📍 Esparza, Puntarenas</span>
+      <span>🕒 Lunes a Sábado 7:00 a.m. – 6:00 p.m.</span>
+      <span>💬 WhatsApp: 8XXX-XXXX (demo)</span>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <h4>Ferretería El Buen Vecino</h4>
+        <p>Herramientas y materiales para su barrio.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Sobre nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto (demo)</h4>
+        <p>WhatsApp: 8XXX-XXXX</p>
+        <p>Teléfono: 2XXX-XXXX</p>
+        <p>info@elbuenvecino.demo</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Datos de contacto ficticios — demo de Web Artesanal. &copy; 2026.
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  
+
+
+  <script src="js/carrito.js"></script>
+  <script src="js/martillito.js"></script>
+</body>
+</html>

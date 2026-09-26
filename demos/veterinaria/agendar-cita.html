@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservá tu cita — Veterinaria Dr Lee</title>
+  <meta name="description" content="Elegí el día y la hora que más te convenga para la cita de tu mascota en Veterinaria Dr Lee.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header-vet">
+    <div class="nav-wrap-vet">
+      <a href="index.html" class="logo-vet">
+        <span class="icono">🐾</span>
+        <span class="nombre">Veterinaria Dr Lee<span>Salud y bienestar para toda la familia</span></span>
+      </a>
+
+      <button class="nav-toggle-vet" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links-vet" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="agendar-cita.html" class="boton-primario-vet" aria-current="page">Agendar cita</a></li>
+      </ul>
+
+      <div class="ubicacion-header-vet">📍 Esparza, Puntarenas, Costa Rica</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="reserva-hero-vet hero-vet">
+      <div>
+        <h1>Reservá tu cita</h1>
+        <p style="color:var(--color-text-light); max-width:520px;">Elegí el día y la hora que más te convenga. Cuidar su salud ahora es más fácil.</p>
+        <div class="reserva-valores">
+          <span class="reserva-valor">📅 Consultá disponibilidad en tiempo real</span>
+          <span class="reserva-valor">⏱ Reservá en pocos pasos</span>
+          <span class="reserva-valor">✔ Recibí confirmación</span>
+        </div>
+      </div>
+      <div class="hero-vet-imagen">
+        <img src="assets/img/card-reserva.webp" alt="Perro sonriente en la clínica veterinaria">
+      </div>
+    </section>
+
+    <!-- ============ FLUJO DE RESERVA ============ -->
+    <section>
+      <div class="reserva-layout">
+
+        <!-- Paso 1: Fecha -->
+        <div class="tarjeta-reserva-vet">
+          <h3><span class="paso-numero-vet">1</span>Seleccioná la fecha</h3>
+          <p style="font-size:0.85rem; color:var(--color-text-light); margin-bottom:1rem;">Elegí un día disponible en el calendario.</p>
+
+          <div class="calendario-header-vet">
+            <button type="button" id="mesAnterior" aria-label="Mes anterior">‹</button>
+            <strong id="mesActualTexto" style="font-size:0.92rem; color:var(--color-teal-dark);"></strong>
+            <button type="button" id="mesSiguiente" aria-label="Mes siguiente">›</button>
+          </div>
+
+          <div class="calendario-grid-vet" id="calendarioGrid"></div>
+
+          <div class="calendario-leyenda-vet">
+            <span><span class="punto-leyenda" style="background:#eaf5f0; border:1px solid var(--color-teal);"></span>Disponible</span>
+            <span><span class="punto-leyenda" style="background:#f1efe8;"></span>No disponible</span>
+            <span><span class="punto-leyenda" style="background:var(--color-teal);"></span>Seleccionada</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: Hora + Paso 3: Datos -->
+        <div style="display:grid; gap:1.4rem;">
+          <div class="tarjeta-reserva-vet">
+            <h3><span class="paso-numero-vet">2</span>Seleccioná la hora</h3>
+            <p id="textoHorarios" style="font-size:0.85rem; color:var(--color-text-light); margin-bottom:1rem;">Elegí primero una fecha disponible.</p>
+            <div class="horarios-grid-vet" id="horariosGrid"></div>
+          </div>
+
+          <div class="tarjeta-reserva-vet" id="tarjetaFormulario" style="display:none;">
+            <h3><span class="paso-numero-vet">3</span>Completá la información</h3>
+            <p style="font-size:0.85rem; color:var(--color-text-light);">Solo faltan unos datos para confirmar tu cita.</p>
+
+            <form class="form-reserva-vet" id="formReserva" novalidate>
+              <div>
+                <label for="nombrePropietario">Nombre completo *</label>
+                <input type="text" id="nombrePropietario" placeholder="Tu nombre completo">
+              </div>
+              <div>
+                <label for="nombreMascota">Nombre de la mascota *</label>
+                <input type="text" id="nombreMascota" placeholder="Nombre de tu mascota">
+              </div>
+              <div>
+                <label>Tipo de mascota *</label>
+                <div class="tipo-mascota-vet">
+                  <label><input type="radio" name="tipoMascota" value="Perro"> 🐶 Perro</label>
+                  <label><input type="radio" name="tipoMascota" value="Gato"> 🐱 Gato</label>
+                  <label><input type="radio" name="tipoMascota" value="Otro"> 🐾 Otro</label>
+                </div>
+              </div>
+              <div>
+                <label for="motivoCita">Motivo de la cita *</label>
+                <select id="motivoCita">
+                  <option value="">Seleccioná una opción</option>
+                  <option>Consulta general</option>
+                  <option>Vacunación</option>
+                  <option>Desparasitación</option>
+                  <option>Esterilización o castración</option>
+                  <option>Control preventivo</option>
+                  <option>Otro motivo</option>
+                </select>
+              </div>
+              <div>
+                <label for="telefonoReserva">Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefonoReserva" placeholder="+506 0000-0000">
+              </div>
+              <div>
+                <label for="correoReserva">Correo electrónico *</label>
+                <input type="email" id="correoReserva" placeholder="tucorreo@ejemplo.com">
+              </div>
+
+              <p class="error-reserva-vet" id="errorReserva">Completá todos los campos obligatorios con un correo válido antes de confirmar.</p>
+
+              <button type="button" class="boton-primario-vet" id="btnConfirmarCita" style="width:100%;">Confirmar cita</button>
+              <p style="font-size:0.75rem; color:var(--color-text-light); text-align:center; margin:0;">🔒 Tus datos están seguros y solo se utilizan para gestionar tu cita.</p>
+            </form>
+
+            <div id="confirmacionReserva" class="confirmacion-vet" style="display:none;"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar-reserva-vet">
+          <div class="sidebar-tarjeta-vet">
+            <h4>🕒 Nuestro horario de atención</h4>
+            <p style="margin:0;">Lunes a sábado<br>8:00 a. m. – 5:00 p. m.</p>
+          </div>
+          <div class="sidebar-tarjeta-vet">
+            <h4>📍 Nuestra ubicación</h4>
+            <p style="margin-bottom:0.8rem;">Esparza, Puntarenas, Costa Rica</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Esparza%2C%20Puntarenas%2C%20Costa%20Rica" target="_blank" rel="noopener" class="boton-secundario-vet" style="display:block; text-align:center; width:100%;">Cómo llegar</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ MILO (próximamente) ============ -->
+    <div class="milo-flotante-vet">
+    <div class="milo-globo-vet">
+      ¿Tenés alguna pregunta?
+    </div>
+    <button type="button" id="miloBtnVet" class="milo-boton-vet" aria-label="Abrir chat con Milo">
+      <img src="assets/img/milo.webp" alt="Milo, el asistente virtual de Veterinaria Dr Lee">
+    </button>
+  </div>
+
+  <div id="miloPanelVet" class="milo-panel-vet" hidden>
+    <div class="milo-panel-header-vet">
+      <img src="assets/img/milo.webp" alt="">
+      <strong>Milo</strong>
+      <button type="button" id="miloCerrarVet" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="miloConversacionVet" class="milo-conversacion-vet"></div>
+    <div class="milo-footer-input-vet">
+      <input type="text" id="miloPreguntaVet" placeholder="Escribí una pregunta corta...">
+      <button type="button" id="miloEnviarVet">➤</button>
+    </div>
+  </div>
+
+  <footer class="site-footer-vet">
+    <div class="footer-grid-vet">
+      <div>
+        <h4>Veterinaria Dr Lee</h4>
+        <p>Salud y bienestar para toda la familia.</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lunes a sábado<br>8:00 a. m. – 5:00 p. m.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Teléfono: +506 8888-8888</p>
+        <p>WhatsApp: escribinos directamente</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom-vet">
+      Esparza, Puntarenas, Costa Rica · &copy; 2026 Veterinaria Dr Lee. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/milo.js"></script>
+  <script src="js/reservas.js"></script>
+</body>
+</html>

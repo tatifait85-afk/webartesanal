@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios — Web Artesanal</title>
+  <meta name="description" content="Conozca los servicios de Web Artesanal: sitios web, catálogos, carritos de WhatsApp, tiendas en línea, reservas, blog y logo, con precios claros.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-lockup">
+        <img src="assets/img/banner2.webp" alt="Web Artesanal — Sitios con alma, negocios reales">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html" aria-current="page">Servicios</a></li>
+        <li><a href="precios-y-productos.html">Precios y Productos</a></li>
+        <li><a href="que-recibira.html">Qué Recibirá</a></li>
+        <li><a href="ejemplos.html">Ejemplos</a></li>
+        <li><a href="como-funciona.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+                <li><button id="carritoBtn" type="button" class="carrito-boton-nav" aria-label="Ver carrito">🛒<span id="carritoContador" class="carrito-contador" style="display:none;">0</span></button></li>
+        <li><a href="https://wa.me/50687071092" class="btn-whatsapp-nav" target="_blank" rel="noopener">Hablemos por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlay" class="carrito-overlay" hidden></div>
+  <div id="carritoPanel" class="carrito-panel" hidden>
+    <div class="carrito-panel-inner">
+      <div class="carrito-header">
+        <h3>Su carrito</h3>
+        <button id="carritoCerrar" type="button" class="carrito-cerrar" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div id="carritoVacioMsg" class="carrito-vacio-msg">Su carrito está vacío.</div>
+      <div id="carritoItems" class="carrito-items"></div>
+      <div style="display:none; justify-content:space-between; font-weight:800; font-size:1.15rem; color:var(--color-navy); border-top:2px solid var(--color-orange); padding-top:0.9rem;">
+        <span>Total</span>
+        <span id="carritoTotal">₡0</span>
+      </div>
+
+      <div id="carritoCheckout" class="carrito-checkout" style="display:none;">
+        <h4>Sus datos</h4>
+        <input type="text" id="carritoNombre" class="q-input-texto" placeholder="Nombre">
+        <input type="tel" id="carritoTelefono" class="q-input-texto" placeholder="Teléfono">
+        <input type="email" id="carritoEmail" class="q-input-texto" placeholder="Correo electrónico">
+        <p class="q-error" id="carritoErrorValidacion">Complete nombre, teléfono y un correo válido.</p>
+        <p class="q-error" id="carritoErrorEnvio">No se pudo enviar su pedido. Intente de nuevo o escríbanos por WhatsApp.</p>
+        <p class="q-recomendacion-nota" id="carritoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Pedido enviado! Le contactaremos pronto.</p>
+        <button type="button" id="carritoEnviarBtn" class="boton-primario" style="width:100%;">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ INTRO ============ -->
+    <section>
+      <div class="seccion-titulo-centro">
+        <span class="hero-badge">NUESTROS SERVICIOS</span>
+        <h1 style="font-size:var(--fs-h1);">Herramientas digitales claras, con precio fijo</h1>
+        <p>Elija lo que su negocio necesita hoy. Puede empezar con lo esencial y agregar más adelante — nunca se cobra por hora, solo por lo que se agrega.</p>
+      </div>
+    </section>
+
+    <!-- ============ SITIO WEB ============ -->
+    <section id="sitio-web" class="seccion-clara">
+      <h2>Sitio Web</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">₡50.000</p>
+      <p>Su negocio en internet, con las secciones esenciales: inicio, servicios y contacto. Incluye dominio y hosting por 1 año.</p>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Sitio Web" data-precio="50000">Agregar al carrito</button> <a href="/demos/bufete/" target="_blank" rel="noopener" class="tarjeta-enlace">Ver ejemplo de Sitio Web →</a>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Simple Page</h3>
+            <p>Una sola página con toda la información esencial de su negocio. Ideal para presupuestos ajustados o para empezar rápido.</p>
+            <span class="tarjeta-precio">₡15.000</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Simple Page" data-precio="15000">Agregar al carrito</button> <a href="/demos/melany-express/" target="_blank" rel="noopener" class="tarjeta-enlace">Ver ejemplo de Simple Page →</a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Página adicional</h3>
+            <p>Para agregar una página más a un Sitio Web ya existente.</p>
+            <span class="tarjeta-precio">₡10.000 c/u</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Página adicional" data-precio="10000">Agregar al carrito</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section id="catalogo">
+      <h2>Catálogo</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">₡20.000</p>
+      <p>Muestre sus productos o servicios con foto, descripción y precio — hasta 10 productos incluidos.</p>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Catálogo (hasta 10 productos)" data-precio="20000">Agregar al carrito</button> <a href="/demos/panaderia/productos.html" target="_blank" rel="noopener" class="tarjeta-enlace">Ver ejemplo de Catálogo →</a>
+      <div class="grid-tarjetas">
+        <article class="tarjeta"><div class="tarjeta-cuerpo"><h3>Producto adicional</h3><span class="tarjeta-precio">₡1.500 c/u</span><button type="button" class="btn-agregar-carrito" data-nombre="Producto adicional" data-precio="1500">Agregar al carrito</button></div></article>
+        <article class="tarjeta"><div class="tarjeta-cuerpo"><h3>Categoría adicional</h3><span class="tarjeta-precio">₡3.000 c/u</span><button type="button" class="btn-agregar-carrito" data-nombre="Categoría adicional" data-precio="3000">Agregar al carrito</button></div></article>
+        <article class="tarjeta"><div class="tarjeta-cuerpo"><h3>Imagen preparada por Web Artesanal</h3><p>Si usted ya tiene una foto lista, no se cobra.</p><span class="tarjeta-precio">₡2.500 c/u</span><button type="button" class="btn-agregar-carrito" data-nombre="Imagen preparada por Web Artesanal" data-precio="2500">Agregar al carrito</button></div></article>
+      </div>
+    </section>
+
+    <!-- ============ CARRITO WHATSAPP ============ -->
+    <section id="carrito-whatsapp" class="seccion-clara">
+      <h2>Carrito WhatsApp</h2>
+      <p>Sus clientes arman su pedido en el sitio y lo envían directo a su WhatsApp, listo para confirmar. El pago se termina de coordinar por ese mismo medio, normalmente con SINPE Móvil — una explicación completa de cómo funciona esto está en <a href="como-funciona.html#pagos">Cómo Funciona</a>.</p>
+      <div class="grid-tarjetas">
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-cuerpo">
+            <h3>Básico</h3>
+            <p>Hasta 3 categorías / 10 productos.</p>
+            <span class="tarjeta-precio">₡35.000</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Carrito WhatsApp Básico" data-precio="35000">Agregar al carrito</button> <a href="/demos/ferreteria/" target="_blank" rel="noopener" class="tarjeta-enlace">Ver ejemplo de Carrito WhatsApp →</a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Ampliado</h3>
+            <p>Hasta 6 categorías / 20 productos.</p>
+            <span class="tarjeta-precio">₡60.000</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Carrito WhatsApp Ampliado" data-precio="60000">Agregar al carrito</button>
+          </div>
+        </article>
+      </div>
+      <p class="hero-nota" style="margin-top:1rem;">Extras: categoría adicional ₡3.000 c/u · producto adicional ₡1.500 c/u · imagen preparada por Web Artesanal ₡2.500 c/u.</p>
+    </section>
+
+    <!-- ============ TIENDA PAYPAL ============ -->
+    <section id="tienda-paypal">
+      <h2>Tienda PayPal</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">Desde ₡75.000</p>
+      <p>Venda en línea de forma segura, con pago en el momento a través de PayPal. El precio final depende de la cantidad de productos y funciones que su tienda necesite.</p>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Tienda PayPal" data-precio="75000">Agregar al carrito</button> <a href="/demos/nara/prueba-paypal.html" target="_blank" rel="noopener" class="tarjeta-enlace">Ver ejemplo de Tienda PayPal →</a>
+    </section>
+
+    <!-- ============ RESERVAS ============ -->
+    <section id="reservas" class="seccion-clara">
+      <h2>Reservas y calendario</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">₡15.000</p>
+      <p>Permita que sus clientes agenden una cita directamente desde su sitio, sin llamadas ni mensajes de ida y vuelta.</p>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Reservas y calendario" data-precio="15000">Agregar al carrito</button> <a href="/demos/bufete/agendar-cita.html" target="_blank" rel="noopener" class="tarjeta-enlace">Ver ejemplo de Reservas →</a>
+    </section>
+
+    <!-- ============ BLOG ============ -->
+    <section id="blog">
+      <h2>Blog</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">₡30.000</p>
+      <p>Comparta noticias, consejos y novedades de su negocio — incluye 3 artículos iniciales.</p>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Blog (3 artículos iniciales)" data-precio="30000">Agregar al carrito</button>
+      <div class="grid-tarjetas">
+        <article class="tarjeta"><div class="tarjeta-cuerpo"><h3>Artículo adicional</h3><span class="tarjeta-precio">₡15.000 c/u</span><button type="button" class="btn-agregar-carrito" data-nombre="Artículo adicional" data-precio="15000">Agregar al carrito</button></div></article>
+      </div>
+    </section>
+
+    <!-- ============ LOGO ============ -->
+    <section id="logo" class="seccion-clara">
+      <h2>Logo</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">₡10.000</p>
+      <p>Una imagen profesional para su marca, lista para usar en su sitio, redes sociales y materiales impresos.</p>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Logo" data-precio="10000">Agregar al carrito</button>
+    </section>
+
+    <!-- ============ WEB MARKETING ============ -->
+    <section id="web-marketing">
+      <h2>Web Marketing</h2>
+      <p>Servicios para que su negocio se encuentre y se vea en internet, más allá del sitio web. La conexión con sus redes sociales existentes ya está incluida en su sitio — esto es para crear presencia nueva o hacer publicidad paga.</p>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>SEO básico + Ficha de Google Maps</h3>
+            <p>Optimización básica para buscadores y creación de su ficha de Google Business Profile, para que su negocio aparezca en Google y en Google Maps.</p>
+            <span class="tarjeta-precio">₡20.000</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="SEO básico + Ficha de Google Maps" data-precio="20000">Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Estadísticas y analítica del sitio</h3>
+            <p>Sepa cuántas visitas tiene su sitio y de dónde vienen.</p>
+            <span class="tarjeta-precio">₡10.000</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Estadísticas y analítica del sitio" data-precio="10000">Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Anuncio en Google Ads</h3>
+            <p>Creación del anuncio. El presupuesto de la pauta lo paga usted directamente a Google, aparte de este costo.</p>
+            <span class="tarjeta-precio">₡20.000 por anuncio + presupuesto</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Anuncio en Google Ads" data-precio="20000">Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Anuncio en Facebook Ads</h3>
+            <p>Creación del anuncio. El presupuesto de la pauta lo paga usted directamente a Meta, aparte de este costo.</p>
+            <span class="tarjeta-precio">₡20.000 por anuncio + presupuesto</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Anuncio en Facebook Ads" data-precio="20000">Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Creación de página de Facebook o Instagram</h3>
+            <p>Creación de la página desde cero, con una publicación inicial incluida. Precio por cada red social.</p>
+            <span class="tarjeta-precio">₡20.000 c/u</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Creación de página de Facebook o Instagram" data-precio="20000">Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta-cuerpo">
+            <h3>Contenido para redes sociales</h3>
+            <p>Una publicación con imagen y texto, lista para publicar.</p>
+            <span class="tarjeta-precio">₡10.000 por publicación</span>
+            <button type="button" class="btn-agregar-carrito" data-nombre="Contenido para redes sociales" data-precio="10000">Agregar al carrito</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ MANTENIMIENTO MENSUAL ============ -->
+    <section id="mantenimiento-mensual" class="seccion-clara">
+      <h2>Mantenimiento Mensual</h2>
+      <p class="tarjeta-precio" style="font-size:1.4rem;">₡50.000 / mes</p>
+      <p>Para quien prefiere no pensar en su sitio y que Web Artesanal lo mantenga funcionando y visible todos los meses. Incluye:</p>
+      <ul style="display:grid; gap:0.6rem; list-style:disc; padding-left:1.2rem;">
+        <li>SEO básico y ficha de Google Maps / Google Business Profile</li>
+        <li>Estadísticas y analítica del sitio</li>
+        <li>Hasta 2 cambios básicos al mes (una imagen o una categoría)</li>
+        <li>Revisión de que el sitio se mantenga funcionando de forma óptima</li>
+        <li>Atención prioritaria — sin entrar en la cola normal de cambios cobrados</li>
+      </ul>
+      <button type="button" class="btn-agregar-carrito" data-nombre="Mantenimiento Mensual" data-precio="50000">Agregar al carrito</button>
+    </section>
+
+    <!-- ============ CAMBIOS Y EXTRAS ============ -->
+    <section>
+      <h2>Cambios y extras</h2>
+      <ul style="display:grid; gap:0.6rem; list-style:disc; padding-left:1.2rem;">
+        <li>No se cobra una tarifa por hora. Los cambios adicionales se cobran por producto, página, categoría, imagen, artículo o función, según corresponda.</li>
+        <li>Los errores de Web Artesanal se corrigen sin costo.</li>
+        <li>Una solicitud nueva que no estaba incluida en el servicio contratado se considera una ampliación.</li>
+        <li>El dominio y el hosting están incluidos sin costo durante el primer año. A partir del segundo año, el Alojamiento + mantenimiento técnico básico cuesta ₡10.000 por mes (₡108.000 al año, pagando de una vez) — distinto del Mantenimiento Mensual de ₡50.000.</li>
+      </ul>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>¿No sabe cuál necesita?</h2>
+        <p>Complete el cuestionario y le recomendamos la combinación de servicios que mejor se ajusta a su negocio y presupuesto.</p>
+        <a href="index.html#cuestionario" class="boton-primario">Cuéntenos sobre su proyecto →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/banner2.webp" alt="Web Artesanal" style="height:70px; margin-bottom:0.8rem;" loading="lazy" decoding="async">
+        <p class="footer-tagline">Sitios con alma, negocios reales. Pequeños negocios, grandes historias online.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="precios-y-productos.html">Precios y Productos</a>
+        <a href="que-recibira.html">Qué Recibirá</a>
+        <a href="ejemplos.html">Ejemplos</a>
+        <a href="como-funciona.html">Cómo Funciona</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/50687071092" target="_blank" rel="noopener">WhatsApp: +506 8707-1092</a>
+        <a href="mailto:506webartesanal@gmail.com">506webartesanal@gmail.com</a>
+        <a href="https://www.facebook.com/506webartesanal" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/506webartesanal" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@webartesanal" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://506webartesanal.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Web Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  
+  <button id="hojitaBtn" type="button" class="hojita-boton" aria-label="Abrir asistente La Hojita">
+    <img src="assets/img/hojita-chatbot.webp" alt="La Hojita, asistente virtual de Web Artesanal">
+  </button>
+  <div id="hojitaPanel" class="hojita-panel" hidden>
+    <div class="hojita-panel-header">
+      <img src="assets/img/hojita-chatbot.webp" alt="" class="hojita-panel-avatar">
+      <strong>La Hojita</strong>
+      <button id="hojitaCerrar" type="button" class="hojita-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="hojitaConversacion" class="hojita-conversacion"></div>
+    <div class="hojita-footer-input">
+      <input type="text" id="hojitaPreguntaLibre" placeholder="Escriba su pregunta sobre el sitio...">
+      <button type="button" id="hojitaEnviarPregunta">➤</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
