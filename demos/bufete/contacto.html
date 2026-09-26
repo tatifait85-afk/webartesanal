@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Bufete JMC y Asociados</title>
+  <meta name="description" content="Contacto de Bufete JMC y Asociados en Esparza, Puntarenas. Estamos aquí para escucharle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header-jmc">
+    <div class="nav-wrap-jmc">
+      <a href="index.html" class="logo-jmc">
+        <span class="icono">⚖️</span>
+        <span class="nombre">Bufete JMC<br>y Asociados<span>Soluciones legales para tu tranquilidad</span></span>
+      </a>
+      <button class="nav-toggle-jmc" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links-jmc" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nuestro-equipo.html">Nuestro Equipo</a></li>
+        <li><a href="honorarios.html">Honorarios</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        <li><a href="agendar-cita.html" class="boton-primario-jmc">Agendar Cita</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-servicios-jmc">
+      <h1>Contacto</h1>
+      <p>Estamos aquí para escucharle.</p>
+    </section>
+
+    <section style="padding-top:0;">
+      <p style="text-align:center; color:var(--color-text-light); max-width:560px; margin:0 auto var(--space-md) auto;">Encuentre la manera más conveniente de comunicarse con nuestro equipo.</p>
+
+      <div class="grid-contacto-jmc">
+        <div class="tarjeta-contacto-jmc">
+          <span class="icono">📍</span>
+          <h3>Dirección</h3>
+          <p>Esparza, Puntarenas,<br>Costa Rica</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Esparza%2C%20Puntarenas%2C%20Costa%20Rica" target="_blank" rel="noopener" class="boton-secundario-jmc">Cómo llegar</a>
+        </div>
+        <div class="tarjeta-contacto-jmc">
+          <span class="icono">📞</span>
+          <h3>Teléfono</h3>
+          <p>+506 8888-8888</p>
+          <a href="tel:+50688888888" class="boton-secundario-jmc">Llamar</a>
+        </div>
+        <div class="tarjeta-contacto-jmc">
+          <span class="icono">💬</span>
+          <h3>WhatsApp</h3>
+          <p>+506 8888-8888</p>
+          <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="boton-secundario-jmc">Escribir</a>
+        </div>
+        <div class="tarjeta-contacto-jmc">
+          <span class="icono">✉️</span>
+          <h3>Correo</h3>
+          <p>info@bufetejmc.com</p>
+          <a href="mailto:info@bufetejmc.com" class="boton-secundario-jmc">Escribir</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="layout-contacto-jmc">
+        <div>
+          <h2>Envíenos su consulta</h2>
+          <form id="formContactoJmc">
+            <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Nombre completo *</label>
+            <input type="text" id="nombreContactoJmc" style="width:100%; padding:0.6rem 0.8rem; border:1px solid var(--color-border); border-radius:6px; margin-bottom:0.9rem;" placeholder="Su nombre completo">
+
+            <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Correo electrónico *</label>
+            <input type="email" id="correoContactoJmc" style="width:100%; padding:0.6rem 0.8rem; border:1px solid var(--color-border); border-radius:6px; margin-bottom:0.9rem;" placeholder="su.correo@ejemplo.com">
+
+            <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Teléfono *</label>
+            <input type="tel" id="telefonoContactoJmc" style="width:100%; padding:0.6rem 0.8rem; border:1px solid var(--color-border); border-radius:6px; margin-bottom:0.9rem;" placeholder="Su número de teléfono">
+
+            <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Área *</label>
+            <select id="areaContactoJmc" style="width:100%; padding:0.6rem 0.8rem; border:1px solid var(--color-border); border-radius:6px; margin-bottom:0.9rem;">
+              <option value="">Seleccione una opción</option>
+              <option>Derecho Laboral</option>
+              <option>Derecho de Familia</option>
+              <option>Derecho Penal</option>
+              <option>No estoy seguro</option>
+            </select>
+
+            <label style="font-size:0.82rem; font-weight:700; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Mensaje *</label>
+            <textarea id="mensajeContactoJmc" rows="4" style="width:100%; padding:0.6rem 0.8rem; border:1px solid var(--color-border); border-radius:6px; margin-bottom:0.9rem;" placeholder="Cuéntenos brevemente su consulta..."></textarea>
+
+            <div class="check-privacidad-jmc" style="margin-bottom:1rem;">
+              <input type="checkbox" id="privacidadContactoJmc" style="margin-top:0.2rem;">
+              <label for="privacidadContactoJmc" style="font-weight:400;">Acepto la política de privacidad y el tratamiento de mis datos para fines de contacto.</label>
+            </div>
+
+            <p class="error-reserva-jmc" id="errorContactoJmc">Complete todos los campos obligatorios, con un correo válido, y acepte la política de privacidad.</p>
+            <button type="button" id="btnEnviarContactoJmc" class="boton-primario-jmc" style="width:100%; justify-content:center;">✉️ Enviar consulta</button>
+            <p style="font-size:0.76rem; color:var(--color-text-light); text-align:center; margin-top:0.6rem;">Esto abrirá su programa de correo con el mensaje ya redactado, listo para enviar a info@bufetejmc.com.</p>
+          </form>
+        </div>
+
+        <iframe class="mapa-jmc" src="https://www.google.com/maps?q=Esparza,Puntarenas,Costa Rica&output=embed" loading="lazy" title="Ubicación de Bufete JMC y Asociados en el mapa"></iframe>
+      </div>
+    </section>
+
+    <section class="cta-final-jmc">
+      <h2>¿Prefiere hablar directamente?</h2>
+      <div class="cta-final-jmc-botones">
+        <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="boton-primario-jmc">💬 Escribir por WhatsApp</a>
+        <a href="agendar-cita.html" class="boton-secundario-jmc" style="color:var(--color-white); border-color:var(--color-white);">📅 Agendar una consulta</a>
+      </div>
+    </section>
+  </main>
+
+    <div class="juris-flotante-jmc">
+    <div class="juris-globo-jmc">
+      <strong>Hola, soy Juris</strong>
+      ¿En qué puedo orientarle hoy?
+    </div>
+    <button type="button" id="jurisBtnJmc" class="juris-boton-jmc" aria-label="Abrir chat con Juris">
+      <img src="assets/img/juris.webp" alt="Juris, el asistente virtual de Bufete JMC y Asociados">
+    </button>
+  </div>
+
+  <div id="jurisPanelJmc" class="juris-panel-jmc" hidden>
+    <div class="juris-panel-header-jmc">
+      <img src="assets/img/juris.webp" alt="">
+      <strong>Juris</strong>
+      <button type="button" id="jurisCerrarJmc" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="jurisConversacionJmc" class="juris-conversacion-jmc"></div>
+    <div class="juris-footer-input-jmc">
+      <input type="text" id="jurisPreguntaJmc" placeholder="Escriba su consulta...">
+      <button type="button" id="jurisEnviarJmc">➤</button>
+    </div>
+  </div>
+
+  <footer class="site-footer-jmc">
+    <div class="footer-grid-jmc">
+      <div>
+        <h4>Bufete JMC y Asociados</h4>
+        <p>Soluciones legales para tu tranquilidad.</p>
+        <div class="footer-redes-jmc"><span>f</span><span>in</span><span>◎</span></div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nuestro-equipo.html">Nuestro Equipo</a>
+        <a href="honorarios.html">Honorarios</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="tel:+50688888888">+506 8888-8888</a>
+        <a href="mailto:info@bufetejmc.com">info@bufetejmc.com</a>
+      </div>
+      <div>
+        <h4>Ubicación</h4>
+        <p>Esparza, Puntarenas,<br>Costa Rica</p>
+      </div>
+    </div>
+    <div class="footer-bottom-jmc">&copy; 2026 Bufete JMC y Asociados. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/juris.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>

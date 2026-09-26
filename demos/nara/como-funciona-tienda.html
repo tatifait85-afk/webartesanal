@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Funciona la Tienda — NARA</title>
+  <meta name="description" content="Cómo funciona la compra en NARA, el pago con PayPal en dólares, y cómo se retiran los fondos en Costa Rica con Wink.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <div class="franja-superior-nara">
+    <span>🚚 Envíos a todo Costa Rica</span>
+    <span>Moda consciente para tu día a día</span>
+    <span class="redes-nara">Síguenos · IG · FB</span>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header-nara">
+    <div class="nav-wrap-nara">
+      <a href="index.html" class="logo-nara">NARA<span>ROPA PARA TU RITMO</span></a>
+
+      <button class="nav-toggle-nara" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links-nara" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="como-funciona-tienda.html" aria-current="page">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="prueba-paypal.html" class="btn-prueba-paypal-nav">💲 Prueba PayPal</a></li>
+      </ul>
+
+      <div class="iconos-header-nara">
+        <span title="Buscar (próximamente)">🔍</span>
+        <span title="Mi cuenta (próximamente)">👤</span>
+        <button type="button" id="carritoBtnNara" class="carrito-icono-nara" style="background:none;border:none;" title="Ver carrito">🛍️<span id="carritoContadorNara" class="carrito-contador-nara" style="display:none;">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="carritoOverlayNara" class="carrito-overlay-nara" hidden></div>
+  <div id="carritoPanelNara" class="carrito-panel-nara" hidden>
+    <div class="carrito-panel-inner-nara">
+      <div class="carrito-header-nara">
+        <h3 style="margin:0;">Tu carrito</h3>
+        <button type="button" id="carritoCerrarNara" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoNara"></div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ INTRO ============ -->
+    <section style="text-align:center; max-width:640px;">
+      <span class="ficha-nara-categoria">CÓMO FUNCIONA</span>
+      <h1 style="font-size:var(--fs-h2); margin-top:0.4rem;">De tu carrito a tu clóset</h1>
+      <p style="color:var(--color-text-light);">Así funciona el proceso de compra en NARA, de principio a fin.</p>
+    </section>
+
+    <!-- ============ PASOS ============ -->
+    <section>
+      <div class="pasos-tienda-nara">
+        <div class="paso-tienda-nara">
+          <div class="numero">1</div>
+          <div>
+            <h3>Explora y elige</h3>
+            <p>Recorre la Tienda o las Categorías, entra a la ficha de la prenda que te gusta, y elige tu color y talla.</p>
+          </div>
+        </div>
+        <div class="paso-tienda-nara">
+          <div class="numero">2</div>
+          <div>
+            <h3>Agrégala a tu carrito</h3>
+            <p>Puedes seguir comprando y agregar varias prendas — el carrito se mantiene mientras navegas por el sitio.</p>
+          </div>
+        </div>
+        <div class="paso-tienda-nara">
+          <div class="numero">3</div>
+          <div>
+            <h3>Paga con PayPal</h3>
+            <p>Al finalizar, el pago se procesa a través de PayPal — una de las formas más seguras y usadas de pagar en línea.</p>
+          </div>
+        </div>
+        <div class="paso-tienda-nara">
+          <div class="numero">4</div>
+          <div>
+            <h3>Recibe tu pedido</h3>
+            <p>Preparamos y enviamos tu compra a todo Costa Rica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NOTA DE MONEDA ============ -->
+    <section class="seccion-marfil-nara">
+      <h2>¿En qué moneda se cobra?</h2>
+      <p style="color:var(--color-text-light); max-width:720px;">
+        Los precios en NARA se muestran en colones costarricenses (₡) — de hecho, una tienda puede mostrar sus precios en cualquier moneda que prefiera.
+        Sin embargo, <strong>PayPal siempre procesa el cobro final en dólares estadounidenses (USD)</strong>, sin importar en qué moneda se haya mostrado el precio en el sitio.
+        La conversión la hace PayPal automáticamente al momento de pagar, usando su tipo de cambio del día.
+      </p>
+    </section>
+
+    <!-- ============ WINK ============ -->
+    <section>
+      <h2>¿Cómo se recibe el dinero en Costa Rica?</h2>
+      <div class="caja-wink-nara">
+        <h3>PayPal + Wink</h3>
+        <p>
+          Como PayPal cobra en dólares, un negocio en Costa Rica necesita una forma de traer ese dinero a colones.
+          Para eso existe <strong>Wink</strong>, que tiene un convenio directo con PayPal para retirar esos fondos de forma simple a una cuenta de Wink.
+        </p>
+        <ul>
+          <li>Hay que vincular la cuenta de PayPal a la cuenta de Wink desde la app de Wink.</li>
+          <li>El retiro se solicita desde la sección de PayPal dentro de la app de Wink — no desde la página de PayPal directamente.</li>
+          <li>La comisión del servicio va de $5 a $45 por retiro, según el monto.</li>
+          <li>El máximo de retiro es de $2,000 por día.</li>
+        </ul>
+        <p style="margin-bottom:0;">
+          Fuente oficial: <a href="https://soporte.holawink.com/es/articles/2852766-como-funciona-el-servicio-paypal-con-wink" target="_blank" rel="noopener">Soporte Wink — ¿Cómo funciona el servicio PayPal con Wink?</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final-nara">
+      <h2>¿Lista para probarlo?</h2>
+      <a href="tienda.html" class="boton-primario-nara">Ir a la tienda →</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer-nara">
+    <div class="footer-grid-nara">
+      <div>
+        <p class="logo-nara" style="font-size:1.3rem;">NARA</p>
+        <p>Ropa para tu ritmo.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Información</h4>
+        <p>Envíos a todo Costa Rica</p>
+        <p>Cambios y devoluciones</p>
+        <p>Pago seguro con PayPal</p>
+      </div>
+    </div>
+    <div class="footer-bottom-nara">
+      &copy; 2026 NARA. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
