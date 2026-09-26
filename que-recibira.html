@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qué Recibirá — Web Artesanal</title>
+  <meta name="description" content="Conozca los manuales y guías que recibe junto con su sitio web, según las funciones que contrate.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-lockup">
+        <img src="assets/img/banner2.webp" alt="Web Artesanal — Sitios con alma, negocios reales">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="precios-y-productos.html">Precios y Productos</a></li>
+        <li><a href="que-recibira.html" aria-current="page">Qué Recibirá</a></li>
+        <li><a href="ejemplos.html">Ejemplos</a></li>
+        <li><a href="como-funciona.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+                <li><button id="carritoBtn" type="button" class="carrito-boton-nav" aria-label="Ver carrito">🛒<span id="carritoContador" class="carrito-contador" style="display:none;">0</span></button></li>
+        <li><a href="https://wa.me/50687071092" class="btn-whatsapp-nav" target="_blank" rel="noopener">Hablemos por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+  <div id="carritoOverlay" class="carrito-overlay" hidden></div>
+  <div id="carritoPanel" class="carrito-panel" hidden>
+    <div class="carrito-panel-inner">
+      <div class="carrito-header">
+        <h3>Su carrito</h3>
+        <button id="carritoCerrar" type="button" class="carrito-cerrar" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div id="carritoVacioMsg" class="carrito-vacio-msg">Su carrito está vacío.</div>
+      <div id="carritoItems" class="carrito-items"></div>
+      <div style="display:none; justify-content:space-between; font-weight:800; font-size:1.15rem; color:var(--color-navy); border-top:2px solid var(--color-orange); padding-top:0.9rem;">
+        <span>Total</span>
+        <span id="carritoTotal">₡0</span>
+      </div>
+
+      <div id="carritoCheckout" class="carrito-checkout" style="display:none;">
+        <h4>Sus datos</h4>
+        <input type="text" id="carritoNombre" class="q-input-texto" placeholder="Nombre">
+        <input type="tel" id="carritoTelefono" class="q-input-texto" placeholder="Teléfono">
+        <input type="email" id="carritoEmail" class="q-input-texto" placeholder="Correo electrónico">
+        <p class="q-error" id="carritoErrorValidacion">Complete nombre, teléfono y un correo válido.</p>
+        <p class="q-error" id="carritoErrorEnvio">No se pudo enviar su pedido. Intente de nuevo o escríbanos por WhatsApp.</p>
+        <p class="q-recomendacion-nota" id="carritoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Pedido enviado! Le contactaremos pronto.</p>
+        <button type="button" id="carritoEnviarBtn" class="boton-primario" style="width:100%;">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero-recibira">
+      <div>
+        <span class="hero-badge">MATERIAL DE APOYO</span>
+        <h1>Lo que recibirá<br>con su web</h1>
+        <p>Le entregamos una colección de manuales y guías prácticas para que pueda administrar su sitio con confianza, incluso si nunca ha trabajado con una página antes.</p>
+        <p class="nota-manuscrita">✎ Conocimiento que le da libertad</p>
+      </div>
+
+      <div>
+        <img src="assets/img/hojita-chatbot.webp" alt="Hojita, la asistente virtual de Web Artesanal" style="max-width:280px; margin:0 auto;">
+        <div class="hojita-burbuja">
+          <strong>¡Hola! Soy Hojita, su asistente virtual.</strong><br>
+          Estoy aquí para acompañarla siempre que lo necesite.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TU KIT DE ADMINISTRACIÓN ============ -->
+    <section>
+      <div class="seccion-titulo-centro">
+        <h2>Su Kit de Administración</h2>
+        <p>Recibirá los manuales según las funciones de su sitio web. Todo explicado de forma clara, con ejemplos reales y pensado para que usted pueda hacerlo.</p>
+      </div>
+
+      <div class="grid-kit">
+
+        <article class="tarjeta-kit">
+          <h3>Su sitio web</h3>
+          <ul>
+            <li>Manual general de su sitio</li>
+            <li>Guía de administración de contenido</li>
+            <li>Guía de mantenimiento</li>
+            <li>Guía de soporte y solución de problemas</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Si tiene una tienda</h3>
+          <ul>
+            <li>Manual de productos</li>
+            <li>Manual de pedidos</li>
+            <li>Guía de imágenes y fotografías</li>
+            <li>Guía de gestión de categorías</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Si tiene Reservas</h3>
+          <ul>
+            <li>Manual de Reservas y Calendario</li>
+            <li>Cómo bloquear fechas</li>
+            <li>Cómo habilitar nuevamente la disponibilidad</li>
+            <li>Cómo gestionar reservas</li>
+            <li>Conexión con Google Calendar</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Si tiene Carrito WhatsApp</h3>
+          <ul>
+            <li>Manual del Carrito WhatsApp</li>
+            <li>Gestión y recepción de pedidos</li>
+            <li>Guía de atención de pedidos</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Si tiene Chatbot</h3>
+          <ul>
+            <li>Manual de administración del chatbot</li>
+            <li>Qué puede y qué no puede hacer</li>
+            <li>Guía para solicitar cambios</li>
+            <li>Ejemplos de preguntas y respuestas</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Si tiene pagos en línea</h3>
+          <ul>
+            <li>Manual de PayPal</li>
+            <li>Gestión básica de pagos</li>
+            <li>Qué hacer ante incidencias</li>
+            <li>Información importante de seguridad</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Información y seguridad</h3>
+          <ul>
+            <li>Guía de accesos y cuentas</li>
+            <li>Recomendaciones de seguridad</li>
+            <li>Información de servicios conectados</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+        <article class="tarjeta-kit">
+          <h3>Guía de imágenes</h3>
+          <ul>
+            <li>Cómo tomar buenas fotos</li>
+            <li>Tamaños y formatos recomendados</li>
+            <li>Qué evitar</li>
+            <li>Ejemplos y recomendaciones</li>
+          </ul>
+          <span class="ver-detalles-pendiente">Ver detalles → <span class="etiqueta-pronto">próximamente</span></span>
+        </article>
+
+      </div>
+
+      <p class="hero-nota" style="text-align:center; margin-top:1.5rem;">
+        Usted no recibe necesariamente todos estos manuales — el material se entrega según las funciones y servicios que contrate para su proyecto.
+      </p>
+    </section>
+
+    <!-- ============ CTA: DELEGAR LA GESTIÓN ============ -->
+    <section>
+      <div class="cta-gestion">
+        <h2>¿Prefiere dedicar su tiempo a su negocio?</h2>
+        <p style="max-width:640px; margin:0 auto 1.2rem auto;">
+          No tiene que aprender a administrar su página si no quiere. En Web Artesanal podemos encargarnos de las actualizaciones, cambios y gestión de su sitio para que usted pueda concentrarse en lo que realmente importa: su negocio y sus clientes.
+        </p>
+        <a href="precios-y-productos.html" class="boton-primario">Nosotros nos encargamos de su web →</a>
+      </div>
+      <p class="frase-cierre">Sí, todos esos manuales son suyos. Pero no tiene que usarlos. 😉</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/banner2.webp" alt="Web Artesanal" style="height:70px; margin-bottom:0.8rem;" loading="lazy" decoding="async">
+        <p class="footer-tagline">Sitios con alma, negocios reales. Pequeños negocios, grandes historias online.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="precios-y-productos.html">Precios y Productos</a>
+        <a href="que-recibira.html">Qué Recibirá</a>
+        <a href="ejemplos.html">Ejemplos</a>
+        <a href="como-funciona.html">Cómo Funciona</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/50687071092" target="_blank" rel="noopener">WhatsApp: +506 8707-1092</a>
+        <a href="mailto:506webartesanal@gmail.com">506webartesanal@gmail.com</a>
+        <a href="https://www.facebook.com/506webartesanal" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/506webartesanal" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@webartesanal" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://506webartesanal.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Web Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  
+  <button id="hojitaBtn" type="button" class="hojita-boton" aria-label="Abrir asistente La Hojita">
+    <img src="assets/img/hojita-chatbot.webp" alt="La Hojita, asistente virtual de Web Artesanal">
+  </button>
+  <div id="hojitaPanel" class="hojita-panel" hidden>
+    <div class="hojita-panel-header">
+      <img src="assets/img/hojita-chatbot.webp" alt="" class="hojita-panel-avatar">
+      <strong>La Hojita</strong>
+      <button id="hojitaCerrar" type="button" class="hojita-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="hojitaConversacion" class="hojita-conversacion"></div>
+    <div class="hojita-footer-input">
+      <input type="text" id="hojitaPreguntaLibre" placeholder="Escriba su pregunta sobre el sitio...">
+      <button type="button" id="hojitaEnviarPregunta">➤</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

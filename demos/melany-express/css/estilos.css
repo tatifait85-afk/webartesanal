@@ -1,0 +1,96 @@
+:root {
+  --color-rosa: #ec4899;
+  --color-rosa-dark: #be185d;
+  --color-negro: #171717;
+  --color-crema: #fdf6f8;
+  --color-white: #ffffff;
+  --color-text: #2b2b2b;
+  --color-text-light: #6b6b6b;
+  --color-border: #f0dbe4;
+  --font-titulos: 'Fredoka', system-ui, sans-serif;
+  --font-texto: 'Nunito', system-ui, sans-serif;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(190, 24, 93, 0.12);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-texto); color: var(--color-text); background: var(--color-white); line-height: 1.65; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: var(--font-titulos); color: var(--color-negro); margin: 0 0 0.8rem 0; }
+section { padding: 4rem 1.5rem; max-width: 1150px; margin: 0 auto; }
+p { margin: 0 0 1rem 0; }
+
+/* Header */
+.header-melany {
+  position: sticky; top: 0; z-index: 100; background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+}
+.logo-melany { font-family: var(--font-titulos); font-size: 1.4rem; color: var(--color-rosa-dark); font-weight: 600; }
+.logo-melany span { color: var(--color-negro); }
+.nav-melany { display: flex; gap: 1.4rem; font-weight: 600; font-size: 0.92rem; }
+.nav-melany a:hover { color: var(--color-rosa-dark); }
+
+/* Botones */
+.btn-primario-melany, .btn-secundario-melany {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.6rem; border-radius: 999px; font-weight: 700; font-size: 0.92rem; border: none; cursor: pointer;
+}
+.btn-primario-melany { background: var(--color-rosa); color: var(--color-white); }
+.btn-primario-melany:hover { background: var(--color-rosa-dark); }
+.btn-secundario-melany { background: var(--color-white); color: var(--color-negro); border: 1.5px solid var(--color-negro); }
+
+/* Hero */
+.hero-melany { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; background: var(--color-crema); }
+.hero-melany h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+.hero-melany p.subtexto { color: var(--color-text-light); font-size: 1.05rem; max-width: 440px; }
+.hero-melany-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.hero-melany-imagen img { border-radius: var(--radius); box-shadow: var(--shadow); }
+
+@media (max-width: 860px) { .hero-melany { grid-template-columns: 1fr; } }
+
+/* Servicios */
+.grid-servicios-melany { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.tarjeta-servicio-melany {
+  background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius);
+  padding: 1.6rem 1.2rem; text-align: center; box-shadow: var(--shadow);
+}
+.tarjeta-servicio-melany .icono { font-size: 2rem; margin-bottom: 0.6rem; }
+.tarjeta-servicio-melany h3 { font-size: 1.1rem; }
+.tarjeta-servicio-melany p { color: var(--color-text-light); font-size: 0.88rem; margin: 0; }
+
+@media (max-width: 860px) { .grid-servicios-melany { grid-template-columns: repeat(2, 1fr); } }
+
+/* Cómo funciona */
+.pasos-melany { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; text-align: center; }
+.paso-melany .num {
+  width: 42px; height: 42px; border-radius: 50%; background: var(--color-rosa); color: var(--color-white);
+  display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 0.7rem auto;
+}
+@media (max-width: 860px) { .pasos-melany { grid-template-columns: 1fr; } }
+
+/* CTA final */
+.cta-final-melany { background: var(--color-negro); color: var(--color-white); text-align: center; border-radius: var(--radius); margin: 0 1.5rem; }
+.cta-final-melany h2 { color: var(--color-white); }
+.cta-final-melany p { color: #d4d4d4; }
+
+/* Footer */
+.footer-melany { background: var(--color-crema); text-align: center; padding: 2rem 1.5rem; font-size: 0.85rem; color: var(--color-text-light); }
+
+/* Globito de WhatsApp */
+.whatsapp-flotante-melany {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 150;
+  display: flex; align-items: flex-end; gap: 0.6rem;
+}
+.whatsapp-globo-melany {
+  background: var(--color-white); border: 1px solid var(--color-border); border-radius: 14px 14px 4px 14px;
+  padding: 0.65rem 0.9rem; font-size: 0.8rem; color: var(--color-text); box-shadow: var(--shadow); max-width: 190px;
+}
+.whatsapp-globo-melany span.etiqueta { display: block; font-size: 0.66rem; color: var(--color-text-light); margin-top: 0.3rem; }
+.whatsapp-boton-melany {
+  width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: var(--color-white);
+  display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: var(--shadow);
+  border: none; cursor: pointer; flex-shrink: 0;
+}
