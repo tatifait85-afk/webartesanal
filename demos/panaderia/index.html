@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Espiga Artesanal — Pan y repostería artesanal en Esparza</title>
+  <meta name="description" content="La Espiga Artesanal: pan y repostería artesanal en Esparza, Puntarenas. Pan recién hecho, todos los días.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <div class="franja-demo-pan">Sitio de demostración — Web Artesanal</div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header-pan">
+    <div class="nav-wrap-pan">
+      <a href="index.html" class="logo-pan">
+        <span class="icono">🥖</span>
+        <span class="nombre">La Espiga Artesanal<span>Pan y repostería artesanal</span></span>
+      </a>
+
+      <button class="nav-toggle-pan" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links-pan" id="navLinks">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="contacto.html" class="boton-primario-pan">Pedir por WhatsApp</a></li>
+      </ul>
+      <button type="button" id="carritoBtnPan" class="carrito-icono-pan" aria-label="Ver carrito">🛒<span id="carritoContadorPan" class="carrito-contador-pan" style="display:none;">0</span></button>
+    </div>
+  </header>
+  <div id="carritoOverlayPan" class="carrito-overlay-pan" hidden></div>
+  <div id="carritoPanelPan" class="carrito-panel-pan" hidden>
+    <div class="carrito-panel-inner-pan">
+      <div class="carrito-header-pan">
+        <h3 style="margin:0;">Su pedido</h3>
+        <button type="button" id="carritoCerrarPan" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoPan"></div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero-pan">
+      <div class="hero-pan-texto">
+        <h1>Pan recién hecho,<br>todos los días</h1>
+        <p>En La Espiga Artesanal horneamos pan y repostería de manera artesanal, para que usted disfrute de sabores auténticos.</p>
+        <div class="hero-pan-cta">
+          <a href="productos.html" class="boton-primario-pan">Ver productos</a>
+          <a href="contacto.html" class="boton-secundario-pan">Pedir por WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-pan-imagen">
+        <img src="assets/img/baguette.jpeg" alt="Baguette artesanal recién horneada, con corteza crujiente y miga ligera">
+      </div>
+    </section>
+
+    <!-- ============ SEPARADOR ============ -->
+    <div class="separador-pan">
+      <span class="kicker">Elaboración artesanal, todos los días</span>
+      <h2>Pequeños placeres, grandes momentos</h2>
+    </div>
+
+    <!-- ============ CATEGORÍAS ============ -->
+    <section>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <h2>Nuestras categorías</h2>
+      </div>
+      <div class="grid-categorias-pan">
+        <a href="productos.html#panes" class="tarjeta-categoria-pan">
+          <img src="assets/img/pan-masa-madre.jpeg" alt="Panes">
+          <div class="overlay"><h3>Panes</h3></div>
+        </a>
+        <a href="productos.html#reposteria" class="tarjeta-categoria-pan">
+          <img src="assets/img/tarta-chocolate.jpeg" alt="Repostería">
+          <div class="overlay"><h3>Repostería</h3></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ DESTACADOS ============ -->
+    <section>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <h2>Productos destacados</h2>
+        <p style="color:var(--color-text-light);">Una muestra de lo que horneamos cada día.</p>
+      </div>
+      <div class="grid-productos-pan" id="destacadosPan"></div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final-pan">
+      <h2>¿Se le antojó algo?</h2>
+      <p>Escríbanos por WhatsApp para hacer su pedido.</p>
+      <div class="cta-final-pan-botones">
+        <a href="contacto.html" class="boton-primario-pan">Pedir por WhatsApp</a>
+        <a href="productos.html" class="boton-secundario-pan">Ver productos</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer-pan">
+    <div class="footer-grid-pan">
+      <div>
+        <h4>La Espiga Artesanal</h4>
+        <p>Pan y repostería artesanal.</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lunes a sábado<br>6:00 a. m. – 6:00 p. m.<br>Domingo cerrado</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>WhatsApp: pendiente de configurar</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom-pan">
+      200 metros al norte del Parque Central, Esparza, Puntarenas · &copy; 2026 La Espiga Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

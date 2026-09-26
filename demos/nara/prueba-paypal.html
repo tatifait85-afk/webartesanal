@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de pago con PayPal — NARA</title>
+  <meta name="description" content="Página de demostración para probar el proceso completo de pago con PayPal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <div class="franja-superior-nara">
+    <span>🚚 Envíos a todo Costa Rica</span>
+    <span>Moda consciente para tu día a día</span>
+    <span class="redes-nara">Síguenos · IG · FB</span>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header-nara">
+    <div class="nav-wrap-nara">
+      <a href="index.html" class="logo-nara">NARA<span>ROPA PARA TU RITMO</span></a>
+
+      <button class="nav-toggle-nara" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links-nara" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="como-funciona-tienda.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="prueba-paypal.html" class="btn-prueba-paypal-nav">💲 Prueba PayPal</a></li>
+      </ul>
+
+      <div class="iconos-header-nara">
+        <span title="Buscar (próximamente)">🔍</span>
+        <span title="Mi cuenta (próximamente)">👤</span>
+        <button type="button" id="carritoBtnNara" class="carrito-icono-nara" style="background:none;border:none;" title="Ver carrito">🛍️<span id="carritoContadorNara" class="carrito-contador-nara" style="display:none;">0</span></button>
+      </div>
+    </div>
+  </header>
+  <div id="carritoOverlayNara" class="carrito-overlay-nara" hidden></div>
+  <div id="carritoPanelNara" class="carrito-panel-nara" hidden>
+    <div class="carrito-panel-inner-nara">
+      <div class="carrito-header-nara">
+        <h3 style="margin:0;">Tu carrito</h3>
+        <button type="button" id="carritoCerrarNara" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoNara"></div>
+    </div>
+  </div>
+
+
+  <main>
+    <section style="max-width:520px;">
+      <div class="seccion-titulo-centro" style="text-align:center;">
+        <span class="ficha-nara-categoria">DEMOSTRACIÓN</span>
+        <h1 style="font-size:var(--fs-h2); margin-top:0.4rem;">Prueba el proceso de pago</h1>
+        <p style="color:var(--color-text-light);">
+          Esta página es solo para probar el flujo completo de PayPal — no forma parte del catálogo ni pasa por el carrito.
+        </p>
+      </div>
+
+      <div style="background:var(--color-marfil); border-radius:var(--radius); padding:var(--space-md); text-align:center; margin-top:1.5rem;">
+        <h2 style="margin-bottom:0.3rem;">Producto de prueba</h2>
+        <p style="color:var(--color-text-light); margin-bottom:0.8rem;">Artículo de demostración, sin valor comercial real.</p>
+        <div class="ficha-nara-precio" style="justify-content:center; display:flex;">$0.50 USD</div>
+
+        <div id="paypal-container-HJAY2SHJJWRQJ" style="margin-top:1.2rem;"></div>
+      </div>
+
+      <p style="font-size:0.8rem; color:var(--color-text-light); text-align:center; margin-top:1.2rem;">
+        Al completar el pago, PayPal te va a redirigir a su página de confirmación estándar.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer-nara">
+    <div class="footer-grid-nara">
+      <div>
+        <p class="logo-nara" style="font-size:1.3rem;">NARA</p>
+        <p>Ropa para tu ritmo.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Información</h4>
+        <p>Envíos a todo Costa Rica</p>
+        <p>Cambios y devoluciones</p>
+        <p>Pago seguro con PayPal</p>
+      </div>
+    </div>
+    <div class="footer-bottom-nara">
+      &copy; 2026 NARA. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carrito.js"></script>
+
+  <!-- Botón real de PayPal (Hosted Button) proporcionado por la dueña del proyecto -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAZuOgN2vdwoClJWCXyORLdOR1GDcUHTJl8fmhgegRobCOuCmWMWlp2zgXjydQRfn4LlBr6BuHLBlS_go&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "HJAY2SHJJWRQJ",
+    }).render("#paypal-container-HJAY2SHJJWRQJ");
+  </script>
+</body>
+</html>

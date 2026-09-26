@@ -1,0 +1,575 @@
+/* ============================================
+   BUFETE JMC Y ASOCIADOS — componentes.css
+   ============================================ */
+
+/* ---------- HEADER ---------- */
+.site-header-jmc {
+  background: var(--color-black);
+  border-bottom: 1px solid #262626;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-wrap-jmc {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0.9rem var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.logo-jmc { display: flex; align-items: center; gap: 0.7rem; }
+.logo-jmc .icono { font-size: 1.7rem; color: var(--color-white); }
+
+.logo-jmc .nombre {
+  font-family: var(--font-titulos);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.15;
+}
+
+.logo-jmc .nombre span {
+  display: block;
+  font-family: var(--font-texto);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #b8bec9;
+  text-transform: uppercase;
+}
+
+.nav-links-jmc { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+.nav-links-jmc a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.nav-links-jmc a:hover, .nav-links-jmc a[aria-current="page"] { color: var(--color-gold); }
+
+.nav-toggle-jmc { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-white); }
+
+@media (max-width: 980px) {
+  .nav-links-jmc { display: none; flex-direction: column; align-items: flex-start; width: 100%; padding: var(--space-sm) 0; }
+  .nav-links-jmc.abierto { display: flex; }
+  .nav-wrap-jmc { flex-wrap: wrap; }
+  .nav-toggle-jmc { display: block; }
+}
+
+/* ---------- BOTONES ---------- */
+.boton-primario-jmc, .boton-secundario-jmc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-primario-jmc { background: #b8872b; color: var(--color-white) !important; }
+.boton-primario-jmc:hover { background: #9c7223; }
+
+.boton-secundario-jmc {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+}
+.boton-secundario-jmc:hover { background: var(--color-navy); color: var(--color-white); }
+
+/* ---------- HERO ---------- */
+.hero-jmc {
+  background: var(--color-navy);
+  color: var(--color-ivory);
+}
+
+.hero-jmc-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.hero-jmc .kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.hero-jmc h1 { color: var(--color-white); }
+.hero-jmc h1 .dorado { color: var(--color-gold); }
+
+.hero-jmc p.subtexto { color: #cdd3dd; max-width: 460px; }
+
+.hero-jmc-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.4rem 0; }
+
+.hero-jmc .boton-secundario-jmc { color: var(--color-ivory); border-color: var(--color-ivory); }
+.hero-jmc .boton-secundario-jmc:hover { background: var(--color-ivory); color: var(--color-navy); }
+
+.hero-jmc-valores { display: flex; gap: 1.6rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.hero-jmc-valor { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #cdd3dd; }
+
+.hero-jmc-imagen img { border-radius: var(--radius); }
+
+@media (max-width: 900px) {
+  .hero-jmc-inner { grid-template-columns: 1fr; }
+}
+
+/* ---------- CITA (quote) ---------- */
+.cita-jmc {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--color-ivory);
+}
+.cita-jmc p {
+  font-family: var(--font-titulos);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-navy);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---------- EQUIPO (preview) ---------- */
+.grid-equipo-jmc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+
+.tarjeta-abogado-jmc {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  display: block;
+}
+
+.tarjeta-abogado-jmc img { width: 100%; height: 100%; object-fit: cover; }
+
+.tarjeta-abogado-jmc .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(15,31,56,0.92) 10%, rgba(15,31,56,0.15) 65%, rgba(15,31,56,0) 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1rem;
+  color: var(--color-white);
+}
+
+.tarjeta-abogado-jmc .area { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 0.2rem; }
+.tarjeta-abogado-jmc .nombre-abogado { font-family: var(--font-titulos); font-size: 1.05rem; margin-bottom: 0.2rem; }
+.tarjeta-abogado-jmc .frase { font-size: 0.78rem; color: #d8dce3; }
+
+.tarjeta-juris-jmc {
+  background: var(--color-navy);
+  border-radius: var(--radius);
+  aspect-ratio: 3/4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+.tarjeta-juris-jmc img { width: 74px; height: 74px; border-radius: 50%; object-fit: cover; }
+.tarjeta-juris-jmc strong { color: var(--color-white); font-family: var(--font-titulos); font-size: 1.05rem; }
+.tarjeta-juris-jmc span { color: #cdd3dd; font-size: 0.78rem; }
+
+@media (max-width: 900px) {
+  .grid-equipo-jmc { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- BENEFICIOS ---------- */
+.franja-beneficios-jmc {
+  background: var(--color-ivory);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  padding: var(--space-md);
+}
+.beneficio-jmc { max-width: 210px; font-size: 0.85rem; color: var(--color-text); }
+.beneficio-jmc .icono { font-size: 1.4rem; display: block; margin-bottom: 0.4rem; color: var(--color-gold-dark); }
+
+/* ---------- CTA FINAL ---------- */
+.cta-final-jmc { background: var(--color-navy); color: var(--color-white); text-align: center; }
+.cta-final-jmc h2, .cta-final-jmc p { color: var(--color-white); }
+.cta-final-jmc-botones { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+
+/* ---------- FOOTER (SIEMPRE NEGRO — regla permanente) ---------- */
+.site-footer-jmc {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-lg) var(--space-md) var(--space-sm) var(--space-md);
+}
+
+.footer-grid-jmc {
+  max-width: 1220px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md);
+}
+
+.footer-grid-jmc h4 {
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-gold); margin-bottom: 0.7rem;
+}
+.footer-grid-jmc p, .footer-grid-jmc a { font-size: 0.86rem; color: #d8dce3; display: block; margin-bottom: 0.5rem; }
+.footer-grid-jmc a:hover { color: var(--color-gold); }
+
+.footer-redes-jmc { display: flex; gap: 0.8rem; margin-top: 0.4rem; }
+.footer-redes-jmc span {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid #3a4356;
+  display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--color-white);
+}
+
+.footer-bottom-jmc {
+  max-width: 1220px; margin: var(--space-md) auto 0 auto; padding-top: var(--space-sm);
+  border-top: 1px solid #262e3d; font-size: 0.78rem; color: #9aa2b1; text-align: center;
+}
+
+/* ---------- JURIS FLOTANTE (widget, próximamente) ---------- */
+.juris-flotante-jmc {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 150;
+  display: flex; align-items: flex-end; gap: 0.6rem;
+}
+
+.juris-globo-jmc {
+  background: var(--color-ivory);
+  border: 1px solid var(--color-gold);
+  border-radius: 14px 14px 4px 14px;
+  padding: 0.7rem 1rem;
+  font-size: 0.82rem;
+  color: var(--color-navy);
+  box-shadow: var(--shadow);
+  max-width: 210px;
+}
+.juris-globo-jmc strong { display: block; font-family: var(--font-titulos); font-size: 1rem; margin-bottom: 0.2rem; }
+.juris-globo-jmc span.etiqueta { display: block; font-size: 0.68rem; color: var(--color-text-light); margin-top: 0.4rem; }
+
+.juris-boton-jmc {
+  width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
+  border: 2px solid var(--color-gold); box-shadow: var(--shadow); flex-shrink: 0; background: var(--color-navy);
+  cursor: pointer; padding: 0;
+}
+.juris-boton-jmc img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 480px) {
+  .juris-globo-jmc { max-width: 150px; font-size: 0.76rem; }
+  .juris-boton-jmc { width: 54px; height: 54px; }
+}
+
+/* ============================================
+   PÁGINA SERVICIOS
+   ============================================ */
+.hero-servicios-jmc {
+  background: var(--color-navy);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-lg) var(--space-md) var(--space-md) var(--space-md);
+}
+.hero-servicios-jmc h1 { color: var(--color-white); }
+.hero-servicios-jmc p { color: #cdd3dd; font-style: italic; font-family: var(--font-titulos); font-size: 1.2rem; }
+
+.bloque-servicio-jmc {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-lg);
+  align-items: start;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+.bloque-servicio-jmc:last-of-type { border-bottom: none; }
+.bloque-servicio-jmc.invertido { direction: rtl; }
+.bloque-servicio-jmc.invertido > * { direction: ltr; }
+
+.bloque-servicio-jmc img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+
+.bloque-servicio-jmc .area-kicker {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold-dark);
+  font-weight: 700; display: block; margin-bottom: 0.4rem;
+}
+
+.bloque-servicio-jmc .nombre-prof { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+
+.lista-servicio-jmc { display: grid; gap: 0.6rem; margin: 1.2rem 0; }
+.lista-servicio-jmc li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.92rem; }
+.lista-servicio-jmc li::before { content: '⚖'; color: var(--color-gold-dark); flex-shrink: 0; }
+
+.quote-servicio-jmc {
+  font-family: var(--font-titulos); font-style: italic; color: var(--color-navy);
+  border-left: 3px solid var(--color-gold); padding-left: 1rem; margin: 1.2rem 0; font-size: 1.05rem;
+}
+
+.bloque-servicio-jmc .botones-servicio { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+
+@media (max-width: 900px) {
+  .bloque-servicio-jmc { grid-template-columns: 1fr; direction: ltr !important; }
+}
+
+/* ============================================
+   FICHA DE ABOGADO
+   ============================================ */
+.migas-jmc { font-size: 0.78rem; color: var(--color-text-light); margin-bottom: 1.2rem; }
+.migas-jmc a { color: var(--color-text-light); text-decoration: underline; }
+
+.ficha-abogado-jmc { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-lg); align-items: start; }
+.ficha-abogado-jmc img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+
+.ficha-abogado-jmc .datos-profesionales {
+  background: var(--color-ivory);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.ficha-abogado-jmc .datos-profesionales strong { color: var(--color-navy); }
+
+@media (max-width: 900px) {
+  .ficha-abogado-jmc { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   PÁGINA NUESTRO EQUIPO
+   ============================================ */
+.grid-equipo-pagina-jmc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.tarjeta-equipo-pagina-jmc {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-equipo-pagina-jmc img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+
+.tarjeta-equipo-pagina-jmc .cuerpo { padding: 1.3rem; display: flex; flex-direction: column; flex-grow: 1; }
+.tarjeta-equipo-pagina-jmc .area-kicker { margin-bottom: 0.3rem; }
+.tarjeta-equipo-pagina-jmc h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.tarjeta-equipo-pagina-jmc p { font-size: 0.88rem; color: var(--color-text-light); flex-grow: 1; }
+
+@media (max-width: 900px) {
+  .grid-equipo-pagina-jmc { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   PÁGINA HONORARIOS
+   ============================================ */
+.hero-honorarios-jmc {
+  position: relative;
+  color: var(--color-white);
+  padding: var(--space-lg) var(--space-md);
+  background-size: cover;
+  background-position: center;
+}
+.hero-honorarios-jmc::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(10,21,38,0.92) 40%, rgba(10,21,38,0.55) 100%);
+}
+.hero-honorarios-jmc .contenido { position: relative; max-width: 1220px; margin: 0 auto; }
+.hero-honorarios-jmc h1 { color: var(--color-white); }
+.hero-honorarios-jmc .subrayado { color: var(--color-gold); font-weight: 600; }
+.hero-honorarios-jmc p.intro { color: #d8dce3; max-width: 520px; }
+
+.pasos-honorarios-jmc { display: grid; gap: 1.4rem; }
+.paso-honorarios-jmc { display: flex; gap: 1rem; }
+.paso-honorarios-jmc .num {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--color-gold);
+  color: var(--color-navy-dark); font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.paso-honorarios-jmc h4 { margin: 0 0 0.2rem 0; font-family: var(--font-titulos); font-size: 1.05rem; color: var(--color-navy); }
+.paso-honorarios-jmc p { font-size: 0.85rem; color: var(--color-text-light); margin: 0; }
+
+.layout-calculadora-jmc {
+  display: grid;
+  grid-template-columns: 0.85fr 1.3fr 1fr;
+  gap: 1.6rem;
+  align-items: start;
+  background: var(--color-ivory);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.panel-calculadora-jmc {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.panel-calculadora-jmc label { font-size: 0.82rem; font-weight: 700; color: var(--color-navy); display: block; margin-bottom: 0.3rem; margin-top: 0.9rem; }
+.panel-calculadora-jmc select, .panel-calculadora-jmc input, .panel-calculadora-jmc textarea {
+  width: 100%; padding: 0.65rem 0.8rem; border: 1px solid var(--color-border); border-radius: 6px;
+  font-family: inherit; font-size: 0.9rem;
+}
+
+.panel-resultado-jmc {
+  background: #eef1f6;
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  text-align: center;
+}
+.panel-resultado-jmc .monto { font-family: var(--font-titulos); font-size: 1.8rem; color: var(--color-navy); margin: 0.6rem 0; }
+.panel-resultado-jmc .placeholder { color: var(--color-text-light); font-size: 0.9rem; }
+.aviso-estimado-jmc { font-size: 0.76rem; color: var(--color-text-light); margin-top: 1rem; text-align: left; }
+.etiqueta-demo-jmc {
+  display: inline-block; background: var(--color-navy); color: var(--color-white);
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border-radius: 999px; margin-bottom: 0.6rem;
+}
+
+@media (max-width: 1080px) {
+  .layout-calculadora-jmc { grid-template-columns: 1fr; }
+}
+
+.cta-honorarios-jmc {
+  position: relative;
+  color: var(--color-white);
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+  padding: var(--space-lg) var(--space-md);
+}
+.cta-honorarios-jmc::before { content:''; position:absolute; inset:0; background: linear-gradient(90deg, rgba(10,21,38,0.9) 30%, rgba(10,21,38,0.5) 100%); }
+.cta-honorarios-jmc .contenido { position: relative; max-width: 1220px; margin: 0 auto; }
+.cta-honorarios-jmc h2, .cta-honorarios-jmc p { color: var(--color-white); }
+
+/* ============================================
+   PÁGINA AGENDAR CITA
+   ============================================ */
+.reserva-layout-jmc { display: grid; grid-template-columns: 1fr 1.6fr; gap: 1.4rem; align-items: start; }
+
+.tarjeta-reserva-jmc { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.4rem; }
+
+.pasos-reserva-jmc { display: grid; gap: 1.2rem; margin-bottom: 1.4rem; }
+.paso-reserva-jmc { display: flex; gap: 0.8rem; }
+.paso-reserva-jmc .num {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--color-gold);
+  color: var(--color-navy-dark); font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem;
+}
+.paso-reserva-jmc h4 { margin: 0 0 0.15rem 0; font-family: var(--font-titulos); font-size: 0.98rem; color: var(--color-navy); }
+.paso-reserva-jmc p { font-size: 0.82rem; color: var(--color-text-light); margin: 0; }
+
+.areas-reserva-jmc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin-bottom: 1.2rem; }
+.area-reserva-btn-jmc {
+  border: 1.5px solid var(--color-border); border-radius: 8px; padding: 0.8rem; text-align: center; cursor: pointer; background: var(--color-white);
+}
+.area-reserva-btn-jmc strong { display: block; font-size: 0.88rem; color: var(--color-navy); }
+.area-reserva-btn-jmc span { font-size: 0.74rem; color: var(--color-text-light); }
+.area-reserva-btn-jmc.activa { border-color: var(--color-gold); background: var(--color-ivory); }
+
+.modalidad-reserva-jmc { display: flex; gap: 1.2rem; margin-bottom: 1.2rem; font-size: 0.88rem; }
+.modalidad-reserva-jmc label { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
+
+.calendario-header-jmc { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.7rem; }
+.calendario-header-jmc button { background: none; border: 1px solid var(--color-border); border-radius: 6px; width: 28px; height: 28px; cursor: pointer; }
+
+.calendario-grid-jmc { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.3rem; text-align: center; margin-bottom: 1.2rem; }
+.calendario-grid-jmc .dia-nombre { font-size: 0.68rem; font-weight: 700; color: var(--color-text-light); }
+.calendario-dia-jmc { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 0.82rem; cursor: pointer; }
+.calendario-dia-jmc.vacio { visibility: hidden; }
+.calendario-dia-jmc.disponible { background: var(--color-ivory); color: var(--color-navy); }
+.calendario-dia-jmc.disponible:hover { background: #ecdfc4; }
+.calendario-dia-jmc.no-disponible { color: #c7c2b8; cursor: not-allowed; }
+.calendario-dia-jmc.seleccionado { background: var(--color-navy); color: var(--color-white); font-weight: 700; }
+
+.horarios-grid-jmc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.2rem; }
+.horario-btn-jmc { padding: 0.55rem; border-radius: 6px; border: 1px solid var(--color-border); background: var(--color-white); font-size: 0.82rem; cursor: pointer; }
+.horario-btn-jmc.seleccionado { background: var(--color-navy); color: var(--color-white); border-color: var(--color-navy); }
+.horario-btn-jmc.ocupado { color: #c7c2b8; text-decoration: line-through; cursor: not-allowed; background: var(--color-ivory); }
+
+.form-reserva-jmc { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.form-reserva-jmc .full { grid-column: 1 / -1; }
+.form-reserva-jmc label { font-size: 0.82rem; font-weight: 700; color: var(--color-navy); display: block; margin-bottom: 0.3rem; }
+.form-reserva-jmc input, .form-reserva-jmc textarea, .form-reserva-jmc select {
+  width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.88rem;
+}
+.check-privacidad-jmc { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--color-text-light); }
+
+.error-reserva-jmc { color: #b5482a; font-size: 0.8rem; display: none; }
+.error-reserva-jmc.visible { display: block; }
+
+.confirmacion-jmc { text-align: center; padding: 2rem 1rem; }
+.confirmacion-jmc .check { width: 54px; height: 54px; border-radius: 50%; background: var(--color-navy); color: var(--color-white); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 1rem auto; }
+
+@media (max-width: 980px) {
+  .reserva-layout-jmc { grid-template-columns: 1fr; }
+  .form-reserva-jmc { grid-template-columns: 1fr; }
+  .areas-reserva-jmc { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   PÁGINA CONTACTO
+   ============================================ */
+.grid-contacto-jmc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+.tarjeta-contacto-jmc { background: var(--color-ivory); border-radius: var(--radius); padding: 1.3rem; text-align: center; }
+.tarjeta-contacto-jmc .icono { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; color: var(--color-gold-dark); }
+.tarjeta-contacto-jmc h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.tarjeta-contacto-jmc p { font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 0.6rem; }
+
+.layout-contacto-jmc { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; align-items: start; }
+.mapa-jmc { width: 100%; height: 360px; border: 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+
+@media (max-width: 900px) {
+  .grid-contacto-jmc { grid-template-columns: repeat(2, 1fr); }
+  .layout-contacto-jmc { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   JURIS — panel de chat funcional
+   ============================================ */
+.juris-panel-jmc {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 151;
+  width: min(370px, calc(100vw - 2.4rem));
+  height: min(560px, calc(100vh - 2.4rem));
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 36px rgba(10,21,38,0.3);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.juris-panel-jmc[hidden] { display: none; }
+
+.juris-panel-header-jmc {
+  background: var(--color-navy); color: var(--color-white);
+  padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.7rem;
+}
+.juris-panel-header-jmc img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+.juris-panel-header-jmc strong { flex-grow: 1; font-family: var(--font-titulos); font-size: 1.05rem; }
+.juris-panel-header-jmc button { background: none; border: none; color: var(--color-white); font-size: 1.1rem; cursor: pointer; }
+
+.juris-conversacion-jmc { flex-grow: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; background: var(--color-ivory); }
+
+.juris-burbuja-bot-jmc { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 12px 12px 12px 3px; padding: 0.6rem 0.85rem; font-size: 0.85rem; max-width: 88%; align-self: flex-start; }
+.juris-burbuja-usuario-jmc { background: var(--color-navy); color: var(--color-white); border-radius: 12px 12px 3px 12px; padding: 0.55rem 0.85rem; font-size: 0.85rem; font-weight: 600; max-width: 85%; align-self: flex-end; }
+
+.juris-opciones-jmc { display: flex; flex-direction: column; gap: 0.4rem; }
+.juris-opcion-btn-jmc {
+  background: var(--color-white); border: 1.5px solid var(--color-gold-dark); color: var(--color-navy);
+  border-radius: 8px; padding: 0.5rem 0.7rem; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: none; display: block;
+}
+.juris-opcion-btn-jmc:hover { background: var(--color-gold); color: var(--color-navy-dark); }
+
+.juris-footer-input-jmc { display: flex; gap: 0.5rem; padding: 0.6rem; border-top: 1px solid var(--color-border); background: var(--color-white); }
+.juris-footer-input-jmc input { flex-grow: 1; padding: 0.5rem 0.8rem; border: 1.5px solid var(--color-border); border-radius: 999px; font-family: inherit; font-size: 0.85rem; }
+.juris-footer-input-jmc button { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--color-navy); color: var(--color-white); font-weight: 700; cursor: pointer; flex-shrink: 0; }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — La Espiga Artesanal</title>
+  <meta name="description" content="Contacto de La Espiga Artesanal en Esparza, Puntarenas: ubicación, horario y pedidos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <div class="franja-demo-pan">Sitio de demostración — Web Artesanal</div>
+
+  <header class="site-header-pan">
+    <div class="nav-wrap-pan">
+      <a href="index.html" class="logo-pan">
+        <span class="icono">🥖</span>
+        <span class="nombre">La Espiga Artesanal<span>Pan y repostería artesanal</span></span>
+      </a>
+      <button class="nav-toggle-pan" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links-pan" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+      <button type="button" id="carritoBtnPan" class="carrito-icono-pan" aria-label="Ver carrito">🛒<span id="carritoContadorPan" class="carrito-contador-pan" style="display:none;">0</span></button>
+    </div>
+  </header>
+  <div id="carritoOverlayPan" class="carrito-overlay-pan" hidden></div>
+  <div id="carritoPanelPan" class="carrito-panel-pan" hidden>
+    <div class="carrito-panel-inner-pan">
+      <div class="carrito-header-pan">
+        <h3 style="margin:0;">Su pedido</h3>
+        <button type="button" id="carritoCerrarPan" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="carritoCuerpoPan"></div>
+    </div>
+  </div>
+
+
+  <main>
+    <section style="text-align:center; max-width:600px;">
+      <h1>Contáctenos</h1>
+      <p style="color:var(--color-text-light);">Estamos para atenderle con gusto.</p>
+    </section>
+
+    <section>
+      <div class="grid-contacto-pan">
+        <div class="tarjeta-contacto-pan">
+          <span class="icono">💬</span>
+          <h3>WhatsApp</h3>
+          <p>Pendiente de configurar en esta demo</p>
+        </div>
+        <div class="tarjeta-contacto-pan">
+          <span class="icono">📍</span>
+          <h3>Ubicación</h3>
+          <p>200 m al norte del Parque Central, Esparza, Puntarenas</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Parque%20Central%20de%20Esparza%2C%20Puntarenas%2C%20Costa%20Rica" target="_blank" rel="noopener" class="boton-secundario-pan">Cómo llegar</a>
+        </div>
+        <div class="tarjeta-contacto-pan">
+          <span class="icono">🕒</span>
+          <h3>Horario</h3>
+          <p>Lunes a sábado<br>6:00 a. m. – 6:00 p. m.<br>Domingo cerrado</p>
+        </div>
+        <div class="tarjeta-contacto-pan">
+          <span class="icono">🚚</span>
+          <h3>Entregas</h3>
+          <p>Esparza y zonas cercanas.<br>Costo de entrega: ₡1.500</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <iframe class="mapa-pan" src="https://www.google.com/maps?q=Parque Central de Esparza, Puntarenas, Costa Rica&output=embed" loading="lazy" title="Ubicación de La Espiga Artesanal en el mapa"></iframe>
+    </section>
+
+    <section style="text-align:center; max-width:640px;">
+      <p style="color:var(--color-text-light); font-size:0.9rem;">
+        Los pedidos grandes deben solicitarse con 24 horas de anticipación. El Pan de Masa Madre se hornea únicamente los miércoles y sábados.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer-pan">
+    <div class="footer-grid-pan">
+      <div><h4>La Espiga Artesanal</h4><p>Pan y repostería artesanal.</p></div>
+      <div><h4>Horario</h4><p>Lunes a sábado<br>6:00 a. m. – 6:00 p. m.<br>Domingo cerrado</p></div>
+      <div><h4>Contacto</h4><p>WhatsApp: pendiente de configurar</p></div>
+      <div><h4>Navegación</h4><a href="index.html">Inicio</a><a href="productos.html">Productos</a><a href="contacto.html">Contacto</a></div>
+    </div>
+    <div class="footer-bottom-pan">200 metros al norte del Parque Central, Esparza, Puntarenas · &copy; 2026 La Espiga Artesanal. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>

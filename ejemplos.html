@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos — Web Artesanal</title>
+  <meta name="description" content="Conozca ejemplos de sitios web hechos por Web Artesanal para distintos tipos de negocio.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-lockup">
+        <img src="assets/img/banner2.webp" alt="Web Artesanal — Sitios con alma, negocios reales">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="precios-y-productos.html">Precios y Productos</a></li>
+        <li><a href="que-recibira.html">Qué Recibirá</a></li>
+        <li><a href="ejemplos.html" aria-current="page">Ejemplos</a></li>
+        <li><a href="como-funciona.html">Cómo Funciona</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><button id="carritoBtn" type="button" class="carrito-boton-nav" aria-label="Ver carrito">🛒<span id="carritoContador" class="carrito-contador" style="display:none;">0</span></button></li>
+        <li><a href="https://wa.me/50687071092" class="btn-whatsapp-nav" target="_blank" rel="noopener">Hablemos por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div id="carritoOverlay" class="carrito-overlay" hidden></div>
+  <div id="carritoPanel" class="carrito-panel" hidden>
+    <div class="carrito-panel-inner">
+      <div class="carrito-header">
+        <h3>Su carrito</h3>
+        <button id="carritoCerrar" type="button" class="carrito-cerrar" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div id="carritoVacioMsg" class="carrito-vacio-msg">Su carrito está vacío.</div>
+      <div id="carritoItems" class="carrito-items"></div>
+      <div style="display:none; justify-content:space-between; font-weight:800; font-size:1.15rem; color:var(--color-navy); border-top:2px solid var(--color-orange); padding-top:0.9rem;">
+        <span>Total</span>
+        <span id="carritoTotal">₡0</span>
+      </div>
+
+      <div id="carritoCheckout" class="carrito-checkout" style="display:none;">
+        <h4>Sus datos</h4>
+        <input type="text" id="carritoNombre" class="q-input-texto" placeholder="Nombre">
+        <input type="tel" id="carritoTelefono" class="q-input-texto" placeholder="Teléfono">
+        <input type="email" id="carritoEmail" class="q-input-texto" placeholder="Correo electrónico">
+        <p class="q-error" id="carritoErrorValidacion">Complete nombre, teléfono y un correo válido.</p>
+        <p class="q-error" id="carritoErrorEnvio">No se pudo enviar su pedido. Intente de nuevo o escríbanos por WhatsApp.</p>
+        <p class="q-recomendacion-nota" id="carritoExito" style="display:none; color:#2f9e58; font-weight:700;">¡Pedido enviado! Le contactaremos pronto.</p>
+        <button type="button" id="carritoEnviarBtn" class="boton-primario" style="width:100%;">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ INTRO ============ -->
+    <section class="hero">
+      <div>
+        <span class="hero-badge">EJEMPLOS</span>
+        <h1 style="font-size:var(--fs-h1);">Sitios reales, para negocios reales</h1>
+        <p>Un vistazo a distintos tipos de negocio y cómo Web Artesanal adapta cada sitio a sus necesidades.</p>
+      </div>
+      <div class="hero-imagen">
+        <img src="assets/img/demos.webp" alt="Ejemplos de sitios web hechos por Web Artesanal">
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section>
+      <div class="lista-ejemplos">
+
+        <article class="ejemplo-item" id="ferreteria">
+          <a href="/demos/ferreteria/" target="_blank" rel="noopener" class="tarjeta-imagen-enlace"><img src="assets/img/ferreteria.webp" alt="Demo de sitio web para ferretería" loading="lazy" decoding="async"></a>
+          <div class="ejemplo-item-cuerpo">
+            <h3>Ferretería El Buen Vecino</h3>
+            <p>Catálogo de herramientas y materiales por categorías, pensado para que el cliente encuentre rápido lo que busca.</p>
+            <div class="ejemplo-item-incluye">
+              <span>🛒 Carrito WhatsApp</span>
+              <span>💬 Chatbot "Martillito"</span>
+              <span>📦 Ficha de producto</span>
+            </div>
+          <a href="/demos/ferreteria/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver demo →</a>
+          </div>
+        </article>
+
+        <article class="ejemplo-item" id="veterinaria">
+          <a href="/demos/veterinaria/" target="_blank" rel="noopener" class="tarjeta-imagen-enlace"><img src="assets/img/mascotas.webp" alt="Demo de sitio web para veterinaria" loading="lazy" decoding="async"></a>
+          <div class="ejemplo-item-cuerpo">
+            <h3>Veterinaria Dr. Lee</h3>
+            <p>Sitio con reservas de citas incluidas, para que los dueños de mascotas agenden sin llamar.</p>
+            <div class="ejemplo-item-incluye">
+              <span>📅 Página de reservas con calendario</span>
+              <span>💬 Chatbot "Milo"</span>
+              <span>🩺 Página de servicios</span>
+            </div>
+          <a href="/demos/veterinaria/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver demo →</a>
+          </div>
+        </article>
+
+        <article class="ejemplo-item" id="express">
+          <a href="/demos/melany-express/" target="_blank" rel="noopener" class="tarjeta-imagen-enlace"><img src="assets/img/Melany.jpeg" alt="Demo de sitio web para servicio express" loading="lazy" decoding="async"></a>
+          <div class="ejemplo-item-cuerpo">
+            <h3>Melany Express</h3>
+            <p>Página única para un servicio de compras, mandados y entregas, con acceso directo a WhatsApp.</p>
+            <div class="ejemplo-item-incluye">
+              <span>💬 Globo de WhatsApp</span>
+              <span>📄 Simple Page</span>
+            </div>
+            <a href="/demos/melany-express/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver demo →</a>
+          </div>
+        </article>
+
+        <article class="ejemplo-item" id="panaderia">
+          <a href="/demos/panaderia/" target="_blank" rel="noopener" class="tarjeta-imagen-enlace"><img src="assets/img/hero-panaderia.webp" alt="Demo de sitio web para panadería" loading="lazy" decoding="async"></a>
+          <div class="ejemplo-item-cuerpo">
+            <h3>La Espiga Artesanal</h3>
+            <p>Catálogo de pan y repostería, con pedidos armados directamente para enviar por WhatsApp.</p>
+            <div class="ejemplo-item-incluye">
+              <span>🛒 Carrito WhatsApp</span>
+              <span>📦 Ficha de producto</span>
+            </div>
+          <a href="/demos/panaderia/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver demo →</a>
+          </div>
+        </article>
+
+        <article class="ejemplo-item" id="nara">
+          <a href="/demos/nara/" target="_blank" rel="noopener" class="tarjeta-imagen-enlace"><img src="assets/img/camisetas.webp" alt="Demo de tienda de ropa" loading="lazy" decoding="async"></a>
+          <div class="ejemplo-item-cuerpo">
+            <h3>NARA</h3>
+            <p>Tienda de ropa con catálogo por categorías y compra en línea.</p>
+            <div class="ejemplo-item-incluye">
+              <span>🛍️ Catálogo con categorías</span>
+              <span>🛒 Carrito de compra</span>
+              <span>💳 Pago en línea con PayPal</span>
+            </div>
+          <a href="/demos/nara/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver demo →</a>
+          </div>
+        </article>
+
+        <article class="ejemplo-item" id="bufete">
+          <a href="/demos/bufete/" target="_blank" rel="noopener" class="tarjeta-imagen-enlace"><img src="assets/img/hero-home-bufete.webp" alt="Demo de sitio web para bufete de abogados" loading="lazy" decoding="async"></a>
+          <div class="ejemplo-item-cuerpo">
+            <h3>Bufete JMC y Asociados</h3>
+            <p>Sitio profesional para un despacho legal, con presentación de servicios y del equipo.</p>
+            <div class="ejemplo-item-incluye">
+              <span>📅 Agenda de citas</span>
+              <span>🧮 Calculadora de honorarios</span>
+              <span>💬 Chatbot "Juris"</span>
+            </div>
+          <a href="/demos/bufete/" class="tarjeta-enlace" target="_blank" rel="noopener">Ver demo →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="hero-nota" style="text-align:center; margin-top:1.5rem;">
+        Cada demostración fue construida a la medida del negocio — haga clic en cualquiera para verla en vivo.
+      </p>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="seccion-clara">
+      <div class="seccion-titulo-centro">
+        <h2>¿Le gustaría un sitio así para su negocio?</h2>
+        <a href="index.html#cuestionario" class="boton-primario">Cuéntenos sobre su proyecto →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/banner2.webp" alt="Web Artesanal" style="height:70px; margin-bottom:0.8rem;" loading="lazy" decoding="async">
+        <p class="footer-tagline">Sitios con alma, negocios reales. Pequeños negocios, grandes historias online.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="precios-y-productos.html">Precios y Productos</a>
+        <a href="que-recibira.html">Qué Recibirá</a>
+        <a href="ejemplos.html">Ejemplos</a>
+        <a href="como-funciona.html">Cómo Funciona</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/50687071092" target="_blank" rel="noopener">WhatsApp: +506 8707-1092</a>
+        <a href="mailto:506webartesanal@gmail.com">506webartesanal@gmail.com</a>
+        <a href="https://www.facebook.com/506webartesanal" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/506webartesanal" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@webartesanal" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://506webartesanal.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Web Artesanal. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  
+  <button id="hojitaBtn" type="button" class="hojita-boton" aria-label="Abrir asistente La Hojita">
+    <img src="assets/img/hojita-chatbot.webp" alt="La Hojita, asistente virtual de Web Artesanal">
+  </button>
+  <div id="hojitaPanel" class="hojita-panel" hidden>
+    <div class="hojita-panel-header">
+      <img src="assets/img/hojita-chatbot.webp" alt="" class="hojita-panel-avatar">
+      <strong>La Hojita</strong>
+      <button id="hojitaCerrar" type="button" class="hojita-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="hojitaConversacion" class="hojita-conversacion"></div>
+    <div class="hojita-footer-input">
+      <input type="text" id="hojitaPreguntaLibre" placeholder="Escriba su pregunta sobre el sitio...">
+      <button type="button" id="hojitaEnviarPregunta">➤</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
