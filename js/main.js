@@ -136,6 +136,17 @@ document.addEventListener('DOMContentLoaded', function () {
     evento.preventDefault();
   });
 
+  // En una visita normal, empezar en el hero aunque el navegador móvil
+  // restaure una posición anterior o el contenido cambie de tamaño al cargar.
+  // Las anclas explícitas (por ejemplo, #cuestionario) conservan su destino.
+  if (!window.location.hash) {
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+    var irAlHero = function () { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+    irAlHero();
+    window.addEventListener('load', irAlHero);
+    window.addEventListener('pageshow', function (ev) { if (ev.persisted) irAlHero(); });
+  }
+
   var pasos = Array.prototype.slice.call(form.querySelectorAll('.q-paso'));
   var totalPreguntas = 8; // los pasos 9 (resumen) y 10 (confirmación) no cuentan para la barra de progreso
   var pasoActual = 1;
