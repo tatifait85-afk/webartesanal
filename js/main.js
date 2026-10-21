@@ -136,9 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
     evento.preventDefault();
   });
 
-  // En una visita normal, empezar en el hero aunque el navegador móvil
-  // restaure una posición anterior o el contenido cambie de tamaño al cargar.
-  // Las anclas explícitas (por ejemplo, #cuestionario) conservan su destino.
+  // Al abrir el inicio sin un ancla en la URL, la página debe aterrizar en el
+  // hero (arriba). En el teléfono el navegador puede restaurar una posición
+  // anterior o desplazarse por cambios de maquetación al cargar las imágenes.
+  // Si la URL trae un ancla (ej. index.html#cuestionario desde un botón), se
+  // respeta y no se toca.
   if (!window.location.hash) {
     try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
     var irAlHero = function () { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
@@ -331,8 +333,16 @@ document.addEventListener('DOMContentLoaded', function () {
       body: JSON.stringify(respuestas)
     })
       .then(function (respuesta) { return respuesta.json(); })
-      .then(function (datos) { return !!(datos && datos.ok); })
-      .catch(function () { return false; });
+      .then(function (datos) {
+        if (!datos || !datos.ok) {
+          console.error('Cuestionario: el servidor respondió con un error —', datos && datos.error);
+        }
+        return !!(datos && datos.ok);
+      })
+      .catch(function (error) {
+        console.error('Cuestionario: fallo de red al contactar /api/enviar-cuestionario —', error);
+        return false;
+      });
   }
 
   function irAlSiguientePaso() {
@@ -446,10 +456,12 @@ document.addEventListener('DOMContentLoaded', function () {
           mensajeExito.style.display = 'block';
           formContacto.reset();
         } else {
+          console.error('Contacto: el servidor respondió con un error —', datos && datos.error);
           errorEnvio.classList.add('visible');
         }
       })
-      .catch(function () {
+      .catch(function (error) {
+        console.error('Contacto: fallo de red al contactar /api/enviar-contacto —', error);
         btnEnviar.disabled = false;
         btnEnviar.textContent = 'Enviar mensaje →';
         errorEnvio.classList.add('visible');
@@ -558,6 +570,16 @@ document.addEventListener('DOMContentLoaded', function () {
     checkoutBox.style.display = 'grid';
     totalBox.parentElement.style.display = 'flex';
 
+    // Si se había completado un pedido antes, se restablece el formulario
+    // para el siguiente pedido (si no, quedaría oculto para siempre).
+    var tituloDatosReset = checkoutBox.querySelector('h4');
+    if (tituloDatosReset) tituloDatosReset.style.display = '';
+    document.getElementById('carritoNombre').style.display = '';
+    document.getElementById('carritoTelefono').style.display = '';
+    document.getElementById('carritoEmail').style.display = '';
+    enviarBtn.style.display = '';
+    exitoMsg.style.display = 'none';
+
     var total = 0;
     items.forEach(function (item, indice) {
       var subtotal = item.precio * item.cantidad;
@@ -656,16 +678,29 @@ document.addEventListener('DOMContentLoaded', function () {
         if (datos && datos.ok) {
           guardarCarrito([]);
           actualizarContador();
-          exitoMsg.style.display = 'block';
           itemsBox.innerHTML = '';
-          checkoutBox.style.display = 'none';
           totalBox.parentElement.style.display = 'none';
           vacioMsg.style.display = 'none';
+          errorEnvio.classList.remove('visible');
+
+          // El mensaje de éxito vive dentro de checkoutBox, así que ese
+          // contenedor debe permanecer visible — solo se ocultan los
+          // campos del formulario que ya no hacen falta.
+          var tituloDatos = checkoutBox.querySelector('h4');
+          if (tituloDatos) tituloDatos.style.display = 'none';
+          document.getElementById('carritoNombre').style.display = 'none';
+          document.getElementById('carritoTelefono').style.display = 'none';
+          document.getElementById('carritoEmail').style.display = 'none';
+          enviarBtn.style.display = 'none';
+
+          exitoMsg.style.display = 'block';
         } else {
+          console.error('Carrito: el servidor respondió con un error —', datos && datos.error);
           errorEnvio.classList.add('visible');
         }
       })
-      .catch(function () {
+      .catch(function (error) {
+        console.error('Carrito: fallo de red al contactar /api/enviar-carrito —', error);
         enviarBtn.disabled = false;
         enviarBtn.textContent = 'Enviar pedido →';
         errorEnvio.classList.add('visible');
@@ -1059,10 +1094,14 @@ document.addEventListener('DOMContentLoaded', function () {
       agregarBurbujaUsuario(accion);
       if (accion === 'Ver mi recomendación') {
         if (recomendacion) {
+          // Ya está renderizada más arriba en esta misma conversación —
+          // se sube hasta ahí en vez de mostrar el menú de nuevo.
           conversacion.scrollTop = 0;
-          mostrarAccionesFinales(recomendacion);
         } else {
-          window.location.href = 'servicios.html';
+          // Todavía no se calculó ninguna recomendación real (se llegó
+          // aquí sin pasar por el diagnóstico) — se inicia el diagnóstico
+          // para que la recomendación sea la que corresponde a sus respuestas.
+          iniciarCuestionario();
         }
       } else if (accion === 'Ver otras opciones') {
         estado.enCuestionario = false;
@@ -1200,7 +1239,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       claves: ['contacto', 'whatsapp', 'correo', 'email', 'telefono', 'hablar con'],
-      respuesta: 'Puedes escribirnos por WhatsApp al +506 8707-1092, al correo 506webartesanal@gmail.com, o desde la página de Contacto.',
+      respuesta: 'Puedes escribirnos por WhatsApp al +506 7221-2372, al correo 506webartesanal@gmail.com, o desde la página de Contacto.',
       destino: { url: 'contacto.html', texto: 'Ir a Contacto →' }
     }
   ];
