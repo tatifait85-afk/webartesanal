@@ -175,7 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
     q5: 'Materiales que ya tiene',
     q6: 'Funciones que necesita',
     q7: 'Presupuesto aproximado',
-    q8: 'Su idea en sus palabras'
+    nombre: 'Nombre',
+    email: 'Correo electrónico',
+    telefono: 'Teléfono'
   };
 
   function mostrarPaso(numero) {
@@ -236,6 +238,21 @@ document.addEventListener('DOMContentLoaded', function () {
     var inputTexto = pasoEl.querySelector('.q-input-texto');
     var textarea = pasoEl.querySelector('.q-textarea');
     var bloque = pasoEl.querySelector('.q-block');
+
+    var contacto = pasoEl.querySelector('[data-contacto]');
+    if (contacto) {
+      var vNombre = contacto.querySelector('[name="nombre"]').value.trim();
+      var vEmail = contacto.querySelector('[name="email"]').value.trim();
+      var vTel = contacto.querySelector('[name="telefono"]').value.trim();
+      var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vEmail);
+      var telValido = vTel.replace(/\D/g, '').length >= 8;
+      if (vNombre === '' || !emailValido || !telValido) { mostrarError(pasoEl); return false; }
+      respuestas.nombre = vNombre;
+      respuestas.email = vEmail;
+      respuestas.telefono = vTel;
+      ocultarError(pasoEl);
+      return true;
+    }
 
     if (inputTexto) {
       var valor = inputTexto.value.trim();

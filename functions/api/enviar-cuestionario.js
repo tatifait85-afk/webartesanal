@@ -20,7 +20,9 @@ const ETIQUETAS = {
   q5: 'Materiales que ya tiene',
   q6: 'Funciones que necesita',
   q7: 'Presupuesto aproximado',
-  q8: 'Su idea en sus palabras'
+  nombre: 'Nombre',
+  email: 'Correo electrónico',
+  telefono: 'Teléfono'
 };
 
 function escaparHtml(texto) {

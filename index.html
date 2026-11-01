@@ -338,9 +338,13 @@
 
         <!-- Paso 8 -->
         <div class="q-paso" data-paso="8">
-          <p class="q-pregunta">8. Cuéntenos brevemente qué tiene en mente.</p>
-          <textarea class="q-textarea" name="q8" rows="4" placeholder="No necesita usar términos técnicos. Cuéntenos qué quiere para su negocio o cómo le gustaría que sus clientes lo encuentren y contacten."></textarea>
-          <p class="q-error">Por favor cuéntenos brevemente su idea antes de continuar.</p>
+          <p class="q-pregunta">8. ¿Cómo podemos contactarle?</p>
+          <div data-contacto="1">
+            <input type="text" class="q-input-texto" name="nombre" placeholder="Nombre" autocomplete="name" style="margin-bottom:0.7rem;">
+            <input type="email" class="q-input-texto" name="email" placeholder="Correo electrónico" autocomplete="email" style="margin-bottom:0.7rem;">
+            <input type="tel" class="q-input-texto" name="telefono" placeholder="Teléfono" autocomplete="tel">
+          </div>
+          <p class="q-error">Complete su nombre, un correo válido y su teléfono antes de continuar.</p>
         </div>
 
         <!-- Paso 9: resumen -->
