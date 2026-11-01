@@ -838,32 +838,6 @@ document.addEventListener('DOMContentLoaded', function () {
     limpiarOpcionesActivas();
     var contenedor = document.createElement('div');
     contenedor.className = 'hojita-opciones';
-    if (embebido) {
-      // Versión integrada: las opciones se eligen desde un menú desplegable.
-      var select = document.createElement('select');
-      select.className = 'hojita-select';
-      select.setAttribute('aria-label', 'Elija una opción');
-      var placeholder = document.createElement('option');
-      placeholder.value = '';
-      placeholder.textContent = 'Elija una opción...';
-      placeholder.disabled = true;
-      placeholder.selected = !valorActual;
-      select.appendChild(placeholder);
-      opciones.forEach(function (texto) {
-        var op = document.createElement('option');
-        op.value = texto;
-        op.textContent = texto;
-        if (valorActual && texto === valorActual) op.selected = true;
-        select.appendChild(op);
-      });
-      select.addEventListener('change', function () {
-        if (select.value) onSeleccion(select.value, select);
-      });
-      contenedor.appendChild(select);
-      conversacion.appendChild(contenedor);
-      scrollAbajo();
-      return;
-    }
     opciones.forEach(function (texto) {
       var btn = document.createElement('button');
       btn.type = 'button';
