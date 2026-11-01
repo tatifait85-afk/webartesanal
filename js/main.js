@@ -14,11 +14,11 @@
    ========================================================== */
 function obtenerPresupuestoMax(q7) {
   var mapa = {
-    'Hasta ₡15.000': 15000,
-    '₡15.000–₡30.000': 30000,
-    '₡30.000–₡50.000': 50000,
-    '₡50.000–₡75.000': 75000,
-    'Más de ₡75.000': Infinity
+    'Hasta ₡30.000': 30000,
+    '₡30.000–₡60.000': 60000,
+    '₡60.000–₡100.000': 100000,
+    '₡100.000–₡150.000': 150000,
+    'Más de ₡150.000': Infinity
   };
   return Object.prototype.hasOwnProperty.call(mapa, q7) ? mapa[q7] : null;
 }
@@ -30,19 +30,19 @@ function calcularRecomendacion(r) {
 
   var budgetMax = obtenerPresupuestoMax(r.q7);
 
-  // Con presupuesto muy ajustado, se usa la Simple Page (₡15.000) en vez
-  // del Sitio Web completo (₡50.000) — es una opción real y más económica
+  // Con presupuesto muy ajustado, se usa la Simple Page (₡30.000) en vez
+  // del Sitio Web completo (₡100.000) — es una opción real y más económica
   // ya incluida en la lista oficial de precios, no un invento.
-  var usarSimplePage = budgetMax !== null && budgetMax <= 30000;
+  var usarSimplePage = budgetMax !== null && budgetMax <= 60000;
   var base = usarSimplePage
-    ? { nombre: 'Simple Page', precio: 15000, notaExtra: 'Versión sencilla de una página; se puede ampliar a Sitio Web completo más adelante.' }
-    : { nombre: 'Sitio Web', precio: 50000 };
+    ? { nombre: 'Simple Page', precio: 30000, notaExtra: 'Versión sencilla de una página; se puede ampliar a Sitio Web completo más adelante.' }
+    : { nombre: 'Sitio Web', precio: 100000 };
 
   // Lista de deseos, en orden de prioridad (lo más importante primero)
   var deseados = [];
 
   if (!contiene('q5', 'Logo')) {
-    deseados.push({ nombre: 'Logo', precio: 10000 });
+    deseados.push({ nombre: 'Logo', precio: 20000 });
   }
 
   var vendeProductos = r.q4 && r.q4 !== 'No vendo productos; ofrezco servicios';
@@ -50,33 +50,33 @@ function calcularRecomendacion(r) {
     var muchosProductos = (r.q4 === '11–20' || r.q4 === 'Más de 20');
     deseados.push({
       nombre: 'Catálogo (hasta 10 productos)',
-      precio: 20000,
-      notaExtra: muchosProductos ? '+₡1.500 por cada producto adicional (más de 10)' : null
+      precio: 40000,
+      notaExtra: muchosProductos ? '+₡3.000 por cada producto adicional (más de 10)' : null
     });
   }
 
   var quiereCarrito = contiene('q3', 'Hacer pedidos por WhatsApp') || contiene('q6', 'Carrito de pedidos por WhatsApp');
   if (quiereCarrito) {
     if (r.q4 === '11–20' || r.q4 === 'Más de 20') {
-      deseados.push({ nombre: 'Carrito WhatsApp Ampliado (hasta 20 productos)', precio: 60000 });
+      deseados.push({ nombre: 'Carrito WhatsApp Ampliado (hasta 20 productos)', precio: 120000 });
     } else {
-      deseados.push({ nombre: 'Carrito WhatsApp Básico (hasta 10 productos)', precio: 35000 });
+      deseados.push({ nombre: 'Carrito WhatsApp Básico (hasta 10 productos)', precio: 70000 });
     }
   }
 
   var quiereTienda = contiene('q3', 'Comprar y pagar en línea') || contiene('q6', 'Pago online');
   if (quiereTienda) {
-    deseados.push({ nombre: 'Tienda PayPal', precio: 75000, desde: true });
+    deseados.push({ nombre: 'Tienda PayPal', precio: 150000, desde: true });
   }
 
   var quiereReservas = contiene('q3', 'Reservar una cita') || contiene('q6', 'Reservas y calendario');
   if (quiereReservas) {
-    deseados.push({ nombre: 'Reservas y calendario', precio: 15000 });
+    deseados.push({ nombre: 'Reservas y calendario', precio: 30000 });
   }
 
   var quiereBlog = contiene('q6', 'Blog') || contiene('q2', 'Compartir información o contenido');
   if (quiereBlog) {
-    deseados.push({ nombre: 'Blog (3 artículos iniciales)', precio: 30000 });
+    deseados.push({ nombre: 'Blog (3 artículos iniciales)', precio: 60000 });
   }
 
   // Repartir entre "ahora" (dentro del presupuesto) y "próxima etapa"
@@ -734,7 +734,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { id: 'q4', tipo: 'radio', texto: '¿Cuántos productos o servicios necesitas mostrar aproximadamente?', opciones: ['1–5', '6–10', '11–20', 'Más de 20', 'No vendo productos; ofrezco servicios'] },
     { id: 'q5', tipo: 'checkbox', texto: '¿Ya tienes alguno de estos materiales?', opciones: ['Logo', 'Fotografías propias', 'Textos', 'Lista de productos/servicios y precios', 'Redes sociales', 'Ninguno todavía', 'Tengo algunos, pero necesito ayuda para prepararlos'] },
     { id: 'q6', tipo: 'checkbox', texto: '¿Necesitas alguna de estas funciones?', opciones: ['Reservas y calendario', 'Carrito de pedidos por WhatsApp', 'Pago online', 'Blog', 'Ninguna por ahora', 'No estoy seguro/a; necesito orientación'] },
-    { id: 'q7', tipo: 'radio', texto: '¿Cuánto te gustaría invertir aproximadamente en tu proyecto digital?', opciones: ['Hasta ₡15.000', '₡15.000–₡30.000', '₡30.000–₡50.000', '₡50.000–₡75.000', 'Más de ₡75.000', 'No estoy seguro/a; necesito orientación'] },
+    { id: 'q7', tipo: 'radio', texto: '¿Cuánto te gustaría invertir aproximadamente en tu proyecto digital?', opciones: ['Hasta ₡30.000', '₡30.000–₡60.000', '₡60.000–₡100.000', '₡100.000–₡150.000', 'Más de ₡150.000', 'No estoy seguro/a; necesito orientación'] },
     { id: 'q8', tipo: 'texto', texto: 'Cuéntanos brevemente qué tienes en mente.' }
   ];
 
@@ -918,16 +918,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (opcion === 'Quiero crear una página web') {
-      agregarBurbujaBot('Para eso tenemos el <strong>Sitio Web</strong> (' + formatoColones(50000) + ') si necesitas varias secciones, o la <strong>Simple Page</strong> (' + formatoColones(15000) + ') si quieres algo sencillo para empezar. ¿Quieres que te ayude a saber cuál te conviene, o prefieres ver el detalle en Servicios?');
+      agregarBurbujaBot('Para eso tenemos el <strong>Sitio Web</strong> (' + formatoColones(100000) + ') si necesitas varias secciones, o la <strong>Simple Page</strong> (' + formatoColones(30000) + ') si quieres algo sencillo para empezar. ¿Quieres que te ayude a saber cuál te conviene, o prefieres ver el detalle en Servicios?');
       agregarBurbujaBot(botonServicio('Sitio Web') + botonServicio('Servicio Express'));
     } else if (opcion === 'Quiero vender') {
-      agregarBurbujaBot('Para vender puedes usar un <strong>Catálogo</strong> (' + formatoColones(20000) + ') para mostrar tus productos, un <strong>Carrito WhatsApp</strong> (desde ' + formatoColones(35000) + ') para recibir pedidos, o una <strong>Tienda PayPal</strong> (desde ' + formatoColones(75000) + ') si quieres cobrar en línea. ¿Te ayudo a saber cuál encaja mejor con tu negocio?');
+      agregarBurbujaBot('Para vender puedes usar un <strong>Catálogo</strong> (' + formatoColones(40000) + ') para mostrar tus productos, un <strong>Carrito WhatsApp</strong> (desde ' + formatoColones(70000) + ') para recibir pedidos, o una <strong>Tienda PayPal</strong> (desde ' + formatoColones(150000) + ') si quieres cobrar en línea. ¿Te ayudo a saber cuál encaja mejor con tu negocio?');
       agregarBurbujaBot(botonServicio('Catálogo (hasta 10 productos)') + botonServicio('Carrito WhatsApp Básico (hasta 10 productos)') + botonServicio('Tienda PayPal'));
     } else if (opcion === 'Quiero recibir pedidos') {
-      agregarBurbujaBot('El <strong>Carrito WhatsApp</strong> es justo para eso: tus clientes arman su pedido en tu sitio y te llega listo por WhatsApp. Básico ' + formatoColones(35000) + ' (hasta 10 productos) o Ampliado ' + formatoColones(60000) + ' (hasta 20 productos).');
+      agregarBurbujaBot('El <strong>Carrito WhatsApp</strong> es justo para eso: tus clientes arman su pedido en tu sitio y te llega listo por WhatsApp. Básico ' + formatoColones(70000) + ' (hasta 10 productos) o Ampliado ' + formatoColones(120000) + ' (hasta 20 productos).');
       agregarBurbujaBot(botonServicio('Carrito WhatsApp Básico (hasta 10 productos)'));
     } else if (opcion === 'Quiero reservas') {
-      agregarBurbujaBot('<strong>Reservas y calendario</strong> (' + formatoColones(15000) + ') permite que tus clientes agenden una cita directamente desde tu sitio, sin llamadas ni mensajes de ida y vuelta.');
+      agregarBurbujaBot('<strong>Reservas y calendario</strong> (' + formatoColones(30000) + ') permite que tus clientes agenden una cita directamente desde tu sitio, sin llamadas ni mensajes de ida y vuelta.');
       agregarBurbujaBot(botonServicio('Reservas y calendario'));
     } else if (opcion === 'Quiero conocer los servicios') {
       agregarBurbujaBot('Con gusto — ahí tienes el detalle completo de todo lo que ofrecemos, con precios.');
@@ -1139,7 +1139,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var BASE_PREGUNTAS = [
     {
       claves: ['precio', 'precios', 'cuesta', 'cuanto vale', 'tarifa', 'costo'],
-      respuesta: 'Todos nuestros precios están en colones, sin sorpresas. Por ejemplo: Sitio Web ' + formatoColones(50000) + ', Simple Page ' + formatoColones(15000) + ', Catálogo ' + formatoColones(20000) + ', Carrito WhatsApp desde ' + formatoColones(35000) + ', Tienda PayPal desde ' + formatoColones(75000) + ', Reservas ' + formatoColones(15000) + ', Blog ' + formatoColones(30000) + ' y Logo ' + formatoColones(10000) + '. La lista completa está en Precios y Productos.',
+      respuesta: 'Todos nuestros precios están en colones, sin sorpresas. Por ejemplo: Sitio Web ' + formatoColones(100000) + ', Simple Page ' + formatoColones(30000) + ', Catálogo ' + formatoColones(40000) + ', Carrito WhatsApp desde ' + formatoColones(70000) + ', Tienda PayPal desde ' + formatoColones(150000) + ', Reservas ' + formatoColones(30000) + ', Blog ' + formatoColones(60000) + ' y Logo ' + formatoColones(20000) + '. La lista completa está en Precios y Productos.',
       destino: { url: 'precios-y-productos.html', texto: 'Ver lista de precios →' }
     },
     {
@@ -1149,37 +1149,37 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       claves: ['carrito', 'pedido', 'pedidos'],
-      respuesta: 'El Carrito WhatsApp permite que tus clientes armen su pedido en tu sitio y te llegue listo por WhatsApp. Básico ' + formatoColones(35000) + ' (hasta 10 productos) o Ampliado ' + formatoColones(60000) + ' (hasta 20 productos).',
+      respuesta: 'El Carrito WhatsApp permite que tus clientes armen su pedido en tu sitio y te llegue listo por WhatsApp. Básico ' + formatoColones(70000) + ' (hasta 10 productos) o Ampliado ' + formatoColones(120000) + ' (hasta 20 productos).',
       destino: { url: 'servicios.html#carrito-whatsapp', texto: 'Ver Carrito WhatsApp →' }
     },
     {
       claves: ['tienda', 'paypal', 'pago en linea', 'vender en linea', 'cobrar en linea'],
-      respuesta: 'La Tienda PayPal te permite vender en línea y cobrar de forma segura. El precio es desde ' + formatoColones(75000) + ', según la cantidad de productos y funciones que necesites.',
+      respuesta: 'La Tienda PayPal te permite vender en línea y cobrar de forma segura. El precio es desde ' + formatoColones(150000) + ', según la cantidad de productos y funciones que necesites.',
       destino: { url: 'servicios.html#tienda-paypal', texto: 'Ver Tienda PayPal →' }
     },
     {
       claves: ['reserva', 'reservas', 'cita', 'citas', 'agendar', 'calendario'],
-      respuesta: 'Reservas y calendario (' + formatoColones(15000) + ') conecta tu sitio a un Google Calendar real: cuando alguien agenda, ese horario se bloquea automáticamente, sin que se dupliquen citas.',
+      respuesta: 'Reservas y calendario (' + formatoColones(30000) + ') conecta tu sitio a un Google Calendar real: cuando alguien agenda, ese horario se bloquea automáticamente, sin que se dupliquen citas.',
       destino: { url: 'servicios.html#reservas', texto: 'Ver Reservas y calendario →' }
     },
     {
       claves: ['blog', 'articulo', 'articulos', 'noticias'],
-      respuesta: 'El Blog (' + formatoColones(30000) + ') incluye 3 artículos iniciales, para compartir noticias, consejos y novedades de tu negocio.',
+      respuesta: 'El Blog (' + formatoColones(60000) + ') incluye 3 artículos iniciales, para compartir noticias, consejos y novedades de tu negocio.',
       destino: { url: 'servicios.html#blog', texto: 'Ver Blog →' }
     },
     {
       claves: ['logo', 'marca', 'identidad visual'],
-      respuesta: 'Podemos hacerte un Logo profesional para tu marca por ' + formatoColones(10000) + '.',
+      respuesta: 'Podemos hacerte un Logo profesional para tu marca por ' + formatoColones(20000) + '.',
       destino: { url: 'servicios.html#logo', texto: 'Ver Logo →' }
     },
     {
       claves: ['catalogo', 'catálogo', 'productos'],
-      respuesta: 'El Catálogo (' + formatoColones(20000) + ') muestra hasta 10 de tus productos o servicios, con foto, descripción y precio.',
+      respuesta: 'El Catálogo (' + formatoColones(40000) + ') muestra hasta 10 de tus productos o servicios, con foto, descripción y precio.',
       destino: { url: 'servicios.html#catalogo', texto: 'Ver Catálogo →' }
     },
     {
       claves: ['sitio web', 'pagina web', 'simple page', 'pagina simple', 'landing page'],
-      respuesta: 'Tenemos 3 opciones de página: Landing Page (' + formatoColones(20000) + ') para algo puntual, Simple Page (' + formatoColones(15000) + ') para presentar tu negocio de forma sencilla, y el Sitio Web completo (' + formatoColones(50000) + ') con Inicio, Servicios y Contacto, más lo que tu proyecto necesite.',
+      respuesta: 'Tenemos 3 opciones de página: Landing Page (' + formatoColones(40000) + ') para algo puntual, Simple Page (' + formatoColones(30000) + ') para presentar tu negocio de forma sencilla, y el Sitio Web completo (' + formatoColones(100000) + ') con Inicio, Servicios y Contacto, más lo que tu proyecto necesite.',
       destino: { url: 'servicios.html#sitio-web', texto: 'Ver Sitio Web →' }
     },
     {
@@ -1199,12 +1199,12 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       claves: ['dominio', 'hosting', 'alojamiento'],
-      respuesta: 'El dominio (extensión .site) y el hosting están incluidos sin costo el primer año. Después, el Alojamiento + mantenimiento técnico básico cuesta ' + formatoColones(10000) + ' por mes (' + formatoColones(108000) + ' al año, con descuento) — esto es distinto del Mantenimiento Mensual de ' + formatoColones(50000) + '. Si prefieres otra extensión de dominio, o un correo personalizado con Google Workspace, cada uno cuesta ' + formatoColones(15000) + ' por mes por cuenta.',
+      respuesta: 'El dominio (extensión .site) y el hosting están incluidos sin costo el primer año. Después, el Alojamiento + mantenimiento técnico básico cuesta ' + formatoColones(20000) + ' por mes (' + formatoColones(216000) + ' al año, con descuento) — esto es distinto del Mantenimiento Mensual de ' + formatoColones(100000) + '. Si prefieres otra extensión de dominio, o un correo personalizado con Google Workspace, cada uno cuesta ' + formatoColones(30000) + ' por mes por cuenta.',
       destino: { url: 'precios-y-productos.html', texto: 'Ver detalles →' }
     },
     {
       claves: ['web marketing', 'seo', 'posicionamiento', 'google maps', 'google business', 'anuncio', 'anuncios', 'publicidad', 'google ads', 'facebook ads', 'pauta'],
-      respuesta: 'En Web Marketing tenemos SEO básico + Ficha de Google Maps (' + formatoColones(20000) + '), estadísticas del sitio (' + formatoColones(10000) + '), anuncios en Google Ads o Facebook Ads (' + formatoColones(20000) + ' cada uno, más el presupuesto de la pauta que se paga aparte), y creación de página de Facebook o Instagram con una publicación inicial (' + formatoColones(20000) + ' cada una).',
+      respuesta: 'En Web Marketing tenemos SEO básico + Ficha de Google Maps (' + formatoColones(40000) + '), estadísticas del sitio (' + formatoColones(20000) + '), anuncios en Google Ads o Facebook Ads (' + formatoColones(40000) + ' cada uno, más el presupuesto de la pauta que se paga aparte), y creación de página de Facebook o Instagram con una publicación inicial (' + formatoColones(40000) + ' cada una).',
       destino: { url: 'servicios.html#web-marketing', texto: 'Ver Web Marketing →' }
     },
     {
@@ -1214,7 +1214,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       claves: ['mantenimiento mensual', 'plan mensual', 'soporte mensual'],
-      respuesta: 'El Mantenimiento Mensual (' + formatoColones(50000) + ' por mes) incluye SEO básico y ficha de Google Maps, estadísticas del sitio, hasta 2 cambios básicos al mes, revisión de que todo funcione bien, y atención prioritaria.',
+      respuesta: 'El Mantenimiento Mensual (' + formatoColones(100000) + ' por mes) incluye SEO básico y ficha de Google Maps, estadísticas del sitio, hasta 2 cambios básicos al mes, revisión de que todo funcione bien, y atención prioritaria.',
       destino: { url: 'servicios.html#mantenimiento-mensual', texto: 'Ver Mantenimiento Mensual →' }
     },
     {
