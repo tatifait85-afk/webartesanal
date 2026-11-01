@@ -764,7 +764,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Catálogo (hasta 10 productos)': 'Muestra tus productos o servicios con foto, descripción y precio.',
     'Carrito WhatsApp Básico (hasta 10 productos)': 'Tus clientes arman su pedido en el sitio y te llega listo por WhatsApp.',
     'Carrito WhatsApp Ampliado (hasta 20 productos)': 'Lo mismo que el Carrito Básico, pero con espacio para más categorías y productos.',
-    'Tienda PayPal': 'Para vender en línea y cobrar de forma segura con PayPal.',
+    'Tienda PayPal': 'Para vender en línea y cobrar de forma segura con PayPal. También se puede integrar con TiloPay, Shopify o la plataforma que prefieras.',
     'Reservas y calendario': 'Tus clientes agendan una cita directamente desde tu sitio, sin llamadas.',
     'Blog (3 artículos iniciales)': 'Para compartir noticias, consejos y novedades de tu negocio.'
   };
@@ -964,7 +964,7 @@ document.addEventListener('DOMContentLoaded', function () {
       agregarBurbujaBot('Para eso tenemos el <strong>Sitio Web</strong> (' + formatoColones(100000) + ') si necesitas varias secciones, o la <strong>Simple Page</strong> (' + formatoColones(30000) + ') si quieres algo sencillo para empezar. ¿Quieres que te ayude a saber cuál te conviene, o prefieres ver el detalle en Servicios?');
       agregarBurbujaBot(botonServicio('Sitio Web') + botonServicio('Servicio Express'));
     } else if (opcion === 'Quiero vender') {
-      agregarBurbujaBot('Para vender puedes usar un <strong>Catálogo</strong> (' + formatoColones(40000) + ') para mostrar tus productos, un <strong>Carrito WhatsApp</strong> (desde ' + formatoColones(70000) + ') para recibir pedidos, o una <strong>Tienda PayPal</strong> (desde ' + formatoColones(150000) + ') si quieres cobrar en línea. ¿Te ayudo a saber cuál encaja mejor con tu negocio?');
+      agregarBurbujaBot('Para vender puedes usar un <strong>Catálogo</strong> (' + formatoColones(40000) + ') para mostrar tus productos, un <strong>Carrito WhatsApp</strong> (desde ' + formatoColones(70000) + ') para recibir pedidos, o una <strong>Tienda PayPal</strong> (desde ' + formatoColones(150000) + ') si quieres cobrar en línea (también la integramos con TiloPay, Shopify o la plataforma que prefieras). ¿Te ayudo a saber cuál encaja mejor con tu negocio?');
       agregarBurbujaBot(botonServicio('Catálogo (hasta 10 productos)') + botonServicio('Carrito WhatsApp Básico (hasta 10 productos)') + botonServicio('Tienda PayPal'));
     } else if (opcion === 'Quiero recibir pedidos') {
       agregarBurbujaBot('El <strong>Carrito WhatsApp</strong> es justo para eso: tus clientes arman su pedido en tu sitio y te llega listo por WhatsApp. Básico ' + formatoColones(70000) + ' (hasta 10 productos) o Ampliado ' + formatoColones(120000) + ' (hasta 20 productos).');
@@ -1197,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       claves: ['tienda', 'paypal', 'pago en linea', 'vender en linea', 'cobrar en linea'],
-      respuesta: 'La Tienda PayPal te permite vender en línea y cobrar de forma segura. El precio es desde ' + formatoColones(150000) + ', según la cantidad de productos y funciones que necesites.',
+      respuesta: 'La Tienda PayPal te permite vender en línea y cobrar de forma segura. El precio es desde ' + formatoColones(150000) + ', según la cantidad de productos y funciones que necesites. También ofrecemos integración con TiloPay, Shopify o la plataforma de tu preferencia.',
       destino: { url: 'servicios.html#tienda-paypal', texto: 'Ver Tienda PayPal →' }
     },
     {
