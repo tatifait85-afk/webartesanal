@@ -737,9 +737,9 @@ document.addEventListener('DOMContentLoaded', function () {
    ========================================================== */
 document.addEventListener('DOMContentLoaded', function () {
   var hojitaBtn = document.getElementById('hojitaBtn');
-  if (!hojitaBtn) return; // esta página no tiene el chatbot instalado
-
   var panel = document.getElementById('hojitaPanel');
+  if (!panel) return; // esta página no tiene el chatbot instalado
+  var embebido = panel.classList.contains('hojita-embebido');
   var cerrarBtn = document.getElementById('hojitaCerrar');
   var conversacion = document.getElementById('hojitaConversacion');
 
@@ -838,6 +838,32 @@ document.addEventListener('DOMContentLoaded', function () {
     limpiarOpcionesActivas();
     var contenedor = document.createElement('div');
     contenedor.className = 'hojita-opciones';
+    if (embebido) {
+      // Versión integrada: las opciones se eligen desde un menú desplegable.
+      var select = document.createElement('select');
+      select.className = 'hojita-select';
+      select.setAttribute('aria-label', 'Elija una opción');
+      var placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = 'Elija una opción...';
+      placeholder.disabled = true;
+      placeholder.selected = !valorActual;
+      select.appendChild(placeholder);
+      opciones.forEach(function (texto) {
+        var op = document.createElement('option');
+        op.value = texto;
+        op.textContent = texto;
+        if (valorActual && texto === valorActual) op.selected = true;
+        select.appendChild(op);
+      });
+      select.addEventListener('change', function () {
+        if (select.value) onSeleccion(select.value, select);
+      });
+      contenedor.appendChild(select);
+      conversacion.appendChild(contenedor);
+      scrollAbajo();
+      return;
+    }
     opciones.forEach(function (texto) {
       var btn = document.createElement('button');
       btn.type = 'button';
@@ -1324,6 +1350,9 @@ document.addEventListener('DOMContentLoaded', function () {
     panel.hidden = true;
   }
 
-  hojitaBtn.addEventListener('click', abrirHojita);
-  cerrarBtn.addEventListener('click', cerrarHojita);
+  if (hojitaBtn) hojitaBtn.addEventListener('click', abrirHojita);
+  if (cerrarBtn) cerrarBtn.addEventListener('click', cerrarHojita);
+
+  // Versión integrada en la página: ya está visible desde el inicio.
+  if (embebido) abrirHojita();
 });

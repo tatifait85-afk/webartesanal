@@ -1271,3 +1271,77 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   BURBUJA DE WHATSAPP + ASISTENTE INTEGRADO
+   ============================================ */
+.whatsapp-flotante {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 150;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 6px 20px rgba(22,41,79,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+.whatsapp-flotante:hover { transform: scale(1.06); }
+
+.asistente-integrado {
+  padding: 3rem 1.5rem;
+}
+.asistente-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.asistente-intro {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.asistente-mascota { flex-shrink: 0; display: block; }
+.asistente-mascota img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  display: block;
+}
+.asistente-intro h2 { margin: 0 0 0.5rem 0; }
+.asistente-intro p { margin: 0; }
+
+.hojita-panel.hojita-embebido {
+  position: static;
+  width: 100%;
+  height: 460px;
+  box-shadow: 0 6px 24px rgba(22,41,79,0.15);
+  border: 1px solid var(--color-border);
+}
+.hojita-select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 2px solid var(--color-verde-natural);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .asistente-wrap { grid-template-columns: 1fr; }
+  .asistente-mascota img { width: 120px; height: 120px; }
+}
+@media (max-width: 480px) {
+  .whatsapp-flotante { width: 56px; height: 56px; right: 0.8rem; bottom: 0.8rem; }
+  .hojita-panel.hojita-embebido { right: auto; bottom: auto; left: auto; width: 100%; }
+}
