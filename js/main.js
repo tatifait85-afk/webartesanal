@@ -4,6 +4,106 @@
    ============================================ */
 
 /* ==========================================================
+   VERIFICACIÓN ANTI-BOTS (Cloudflare Turnstile + campo trampa)
+   Protege los 3 formularios que envían correos (cuestionario,
+   contacto y carrito). El recuadro de Turnstile solo aparece si
+   Cloudflare necesita confirmar que es una persona; casi siempre
+   es invisible. El "campo trampa" está oculto: una persona no lo
+   ve ni lo llena, un bot sí. El servidor revisa ambas cosas antes
+   de enviar el correo por Resend.
+   ========================================================== */
+var WA_TURNSTILE_SITEKEY = '0x4AAAAAAGKsmIY0h78PmyLv';
+var waTurnstileCargando = null;
+
+function waCargarTurnstile() {
+  if (window.turnstile) return Promise.resolve(window.turnstile);
+  if (waTurnstileCargando) return waTurnstileCargando;
+  waTurnstileCargando = new Promise(function (resolve, reject) {
+    var s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    s.async = true;
+    s.onload = function () { resolve(window.turnstile); };
+    s.onerror = function () { waTurnstileCargando = null; reject(new Error('No se pudo cargar Turnstile')); };
+    document.head.appendChild(s);
+  });
+  return waTurnstileCargando;
+}
+
+// Prepara la verificación de un formulario. "antesDe" es el elemento
+// delante del cual se coloca el recuadro (si llega a mostrarse).
+// Devuelve obtener() → Promise<{ token, trampa }> y reiniciar().
+function waPrepararVerificacion(formulario, antesDe) {
+  var trampa = document.createElement('input');
+  trampa.type = 'text';
+  trampa.name = 'sitio_web';
+  trampa.tabIndex = -1;
+  trampa.autocomplete = 'off';
+  trampa.setAttribute('aria-hidden', 'true');
+  trampa.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0;';
+  formulario.appendChild(trampa);
+
+  var zona = document.createElement('div');
+  zona.className = 'wa-verificacion';
+  zona.style.margin = '0.6rem 0';
+  if (antesDe && antesDe.parentNode) antesDe.parentNode.insertBefore(zona, antesDe);
+  else formulario.appendChild(zona);
+
+  var widgetId = null;
+  var token = '';
+  var esperando = [];
+
+  function entregar(t) {
+    token = t || '';
+    var lista = esperando;
+    esperando = [];
+    lista.forEach(function (fn) { fn(); });
+  }
+
+  function iniciar() {
+    if (widgetId !== null) return;
+    widgetId = 'pendiente';
+    waCargarTurnstile().then(function (ts) {
+      widgetId = ts.render(zona, {
+        sitekey: WA_TURNSTILE_SITEKEY,
+        appearance: 'interaction-only',
+        language: 'es',
+        callback: function (t) { entregar(t); },
+        'expired-callback': function () { token = ''; },
+        'error-callback': function () { token = ''; }
+      });
+    }).catch(function () { widgetId = null; });
+  }
+
+  // Se activa en cuanto la persona empieza a usar el formulario,
+  // así la verificación ya está lista al presionar "Enviar".
+  formulario.addEventListener('focusin', iniciar);
+  formulario.addEventListener('pointerdown', iniciar);
+
+  return {
+    iniciar: iniciar,
+    obtener: function () {
+      iniciar();
+      return new Promise(function (resolve) {
+        function listo() { resolve({ token: token, trampa: trampa.value }); }
+        if (token) { listo(); return; }
+        esperando.push(listo);
+        setTimeout(function () {
+          var i = esperando.indexOf(listo);
+          if (i >= 0) { esperando.splice(i, 1); listo(); }
+        }, 20000);
+      });
+    },
+    // Cada verificación sirve para un solo envío: después se renueva.
+    reiniciar: function () {
+      token = '';
+      if (window.turnstile && widgetId && widgetId !== 'pendiente') {
+        try { window.turnstile.reset(widgetId); } catch (e) {}
+      }
+    }
+  };
+}
+
+/* ==========================================================
    MOTOR DE RECOMENDACIÓN (FUENTE ÚNICA)
    Usado tanto por el cuestionario del Home como por el
    chatbot La Hojita — misma lógica, mismos precios, un solo
@@ -162,6 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var resumenBox = document.getElementById('qResumen');
   var recomendacionBox = document.getElementById('qRecomendacion');
   var errorEnvioEl = document.getElementById('qErrorEnvio');
+  var verifCuestionario = waPrepararVerificacion(form, navBotones);
   var cuestionarioWrap = document.querySelector('.cuestionario-wrap');
 
   var respuestas = {}; // guarda todas las respuestas del cuestionario
@@ -344,12 +445,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function enviarCuestionario() {
-    return fetch('/api/enviar-cuestionario', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(respuestas)
-    })
-      .then(function (respuesta) { return respuesta.json(); })
+    return verifCuestionario.obtener()
+      .then(function (verif) {
+        var cuerpo = Object.assign({}, respuestas, {
+          turnstileToken: verif.token,
+          sitio_web: verif.trampa
+        });
+        return fetch('/api/enviar-cuestionario', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(cuerpo)
+        });
+      })
+      .then(function (respuesta) { verifCuestionario.reiniciar(); return respuesta.json(); })
       .then(function (datos) {
         if (!datos || !datos.ok) {
           console.error('Cuestionario: el servidor respondió con un error —', datos && datos.error);
@@ -358,6 +466,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(function (error) {
         console.error('Cuestionario: fallo de red al contactar /api/enviar-cuestionario —', error);
+        verifCuestionario.reiniciar();
         return false;
       });
   }
@@ -437,6 +546,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var errorValidacion = document.getElementById('contactoError');
   var errorEnvio = document.getElementById('contactoErrorEnvio');
   var mensajeExito = document.getElementById('contactoExito');
+  var verifContacto = waPrepararVerificacion(formContacto, btnEnviar);
 
   function correoValido(correo) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
@@ -459,12 +569,18 @@ document.addEventListener('DOMContentLoaded', function () {
     btnEnviar.disabled = true;
     btnEnviar.textContent = 'Enviando...';
 
-    fetch('/api/enviar-contacto', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, correo: correo, mensaje: mensaje })
-    })
-      .then(function (respuesta) { return respuesta.json(); })
+    verifContacto.obtener()
+      .then(function (verif) {
+        return fetch('/api/enviar-contacto', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nombre: nombre, correo: correo, mensaje: mensaje,
+            turnstileToken: verif.token, sitio_web: verif.trampa
+          })
+        });
+      })
+      .then(function (respuesta) { verifContacto.reiniciar(); return respuesta.json(); })
       .then(function (datos) {
         btnEnviar.disabled = false;
         btnEnviar.textContent = 'Enviar mensaje →';
@@ -479,6 +595,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(function (error) {
         console.error('Contacto: fallo de red al contactar /api/enviar-contacto —', error);
+        verifContacto.reiniciar();
         btnEnviar.disabled = false;
         btnEnviar.textContent = 'Enviar mensaje →';
         errorEnvio.classList.add('visible');
@@ -509,6 +626,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var errorValidacion = document.getElementById('carritoErrorValidacion');
   var errorEnvio = document.getElementById('carritoErrorEnvio');
   var exitoMsg = document.getElementById('carritoExito');
+  var verifCarrito = waPrepararVerificacion(checkoutBox, enviarBtn);
 
   function formatoColonesCarrito(numero) {
     var texto = String(Math.round(numero));
@@ -679,15 +797,20 @@ document.addEventListener('DOMContentLoaded', function () {
     enviarBtn.disabled = true;
     enviarBtn.textContent = 'Enviando...';
 
-    fetch('/api/enviar-carrito', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        cliente: { nombre: nombre, telefono: telefono, correo: correo },
-        items: items
+    verifCarrito.obtener()
+      .then(function (verif) {
+        return fetch('/api/enviar-carrito', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            cliente: { nombre: nombre, telefono: telefono, correo: correo },
+            items: items,
+            turnstileToken: verif.token,
+            sitio_web: verif.trampa
+          })
+        });
       })
-    })
-      .then(function (respuesta) { return respuesta.json(); })
+      .then(function (respuesta) { verifCarrito.reiniciar(); return respuesta.json(); })
       .then(function (datos) {
         enviarBtn.disabled = false;
         enviarBtn.textContent = 'Enviar pedido →';
@@ -718,6 +841,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(function (error) {
         console.error('Carrito: fallo de red al contactar /api/enviar-carrito —', error);
+        verifCarrito.reiniciar();
         enviarBtn.disabled = false;
         enviarBtn.textContent = 'Enviar pedido →';
         errorEnvio.classList.add('visible');

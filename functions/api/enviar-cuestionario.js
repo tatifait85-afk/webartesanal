@@ -55,6 +55,28 @@ function construirHtmlCorreo(datos) {
   );
 }
 
+// ---------- Verificación anti-bots (Turnstile + campo trampa) ----------
+// TURNSTILE_SECRET es una variable cifrada del proyecto en Cloudflare Pages.
+async function verificarTurnstile(token, request, env) {
+  if (!env.TURNSTILE_SECRET || !token) return false;
+  const formulario = new FormData();
+  formulario.append('secret', env.TURNSTILE_SECRET);
+  formulario.append('response', String(token));
+  const ip = request.headers.get('CF-Connecting-IP');
+  if (ip) formulario.append('remoteip', ip);
+  try {
+    const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: formulario
+    });
+    const resultado = await r.json();
+    return resultado.success === true;
+  } catch (error) {
+    console.error('Turnstile: no se pudo verificar —', error);
+    return false;
+  }
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -64,6 +86,21 @@ export async function onRequestPost(context) {
   } catch (error) {
     return new Response(JSON.stringify({ ok: false, error: 'JSON inválido' }), {
       status: 400,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  // Campo trampa lleno = bot. Se responde "ok" para no darle pistas,
+  // pero no se envía ningún correo.
+  if (datos && datos.sitio_web) {
+    return new Response(JSON.stringify({ ok: true }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  if (!(await verificarTurnstile(datos && datos.turnstileToken, request, env))) {
+    return new Response(JSON.stringify({ ok: false, error: 'Verificación anti-bots fallida' }), {
+      status: 403,
       headers: { 'Content-Type': 'application/json' }
     });
   }
